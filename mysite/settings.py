@@ -148,3 +148,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 LOGIN_URL = '/accounts/login/'
+import os
+if os.getenv('RENDER', False):  # Проверяем, что мы на Render, а не локально
+    from django.contrib.auth import get_user_model
+    User = get_user_model()
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser(
+            username='admin',
+            email='admin@example.com',
+            password='exRCtvYB'  # СМЕНИТЕ ЭТОТ ПАРОЛЬ!
+        )
+        print("Суперпользователь admin создан автоматически")
