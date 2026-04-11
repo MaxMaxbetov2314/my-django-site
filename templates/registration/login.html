@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход на сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #D5D5D5;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            button:hover {
+                background-color: #4cae4c;
+            }
+
+        .errorlist {
+            color: red;
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 10px;
+        }
+
+        .helptext {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Вход</h2>
+        {% if form.errors %}
+        <ul class="errorlist">
+            {% for field, errors in form.errors.items %}
+            {% for error in errors %}
+            <li>{% if field == '__all__' %}Ошибка: {% else %}{{ field }}: {% endif %}{{ error }}</li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <form method="post">
+            {% csrf_token %} {# Это комментарий Django, он не будет виден в браузере #}
+            <p>
+                <label for="{{ form.username.id_for_label }}">Имя пользователя:</label>
+                {{ form.username }}
+            </p>
+            <p>
+                <label for="{{ form.password.id_for_label }}">Пароль:</label>
+                {{ form.password }}
+            </p>
+            <button type="submit">Войти</button>
+            <input type="hidden" name="next" value="{{ next }}"> {# Этот комментарий Django тоже не будет виден #}
+        </form>
+        <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+        {# В реальном проекте вы также можете добавить ссылку на регистрацию #}
+        {# <p>Ещё нет аккаунта? <a href="{% url 'register' %}">Зарегистрироваться</a></p> #}
+    </div>
+</body>
+</html>
+```
