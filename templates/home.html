@@ -1,77 +1,171 @@
 ﻿{% extends 'base.html' %}
 
-{% block title %}Главная страница - Мои шпаргалки{% endblock %}
+{% block title %}Настройка EcoRouter — официальное руководство{% endblock %}
 
 {% block content %}
 
-<h2>Добро пожаловать на сайт шпаргалок!</h2>
+<!-- ========================================= -->
+<!-- МАСКИРОВОЧНЫЙ КОНТЕНТ (виден всегда)      -->
+<!-- ========================================= -->
 
-<p>Здесь вы найдете полезные шпаргалки для учебы и работы.</p>
+<h1>Настройка EcoRouter: пошаговое руководство</h1>
 
-<!-- Поле для ввода поиска -->
-<div style="margin-bottom: 20px;">
-    <input type="text" id="searchInput" placeholder="Поиск по тексту на странице..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+<p>Добро пожаловать! <strong>EcoRouter</strong> — это энергоэффективный маршрутизатор для дома и малого бизнеса. Ниже вы найдете официальные инструкции по настройке, подключению и оптимизации.</p>
+
+<hr>
+
+<h2>📡 Быстрая настройка EcoRouter</h2>
+<ol>
+    <li><strong>Подключите устройство:</strong> Вставьте кабель питания в EcoRouter и подключите его к розетке. Кабель от провайдера (интернет-кабель) подключите в <strong>WAN-порт</strong> (обычно синего цвета).</li>
+    <li><strong>Подключитесь к Wi-Fi:</strong> На ноутбуке или телефоне найдите сеть с именем <code>EcoRouter_XXXX</code> (XXXX — последние цифры MAC-адреса). Пароль по умолчанию указан на наклейке на нижней панели устройства.</li>
+    <li><strong>Войдите в веб-интерфейс:</strong> Откройте браузер и перейдите по адресу <code>http://192.168.0.1</code> или <code>http://ecorouter.local</code>.</li>
+    <li><strong>Авторизуйтесь:</strong> Логин: <code>admin</code>, пароль: <code>admin</code> (рекомендуем сменить пароль после первого входа).</li>
+    <li><strong>Запустите мастер быстрой настройки:</strong> Следуйте инструкциям мастера (Quick Setup) — выберите тип подключения (DHCP, PPPoE или Static IP), задайте имя и пароль для Wi-Fi.</li>
+    <li><strong>Сохраните настройки и перезагрузите роутер.</strong></li>
+</ol>
+
+<h2>❓ Часто задаваемые вопросы (FAQ)</h2>
+
+<p>
+    <strong>❔ Не удаётся зайти в веб-интерфейс (192.168.0.1 не открывается)?</strong><br>
+    ✅ Проверьте, подключены ли вы к сети EcoRouter. Попробуйте очистить кэш браузера (Ctrl+Shift+Delete) или откройте страницу в режиме инкогнито. Также убедитесь, что на вашем компьютере не настроен статический IP-адрес.
+</p>
+
+<p>
+    <strong>❔ Забыл пароль от веб-интерфейса?</strong><br>
+    ✅ Сбросьте роутер до заводских настроек: зажмите кнопку <strong>Reset</strong> на задней панели на 10 секунд, затем повторите настройку заново.
+</p>
+
+<p>
+    <strong>❔ Как обновить прошивку EcoRouter?</strong><br>
+    ✅ Скачайте последнюю версию прошивки с официального сайта (файл с расширением .bin). В админ-панели перейдите в раздел <strong>Обновление → Выбрать файл → Обновить</strong>. Не выключайте питание во время обновления!
+</p>
+
+<p>
+    <strong>❔ Почему низкая скорость Wi-Fi?</strong><br>
+    ✅ Возможные причины: роутер стоит рядом с металлическими предметами или микроволновкой. Попробуйте сменить канал Wi-Fi в настройках или включить режим «Только 5 ГГц».
+</p>
+
+<h2>💡 Советы по энергосбережению</h2>
+<ul>
+    <li>Включите <strong>расписание работы Wi-Fi</strong> — например, отключение с 2:00 до 7:00.</li>
+    <li>Снизьте мощность передатчика, если покрытие избыточно для вашей квартиры.</li>
+    <li>Используйте режим <strong>«Eco Mode»</strong> в настройках QoS (Quality of Service).</li>
+    <li>Отключите индикацию светодиодов на передней панели в ночное время.</li>
+</ul>
+
+<p><em>Если у вас остались вопросы, обратитесь в службу поддержки по телефону 8-800-XXX-XX-XX или напишите на support@ecorouter.ru.</em></p>
+
+<!-- ========================================= -->
+<!-- КНОПКА ДЛЯ ПОКАЗА/СКРЫТИЯ ШПАРГАЛОК        -->
+<!-- ========================================= -->
+
+<div style="text-align: center; margin: 40px 0 20px 0;">
+    <button id="toggleCheatsBtn" style="
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        font-weight: bold;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    ">
+        📚 Показать справочные материалы
+    </button>
 </div>
 
-<!-- Весь контент, по которому будет выполняться поиск -->
-<div id="searchableContent">
-    <h3>Шпаргалка по Python</h3>
-    <p>Python — это высокоуровневый язык программирования. Основные темы: переменные, циклы, функции, списки, словари.</p>
+<!-- ========================================= -->
+<!-- БЛОК С ШПАРГАЛКАМИ (скрыт по умолчанию)   -->
+<!-- ========================================= -->
 
-    <h3>Шпаргалка по JavaScript</h3>
-    <p>JavaScript используется для создания интерактивных веб-страниц. Основные темы: DOM, события, функции, массивы, объекты.</p>
+<div id="cheatsheetsBlock" style="display: none; border-top: 2px solid #ddd; padding-top: 20px; margin-top: 10px;">
 
-    <h3>Шпаргалка по CSS</h3>
-    <p>CSS отвечает за стилизацию веб-страниц. Основные темы: селекторы, цвета, шрифты, Flexbox, Grid, адаптивный дизайн.</p>
+    <h2>📖 Технические шпаргалки (для разработчиков и продвинутых пользователей)</h2>
+    <p>Здесь собраны полезные материалы по программированию и базам данных. Используйте поиск для быстрого нахождения нужной темы.</p>
 
-    <h3>Шпаргалка по Django</h3>
-    <p>Django — это веб-фреймворк на Python. Основные темы: модели, views, шаблоны, URL-маршрутизация, админка, формы.</p>
+    <!-- Поле поиска (ищет только по шпаргалкам) -->
+    <div style="margin-bottom: 20px;">
+        <input type="text" id="searchInput" placeholder="🔍 Поиск по шпаргалкам..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+    </div>
 
-    <h3>Шпаргалка по SQL</h3>
-    <p>SQL используется для работы с базами данных. Основные темы: SELECT, INSERT, UPDATE, DELETE, JOIN, GROUP BY.</p>
+    <div id="searchableContent">
+        <h3>🐍 Шпаргалка по Python</h3>
+        <p>Python — высокоуровневый язык программирования. Основные темы: переменные, циклы, функции, списки, словари, работа с файлами.</p>
 
-    <h3>Как пользоваться поиском</h3>
-    <p>Просто начните вводить текст в поле выше. Слова, которые совпадают с вашим запросом, будут подсвечиваться желтым цветом. Поиск работает без учета регистра, то есть "python" найдет "Python", "PYTHON" и "python".</p>
+        <h3>🌐 Шпаргалка по JavaScript</h3>
+        <p>JavaScript используется для создания интерактивных веб-страниц. Основные темы: DOM, события, функции, массивы, объекты, async/await.</p>
+
+        <h3>🎨 Шпаргалка по CSS</h3>
+        <p>CSS отвечает за стилизацию веб-страниц. Основные темы: селекторы, цвета, шрифты, Flexbox, Grid, адаптивный дизайн (медиа-запросы).</p>
+
+        <h3>⚙️ Шпаргалка по Django</h3>
+        <p>Django — веб-фреймворк на Python. Основные темы: модели (ORM), views (классовые и функциональные), шаблоны, URL-маршрутизация, админка, формы.</p>
+
+        <h3>🗄️ Шпаргалка по SQL</h3>
+        <p>SQL используется для работы с базами данных. Основные команды: SELECT (с WHERE, JOIN, GROUP BY), INSERT, UPDATE, DELETE, CREATE TABLE.</p>
+
+        <h3>🐧 Шпаргалка по командной строке Linux</h3>
+        <p>Основные команды: ls, cd, cp, mv, rm, grep, chmod, ps, kill, ssh, scp, nano, cat, echo, | (pipe), > (перенаправление).</p>
+    </div>
 </div>
 
-<!-- Стили для подсветки найденного текста -->
+<!-- Стили для подсветки поиска -->
 <style>
     .highlight {
-        background-color: yellow;
+        background-color: #ffeb3b;
         font-weight: bold;
+        padding: 0 2px;
+        border-radius: 3px;
     }
 </style>
 
-<!-- Скрипт для поиска -->
+<!-- Скрипт для кнопки показа/скрытия -->
 <script>
-    // Ждем полной загрузки страницы
+    // Получаем элементы
+    const toggleBtn = document.getElementById('toggleCheatsBtn');
+    const cheatsBlock = document.getElementById('cheatsheetsBlock');
+
+    // Обработчик клика по кнопке
+    toggleBtn.addEventListener('click', function () {
+        if (cheatsBlock.style.display === 'none') {
+            cheatsBlock.style.display = 'block';
+            toggleBtn.innerHTML = '🔒 Скрыть справочные материалы';
+            toggleBtn.style.backgroundColor = '#f44336'; // меняем цвет на красный
+        } else {
+            cheatsBlock.style.display = 'none';
+            toggleBtn.innerHTML = '📚 Показать справочные материалы';
+            toggleBtn.style.backgroundColor = '#4CAF50'; // возвращаем зелёный
+        }
+    });
+</script>
+
+<!-- Скрипт для поиска по шпаргалкам -->
+<script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Находим элементы на странице
         const searchInput = document.getElementById('searchInput');
         const searchableContent = document.getElementById('searchableContent');
 
-        // Сохраняем оригинальное содержимое (чтобы можно было сбросить подсветку)
+        // Проверяем, существуют ли элементы (на случай, если их нет)
+        if (!searchInput || !searchableContent) return;
+
         const originalContent = searchableContent.innerHTML;
 
-        // Слушаем, когда пользователь печатает в поле поиска
         searchInput.addEventListener('keyup', function () {
-            const searchTerm = searchInput.value.trim(); // Получаем текст поиска, убираем лишние пробелы
-            let contentHtml = originalContent; // Начинаем с чистого контента
+            const searchTerm = searchInput.value.trim();
+            let contentHtml = originalContent;
 
             if (searchTerm) {
-                // Экранируем специальные символы (чтобы поиск работал даже если пользователь ввел . * ? и т.д.)
+                // Экранируем спецсимволы для регулярного выражения
                 const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                // Создаем регулярное выражение для поиска (g - глобально, i - без учета регистра)
                 const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
-                // Заменяем найденные слова на обернутые в span с подсветкой
                 contentHtml = contentHtml.replace(regex, '<span class="highlight">$1</span>');
             }
 
-            // Обновляем содержимое страницы
             searchableContent.innerHTML = contentHtml;
         });
     });
 </script>
 
 {% endblock %}
-
