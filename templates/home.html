@@ -54,33 +54,25 @@
     <li>Отключите индикацию светодиодов на передней панели в ночное время.</li>
 </ul>
 
-<p><em>Если у вас остались вопросы, обратитесь в службу поддержки по телефону 8-800-XXX-XX-XX или напишите на support@ecorouter.ru.</em></p>
-
 <!-- ========================================= -->
-<!-- КНОПКА ДЛЯ ПОКАЗА/СКРЫТИЯ ШПАРГАЛОК        -->
+<!-- СКРЫТАЯ КНОПКА-СЛОВО "подробнее"          -->
 <!-- ========================================= -->
 
-<div style="text-align: center; margin: 40px 0 20px 0;">
-    <button id="toggleCheatsBtn" style="
-        background-color: #4CAF50;
-        color: white;
-        padding: 12px 30px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
+<p style="margin-top: 30px; font-size: 0.95em; color: #555;">
+    Если вам нужны дополнительные технические материалы, нажмите
+    <span id="toggleCheatsTrigger" style="
+        text-decoration: underline;
+        color: #0066cc;
         cursor: pointer;
-        font-weight: bold;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    ">
-        📚 Показать справочные материалы
-    </button>
-</div>
+        font-weight: 500;
+    ">подробнее</span>.
+</p>
 
 <!-- ========================================= -->
 <!-- БЛОК С ШПАРГАЛКАМИ (скрыт по умолчанию)   -->
 <!-- ========================================= -->
 
-<div id="cheatsheetsBlock" style="display: none; border-top: 2px solid #ddd; padding-top: 20px; margin-top: 10px;">
+<div id="cheatsheetsBlock" style="display: none; border-top: 2px solid #ddd; padding-top: 20px; margin-top: 20px;">
 
     <h2>📖 Технические шпаргалки (для разработчиков и продвинутых пользователей)</h2>
     <p>Здесь собраны полезные материалы по программированию и базам данных. Используйте поиск для быстрого нахождения нужной темы.</p>
@@ -119,24 +111,34 @@
         padding: 0 2px;
         border-radius: 3px;
     }
+
+    /* Эффект при наведении на слово "подробнее" */
+    #toggleCheatsTrigger:hover {
+        color: #cc0000 !important;
+        text-decoration: underline !important;
+    }
 </style>
 
-<!-- Скрипт для кнопки показа/скрытия -->
+<!-- Скрипт для показа/скрытия шпаргалок по клику на слово -->
 <script>
-    // Получаем элементы
-    const toggleBtn = document.getElementById('toggleCheatsBtn');
+    const trigger = document.getElementById('toggleCheatsTrigger');
     const cheatsBlock = document.getElementById('cheatsheetsBlock');
 
-    // Обработчик клика по кнопке
-    toggleBtn.addEventListener('click', function () {
-        if (cheatsBlock.style.display === 'none') {
+    let isVisible = false; // флаг: открыты или закрыты шпаргалки
+
+    trigger.addEventListener('click', function () {
+        if (!isVisible) {
+            // Открываем блок
             cheatsBlock.style.display = 'block';
-            toggleBtn.innerHTML = '🔒 Скрыть справочные материалы';
-            toggleBtn.style.backgroundColor = '#f44336'; // меняем цвет на красный
+            trigger.textContent = 'скрыть';
+            trigger.style.color = '#cc0000';
+            isVisible = true;
         } else {
+            // Закрываем блок
             cheatsBlock.style.display = 'none';
-            toggleBtn.innerHTML = '📚 Показать справочные материалы';
-            toggleBtn.style.backgroundColor = '#4CAF50'; // возвращаем зелёный
+            trigger.textContent = 'подробнее';
+            trigger.style.color = '#0066cc';
+            isVisible = false;
         }
     });
 </script>
@@ -147,7 +149,6 @@
         const searchInput = document.getElementById('searchInput');
         const searchableContent = document.getElementById('searchableContent');
 
-        // Проверяем, существуют ли элементы (на случай, если их нет)
         if (!searchInput || !searchableContent) return;
 
         const originalContent = searchableContent.innerHTML;
@@ -157,7 +158,6 @@
             let contentHtml = originalContent;
 
             if (searchTerm) {
-                // Экранируем спецсимволы для регулярного выражения
                 const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
                 const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
                 contentHtml = contentHtml.replace(regex, '<span class="highlight">$1</span>');
