@@ -1,85 +1,138 @@
 ﻿{% extends 'base.html' %}
 
-{% block title %}Настройка EcoRouter — официальное руководство{% endblock %}
+{% block title %}EcoRouter – официальный справочник команд CLI{% endblock %}
 
 {% block content %}
 
-<!-- ========================================= -->
-<!-- МАСКИРОВОЧНЫЙ КОНТЕНТ (виден всегда)      -->
-<!-- ========================================= -->
+<h1>📖 Полный справочник команд EcoRouterOS</h1>
+<p>В таблице ниже приведены все доступные команды интерфейса командной строки (CLI) с указанием режима выполнения и необходимых прав доступа.</p>
 
-<h1>Справочник команд для EcoRouter</h1>
+<!-- Таблица команд (маскировка) с горизонтальной прокруткой для мобильных -->
+<div style="overflow-x: auto; margin: 20px 0;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px; background-color: #0243B5; color: white; border: 1px solid #6EA8FF;">
+        <thead>
+            <tr style="background-color: #1E5FC0;">
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: left;">Команда</th>
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: left;">Описание</th>
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Режим</th>
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Admin</th>
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">NOC</th>
+                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Helpdesk</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- ========== РЕЖИМ "ПОЛЬЗОВАТЕЛЬ" (USER EXEC) ========== -->
+            <tr style="background-color: #1E5FC0;">
+                <td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Пользователь" (User EXEC)</td>
+            </tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">bgp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Border Gateway Protocol (BGP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">clear</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reset functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">crypto</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Security specific commands</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">debug</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Debugging functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">disable</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn off privileged mode command</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">enable</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn on privileged mode command</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">exit</td><td style="padding: 8px; border: 1px solid #6EA8FF;">End current mode and down to previous mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">help</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Description of the interactive help system</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">logout</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Exit from the EXEC</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">no</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Negate a command or set its defaults</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ping</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Send echo messages</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">quit</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Exit current mode and down to previous mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show access-group</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show access group</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show access-list</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show access list configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show banner motd</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show current motd banner message</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bgp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Border Gateway Protocol (BGP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bridge</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Bridge status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bridge mac-table</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Bridge mac-table</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show cli</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show CLI tree of current mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show clns</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Connectionless-Mode Network Service (CLNS)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show controller</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Controller status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show counters</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Counters</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show debugging</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Debugging information outputs</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show dhcp-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">DHCP profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show files</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show all config, reports or dumps files on storage</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show filter-map</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Filterring rules</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show flow-export-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Flow export profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show hw</td><td style="padding: 8px; border: 1px solid #6EA8FF;">EcoRouter platform</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show interface</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Interface configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show ip</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Internet Protocol (IP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show isis</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Intermediate System — Intermediate System (IS-IS)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show lacp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">LACP</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show ldp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Label Distribution Protocol (LDP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show list</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show command lists</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show users localdb</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display users database information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show log</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display log</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show mirror-session</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Mirror session status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show mpls</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show MPLS specific data</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show platform</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show platform information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show port</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Port status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show pppoe</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Point-to-Point over Ethernet (PPPoE)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show privilege</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show current privilege level</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show reports</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show existing reports</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show role</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display information about role</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show running-config</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Current Operating configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show security-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Security profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-classifier</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic classifier status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-limiter</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic limiter status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-scheduler</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic scheduler status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show transceiver</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Transceiver information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show uptime</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show system uptime</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show users connected</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display information about terminal lines</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show version</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display version</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show virtual-router</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Virtual Router information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show vrrp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">VRRP information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set terminal line parameters</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">undebug</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Disable debugging functions (see also 'debug')</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">virtual-container</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Virtual container settings</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
 
-<p>Добро пожаловать! <strong>EcoRouter</strong> — это энергоэффективный маршрутизатор для дома и малого бизнеса. Ниже вы найдете официальные инструкции по настройке, подключению и оптимизации.</p>
+            <!-- ========== РЕЖИМ "АДМИН" (PRIVILEGED EXEC) ========== -->
+            <tr style="background-color: #1E5FC0;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Администратор" (Privileged EXEC)</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">boot</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Boot options of EcoRouterOS</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">clear</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reset functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">configure terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Enter configuration mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">copy</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Copy from one place to another</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">poweroff</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn system off</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Halt and perform a cold restart</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload in &lt;1-600&gt;</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reboot device automatically after a certain timespan</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload at HH:MM</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reboot device automatically at a certain time</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload cancel</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Cancel the scheduled reboot</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">start-shell</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Start shell</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">write</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Write running configuration to memory, file or terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show startup-config</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Contents of startup configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
 
-<hr>
+            <!-- ========== РЕЖИМ "КОНФИГУРАЦИЯ" (CONFIGURATION MODE) ========== -->
+            <tr style="background-color: #1E5FC0;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Конфигурация" (Configuration Mode)</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">aaa</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Authentication Authorization Accounting</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set system's network name</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ip domain-name</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set default domain name</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ip name-server</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Add DNS server addresses</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">interface</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Select an interface to configure</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">username</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Establish User Name Authentication</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">enable password</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Assign the privileged level password</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">snmp-server</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Configure snmp server</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+        </tbody>
+    </table>
+</div>
 
-<h2>📡 Быстрая настройка EcoRouter</h2>
-<ol>
-    <li><strong>Подключите устройство:</strong> Вставьте кабель питания в EcoRouter и подключите его к розетке. Кабель от провайдера (интернет-кабель) подключите в <strong>WAN-порт</strong> (обычно синего цвета).</li>
-    <li><strong>Подключитесь к Wi-Fi:</strong> На ноутбуке или телефоне найдите сеть с именем <code>EcoRouter_XXXX</code> (XXXX — последние цифры MAC-адреса). Пароль по умолчанию указан на наклейке на нижней панели устройства.</li>
-    <li><strong>Войдите в веб-интерфейс:</strong> Откройте браузер и перейдите по адресу <code>http://192.168.0.1</code> или <code>http://ecorouter.local</code>.</li>
-    <li><strong>Авторизуйтесь:</strong> Логин: <code>admin</code>, пароль: <code>admin</code> (рекомендуем сменить пароль после первого входа).</li>
-    <li><strong>Запустите мастер быстрой настройки:</strong> Следуйте инструкциям мастера (Quick Setup) — выберите тип подключения (DHCP, PPPoE или Static IP), задайте имя и пароль для Wi-Fi.</li>
-    <li><strong>Сохраните настройки и перезагрузите роутер.</strong></li>
-</ol>
+<p style="margin-top: 10px; font-size: 14px; color: #ccc;">📌 Примечание: команды доступны в зависимости от уровня привилегий. Для перехода в привилегированный режим используйте <code style="background: #1E5FC0; padding: 2px 5px; border-radius: 4px;">enable</code>. Полная версия документации — 843 КБ.</p>
 
-<h2>❓ Часто задаваемые вопросы (FAQ)</h2>
-
-<p>
-    <strong>❔ Не удаётся зайти в веб-интерфейс (192.168.0.1 не открывается)?</strong><br>
-    ✅ Проверьте, подключены ли вы к сети EcoRouter. Попробуйте очистить кэш браузера (Ctrl+Shift+Delete) или откройте страницу в режиме инкогнито. Также убедитесь, что на вашем компьютере не настроен статический IP-адрес.
-</p>
-
-<p>
-    <strong>❔ Забыл пароль от веб-интерфейса?</strong><br>
-    ✅ Сбросьте роутер до заводских настроек: зажмите кнопку <strong>Reset</strong> на задней панели на 10 секунд, затем повторите настройку заново.
-</p>
-
-<p>
-    <strong>❔ Как обновить прошивку EcoRouter?</strong><br>
-    ✅ Скачайте последнюю версию прошивки с официального сайта (файл с расширением .bin). В админ-панели перейдите в раздел <strong>Обновление → Выбрать файл → Обновить</strong>. Не выключайте питание во время обновления!
-</p>
-
-<p>
-    <strong>❔ Почему низкая скорость Wi-Fi?</strong><br>
-    ✅ Возможные причины: роутер стоит рядом с металлическими предметами или микроволновкой. Попробуйте сменить канал Wi-Fi в настройках или включить режим «Только 5 ГГц».
-</p>
-
-<h2>💡 Советы по энергосбережению</h2>
-<ul>
-    <li>Включите <strong>расписание работы Wi-Fi</strong> — например, отключение с 2:00 до 7:00.</li>
-    <li>Снизьте мощность передатчика, если покрытие избыточно для вашей квартиры.</li>
-    <li>Используйте режим <strong>«Eco Mode»</strong> в настройках QoS (Quality of Service).</li>
-    <li>Отключите индикацию светодиодов на передней панели в ночное время.</li>
-</ul>
-
-<!-- ========================================= -->
-<!-- СКРЫТАЯ КНОПКА-СЛОВО "подробнее"          -->
-<!-- ========================================= -->
-
-<p style="margin-top: 30px; font-size: 0.95em; color: #9C9C9C;">
-    Если вам нужны дополнительные технические материалы, нажмите
+<!-- ========== СКРЫТЫЙ БЛОК С ШПАРГАЛКАМИ ========== -->
+<p style="margin-top: 40px; font-size: 0.95em; color: #ccc; border-top: 1px solid #6EA8FF; padding-top: 20px;">
+    Если вам нужны дополнительные технические материалы для разработки, нажмите
     <span id="toggleCheatsTrigger" style="
         text-decoration: underline;
-        color: #8DC6FF;
+        color: #ffaa00;
         cursor: pointer;
         font-weight: 500;
     ">подробнее</span>.
 </p>
 
-<!-- ========================================= -->
-<!-- БЛОК С ШПАРГАЛКАМИ (скрыт по умолчанию)   -->
-<!-- ========================================= -->
-
-<div id="cheatsheetsBlock" style="display: none; border-top: 2px solid #ddd; padding-top: 20px; margin-top: 20px;">
-
-    <h2>📖 Технические шпаргалки (для разработчиков и продвинутых пользователей)</h2>
+<div id="cheatsheetsBlock" style="display: none; margin-top: 20px; padding: 15px; background-color: #0243B5; border-radius: 8px; border: 1px solid #6EA8FF;">
+    <h2 style="color: #ffaa00;">📖 Технические шпаргалки (для разработчиков)</h2>
     <p>Здесь собраны полезные материалы по программированию и базам данных. Используйте поиск для быстрого нахождения нужной темы.</p>
 
-    <!-- Поле поиска (ищет только по шпаргалкам) -->
     <div style="margin-bottom: 20px;">
-        <input type="text" id="searchInput" placeholder="🔍 Поиск по шпаргалкам..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+        <input type="text" id="searchInput" placeholder="🔍 Поиск по шпаргалкам..." style="width: 100%; padding: 10px; border: 1px solid #6EA8FF; border-radius: 5px; background-color: #1E5FC0; color: white;">
     </div>
 
     <div id="searchableContent">
@@ -90,10 +143,10 @@
         <p>JavaScript используется для создания интерактивных веб-страниц. Основные темы: DOM, события, функции, массивы, объекты, async/await.</p>
 
         <h3>🎨 Шпаргалка по CSS</h3>
-        <p>CSS отвечает за стилизацию веб-страниц. Основные темы: селекторы, цвета, шрифты, Flexbox, Grid, адаптивный дизайн (медиа-запросы).</p>
+        <p>CSS отвечает за стилизацию веб-страниц. Основные темы: селекторы, цвета, шрифты, Flexbox, Grid, адаптивный дизайн.</p>
 
         <h3>⚙️ Шпаргалка по Django</h3>
-        <p>Django — веб-фреймворк на Python. Основные темы: модели (ORM), views (классовые и функциональные), шаблоны, URL-маршрутизация, админка, формы.</p>
+        <p>Django — веб-фреймворк на Python. Основные темы: модели (ORM), views, шаблоны, URL-маршрутизация, админка, формы.</p>
 
         <h3>🗄️ Шпаргалка по SQL</h3>
         <p>SQL используется для работы с базами данных. Основные команды: SELECT (с WHERE, JOIN, GROUP BY), INSERT, UPDATE, DELETE, CREATE TABLE.</p>
@@ -103,68 +156,60 @@
     </div>
 </div>
 
-<!-- Стили для подсветки поиска -->
 <style>
     .highlight {
-        background-color: #ffeb3b;
+        background-color: #ffaa00;
+        color: #000;
         font-weight: bold;
         padding: 0 2px;
         border-radius: 3px;
     }
 
-    /* Эффект при наведении на слово "подробнее" */
     #toggleCheatsTrigger:hover {
-        color: #cc0000 !important;
+        color: #ff6600 !important;
         text-decoration: underline !important;
     }
 </style>
 
-<!-- Скрипт для показа/скрытия шпаргалок по клику на слово -->
 <script>
+    // Показ/скрытие шпаргалок
     const trigger = document.getElementById('toggleCheatsTrigger');
     const cheatsBlock = document.getElementById('cheatsheetsBlock');
+    let isVisible = false;
 
-    let isVisible = false; // флаг: открыты или закрыты шпаргалки
+    if (trigger && cheatsBlock) {
+        trigger.addEventListener('click', function () {
+            if (!isVisible) {
+                cheatsBlock.style.display = 'block';
+                trigger.textContent = 'скрыть';
+                trigger.style.color = '#ff6600';
+                isVisible = true;
+            } else {
+                cheatsBlock.style.display = 'none';
+                trigger.textContent = 'подробнее';
+                trigger.style.color = '#ffaa00';
+                isVisible = false;
+            }
+        });
+    }
 
-    trigger.addEventListener('click', function () {
-        if (!isVisible) {
-            // Открываем блок
-            cheatsBlock.style.display = 'block';
-            trigger.textContent = 'скрыть';
-            trigger.style.color = '#cc0000';
-            isVisible = true;
-        } else {
-            // Закрываем блок
-            cheatsBlock.style.display = 'none';
-            trigger.textContent = 'подробнее';
-            trigger.style.color = '#0066cc';
-            isVisible = false;
-        }
-    });
-</script>
-
-<!-- Скрипт для поиска по шпаргалкам -->
-<script>
+    // Поиск по шпаргалкам
     document.addEventListener('DOMContentLoaded', function () {
         const searchInput = document.getElementById('searchInput');
         const searchableContent = document.getElementById('searchableContent');
-
-        if (!searchInput || !searchableContent) return;
-
-        const originalContent = searchableContent.innerHTML;
-
-        searchInput.addEventListener('keyup', function () {
-            const searchTerm = searchInput.value.trim();
-            let contentHtml = originalContent;
-
-            if (searchTerm) {
-                const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
-                contentHtml = contentHtml.replace(regex, '<span class="highlight">$1</span>');
-            }
-
-            searchableContent.innerHTML = contentHtml;
-        });
+        if (searchInput && searchableContent) {
+            const originalContent = searchableContent.innerHTML;
+            searchInput.addEventListener('keyup', function () {
+                const searchTerm = searchInput.value.trim();
+                let contentHtml = originalContent;
+                if (searchTerm) {
+                    const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
+                    contentHtml = contentHtml.replace(regex, '<span class="highlight">$1</span>');
+                }
+                searchableContent.innerHTML = contentHtml;
+            });
+        }
     });
 </script>
 
