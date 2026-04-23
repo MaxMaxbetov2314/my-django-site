@@ -620,17 +620,9 @@ br-rtr(config)#</code></pre>
             Banner /etc/openssh/banner – содержимое указанного файла будет отправлено удалённому пользователю прежде, чем будет разрешена аутентификация.
         </p>
         <!-- СКРИНШОТ: Содержимое sshd_config 1 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config (часть 1)<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img01.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Содержимое sshd_config 2 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config (часть 2)<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img02.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Редактируем баннер, а именно файл по пути /etc/openssh/banner:</p>
 <pre><code>echo "Authorized access only" > /etc/openssh/banner</code></pre>
@@ -643,35 +635,19 @@ br-rtr(config)#</code></pre>
             Наличие Banner и доступ по порту 2026 из под пользователя sshuser, а также ограничение на кол-во попыток входа до 2:
         </p>
         <!-- СКРИНШОТ: Проверка SSH на порту 2026 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка подключения по порту 2026 (наличие баннера)<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img03.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Попытаться подключиться под пользователем sshuser на стандартный порт ssh:</p>
         <!-- СКРИНШОТ: Попытка подключения на порт 22 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Попытка подключения на стандартный порт SSH (22) — должно быть недоступно<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img04.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Попытаться подключиться под пользователем sshuser с указанием не верных паролей более чем 2 раза:</p>
         <!-- СКРИНШОТ: Превышение числа попыток входа -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Попытка подключения с неверным паролем более 2 раз — блокировка<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img05.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Попытаться подключиться не из-под пользователя sshuser:</p>
         <!-- СКРИНШОТ: Попытка подключения не под sshuser -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Попытка подключения не из-под пользователя sshuser — запрещено<br>
-            <strong>Файл:</strong> <code>screenshots/part05_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part05/img06.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 6: GRE ТУННЕЛЬ                      -->
