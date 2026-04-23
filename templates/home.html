@@ -12,8 +12,37 @@
 <h1>📖 Справочник команд интерфейса командной строки (CLI)</h1>
 <p>В данном разделе представлен полный список команд EcoRouterOS с указанием режимов выполнения и необходимых прав доступа.</p>
 
-<!-- Вставьте сюда ТАБЛИЦУ КОМАНД (которая была в маскировочной части из предыдущего сообщения) -->
-<!-- Это длинная таблица, я её здесь не повторяю, но она у вас уже есть -->
+<!-- ТАБЛИЦА КОМАНД (маскировка) -->
+<div style="overflow-x: auto; margin: 20px 0;">
+    <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+        <thead>
+            <tr style="background-color: #f0f4f8;">
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: left;">Команда</th>
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: left;">Описание</th>
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: center;">Режим</th>
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: center;">Admin</th>
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: center;">NOC</th>
+                <th style="padding: 10px; border: 1px solid #e0e4e8; text-align: center;">Helpdesk</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="background-color: #f8f9fa;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Пользователь" (User EXEC)</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">bgp</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Border Gateway Protocol (BGP)</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">clear</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Reset functions</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">disable</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Turn off privileged mode</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">enable</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Turn on privileged mode</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">exit</td><td style="padding: 8px; border: 1px solid #e0e4e8;">End current mode</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">help</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Help system</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">ping</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Send echo messages</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">show ip interface brief</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Show IP interface status</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">show version</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Display version</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr style="background-color: #f8f9fa;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Администратор" (Privileged EXEC)</td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">configure terminal</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Enter configuration mode</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">reload</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Halt and perform cold restart</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+            <tr><td style="padding: 8px; border: 1px solid #e0e4e8;">write memory</td><td style="padding: 8px; border: 1px solid #e0e4e8;">Save configuration</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td><td style="padding: 8px; border: 1px solid #e0e4e8; text-align: center;"></td></tr>
+        </tbody>
+    </table>
+</div>
 
 <p style="margin-top: 20px; font-size: 14px; color: #6c7a89;">
     <strong>💡 Совет:</strong> Для перехода в привилегированный режим используйте команду <code>enable</code>.
@@ -1277,8 +1306,8 @@ br-rtr(config)#write memory</code></pre>
     }
 </style>
 
+<!-- Скрипт для показа/скрытия шпаргалок -->
 <script>
-    // Показ/скрытие шпаргалок
     const trigger = document.getElementById('toggleCheatsTrigger');
     const cheatsBlock = document.getElementById('cheatsheetsBlock');
     let isVisible = false;
@@ -1288,35 +1317,14 @@ br-rtr(config)#write memory</code></pre>
             if (!isVisible) {
                 cheatsBlock.style.display = 'block';
                 trigger.textContent = 'скрыть';
-                trigger.style.color = '#ff6600';
                 isVisible = true;
             } else {
                 cheatsBlock.style.display = 'none';
                 trigger.textContent = 'подробнее';
-                trigger.style.color = '#ffaa00';
                 isVisible = false;
             }
         });
     }
-
-    // Поиск по шпаргалкам
-    document.addEventListener('DOMContentLoaded', function () {
-        const searchInput = document.getElementById('searchInput');
-        const searchableContent = document.getElementById('searchableContent');
-        if (searchInput && searchableContent) {
-            const originalContent = searchableContent.innerHTML;
-            searchInput.addEventListener('keyup', function () {
-                const searchTerm = searchInput.value.trim();
-                let contentHtml = originalContent;
-                if (searchTerm) {
-                    const escapedSearchTerm = searchTerm.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-                    const regex = new RegExp(`(${escapedSearchTerm})`, 'gi');
-                    contentHtml = contentHtml.replace(regex, '<span class="highlight">$1</span>');
-                }
-                searchableContent.innerHTML = contentHtml;
-            });
-        }
-    });
 </script>
 
 {% endblock %}

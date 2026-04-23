@@ -22,7 +22,7 @@
             line-height: 1.6;
         }
 
-        /* Верхняя панель (как у официальных docs) */
+        /* Верхняя панель */
         .top-bar {
             background-color: #0a2b3e;
             color: white;
@@ -43,7 +43,7 @@
                     color: white;
                 }
 
-        /* Основной хедер */
+        /* Хедер */
         .header {
             background: linear-gradient(135deg, #0e3b4f 0%, #0a2b3e 100%);
             color: white;
@@ -99,7 +99,7 @@
             padding: 0 40px;
         }
 
-        /* Боковая панель (опционально) */
+        /* Боковая панель */
         .docs-container {
             display: flex;
             gap: 40px;
@@ -210,16 +210,35 @@
             font-weight: 600;
         }
 
-        /* Заглушки скриншотов */
+        /* СТИЛИ ДЛЯ СКРЫТЫХ ШПАРГАЛОК — такие же, как основной контент */
+        #cheatsheetsBlock {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e4e8;
+        }
+
+            #cheatsheetsBlock h2, #cheatsheetsBlock h3 {
+                color: #0a2b3e;
+            }
+
+            #cheatsheetsBlock code {
+                background-color: #f0f4f8;
+            }
+
+            #cheatsheetsBlock pre {
+                background-color: #1e2a36;
+            }
+
+        /* Заглушки скриншотов (неброские) */
         .screenshot-placeholder {
             background-color: #f8f9fa;
-            border: 2px dashed #cbd5e1;
+            border: 1px solid #e0e4e8;
             border-radius: 8px;
-            padding: 15px;
+            padding: 12px;
             margin: 15px 0;
             text-align: center;
-            font-size: 13px;
-            color: #64748b;
+            font-size: 12px;
+            color: #6c7a89;
         }
 
         /* Кнопка "подробнее" */
@@ -257,7 +276,6 @@
 </head>
 <body>
 
-    <!-- Верхняя панель -->
     <div class="top-bar">
         <span>EcoRouterOS v4.2.1</span>
         <div>
@@ -267,25 +285,21 @@
         </div>
     </div>
 
-    <!-- Хедер -->
     <div class="header">
         <h1><a href="/">EcoRouterOS</a></h1>
         <p>Официальная документация — справочник команд и руководство по настройке</p>
     </div>
 
-    <!-- Навигация -->
     <div class="nav-menu">
         <a href="/">Главная</a>
         <a href="#">Руководство администратора</a>
-        <a href="#">Справочник команд CLI</a>
+        <a href="#" id="cliReferenceLink">Справочник команд CLI</a>
         <a href="#">Примеры конфигурации</a>
         <a href="#">FAQ</a>
     </div>
 
-    <!-- Основной контент -->
     <div class="content">
         <div class="docs-container">
-            <!-- Боковое меню -->
             <div class="sidebar">
                 <h4>Навигация</h4>
                 <ul>
@@ -306,21 +320,25 @@
                 </ul>
             </div>
 
-            <!-- Основная область контента -->
             <div class="main-content">
                 {% block content %}
-                <!-- Контент каждой конкретной страницы будет здесь -->
                 {% endblock %}
             </div>
         </div>
     </div>
 
-    <!-- Футер -->
     <div class="footer">
         <p>© 2025 EcoRouter — Энергоэффективные сетевые решения. Документация распространяется под лицензией CC BY-SA 4.0.</p>
         <p><a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a> | <a href="#">GitHub проекта</a></p>
     </div>
 
+    <!-- Скрипт для перехода к таблице команд -->
+    <script>
+        document.getElementById('cliReferenceLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
 </body>
 </html>
-
