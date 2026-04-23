@@ -113,6 +113,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
@@ -154,6 +157,4 @@ try:
     create_superuser_if_not_exists()
 except Exception as e:
     print(f"⚠️ Не удалось создать суперпользователя: {e}")
-    STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+    
