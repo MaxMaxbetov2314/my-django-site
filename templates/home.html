@@ -325,11 +325,7 @@ br-rtr(config)#</code></pre>
             ens19 - интерфейс подключённый к магистральному провайдеру;
         </p>
         <!-- СКРИНШОТ: ip a на ISP -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат ip a на ISP (интерфейсы ens19, ens20, ens21)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img01.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Для того чтобы интерфейс, подключенный к магистральному провайдеру, получал адрес по DHCP:<br>
@@ -337,11 +333,7 @@ br-rtr(config)#</code></pre>
             в параметре BOOTPROTO указать значение dhcp:
         </p>
         <!-- СКРИНШОТ: Файл options с BOOTPROTO=dhcp -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое /etc/net/ifaces/ens19/options с BOOTPROTO=dhcp<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img02.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Для применения настроек, необходимо перезагрузить службу network</p>
 <pre><code>systemctl restart network</code></pre>
@@ -352,11 +344,7 @@ br-rtr(config)#</code></pre>
             доступ в сеть Интернет.
         </p>
         <!-- СКРИНШОТ: Проверка DHCP и доступа в Интернет -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка получения параметров по DHCP и доступа в Интернет (ping 8.8.8.8)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img03.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Просмотр существующих интерфейсов выполняется командой ip a</p>
         <p>
@@ -365,30 +353,18 @@ br-rtr(config)#</code></pre>
             ens21 - интерфейс подключённый к BR-RTR.
         </p>
         <!-- СКРИНШОТ: ip a на ISP с ens20 и ens21 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат ip a на ISP (интерфейсы ens20, ens21)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img04.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Создадим директории в /etc/net/ifaces/ для интерфейсов ens20 и ens21:</p>
         <!-- СКРИНШОТ: Создание директорий -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Процесс создания директорий для ens20 и ens21<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img05.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
 <pre><code>mkdir /etc/net/ifaces/ens20
 mkdir /etc/net/ifaces/ens21</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат создания директорий -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат создания директорий /etc/net/ifaces/ens20 и /etc/net/ifaces/ens21<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img06.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Для каждого интерфейса, необходимо в директории /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/ создать конфигурационный файл options<br>
@@ -402,11 +378,7 @@ cp /etc/net/ifaces/ens20/options /etc/net/ifaces/ens21/options</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат создания options -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файлов options для ens20 и ens21<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img07.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Далее опишем содержимое конфигурационного файла ipv4address для каждого интерфейса:</p>
 <pre><code>echo "172.16.1.1/28" > /etc/net/ifaces/ens20/ipv4address
@@ -417,33 +389,21 @@ echo "172.16.2.1/28" > /etc/net/ifaces/ens21/ipv4address</code></pre>
 
         <p>Проверить:</p>
         <!-- СКРИНШОТ: Проверка IP на ens20 и ens21 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка назначенных IP-адресов на интерфейсах ens20 и ens21<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img08.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img08.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Для того чтобы устройство ISP могло пересылать пакеты с интерфейса на интерфейс, необходимо включить пересылку пакетов (forwarding)<br>
             Для этого следует в конфигурационном файле /etc/net/sysctl.conf в параметре net.ipv4.ip_forward = 0 заменить значение с 0 на 1
         </p>
         <!-- СКРИНШОТ: Файл sysctl.conf с ip_forward=1 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла /etc/net/sysctl.conf с net.ipv4.ip_forward=1<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img09.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img09.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Для применения настроек, необходимо перезагрузить службу network</p>
 <pre><code>systemctl restart network</code></pre>
 
         <p>Проверить:</p>
         <!-- СКРИНШОТ: Проверка forwarding -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка включения forwarding (cat /proc/sys/net/ipv4/ip_forward)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img10.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img10.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Для динамической сетевой трансляции можно использовать iptables.<br>
@@ -468,11 +428,7 @@ iptables -t nat -A POSTROUTING -s 172.16.2.0/28 -o ens19 -j MASQUERADE</code></p
 
         <p>Проверить, наличие правила в iptables, а именно в таблице nat, в цепочке POSTROUTING:</p>
         <!-- СКРИНШОТ: Проверка правил iptables -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка наличия правил в таблице nat, цепочке POSTROUTING<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img11.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img11.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🏢 HQ-RTR (продолжение)</h2>
 
@@ -497,11 +453,7 @@ hq-rtr(config)#</code></pre>
             te1 - порт в сторону локальной сети офиса HQ (HQ-Net, виртуальный коммутатор HQ-SW);
         </p>
         <!-- СКРИНШОТ: show port brief на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show port brief на HQ-RTR (te0, te1)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img12.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img12.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             В режиме конфигурирования порта создадим service-instance с произвольным именем:<br>
@@ -529,19 +481,11 @@ hq-rtr(config)#</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: show ip interface brief и show ip route static -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show ip interface brief и show ip route static на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img13.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img13.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить доступность шлюза и доступ в сеть Интернет:</p>
         <!-- СКРИНШОТ: Проверка доступности шлюза и Интернета -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступности шлюза 172.16.1.1 и доступа в Интернет (ping 8.8.8.8) с HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img14.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img14.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🏭 BR-RTR (продолжение)</h2>
 
@@ -569,17 +513,9 @@ br-rtr(config)#</code></pre>
 
         <p>Ожидаемый результат:</p>
         <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR 1 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR (часть 1)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img15.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img15.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR 2 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR (часть 2)<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img16.png</code>
-        </div>
+        <img src="/static/screenshots/part02/img16.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 3: СОЗДАНИЕ ПОЛЬЗОВАТЕЛЕЙ           -->
