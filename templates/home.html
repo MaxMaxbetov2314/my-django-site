@@ -528,30 +528,18 @@ br-rtr(config)#</code></pre>
 
         <p>Проверить UID пользователя sshuser:</p>
         <!-- СКРИНШОТ: Проверка UID через id -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка UID пользователя sshuser командой id sshuser<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img01.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>или:</p>
         <!-- СКРИНШОТ: Проверка UID через /etc/passwd -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка пользователя sshuser в файле /etc/passwd<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img02.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Задать пароль пользователю можно с помощью утилиты passwd:<br>
             в результате запуска утилиты passwd необходимо будет задать пароль, а затем подтвердить заданный пароль
         </p>
         <!-- СКРИНШОТ: Установка пароля через passwd -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Процесс установки пароля для пользователя sshuser (passwd sshuser)<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img03.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Реализуем возможность запуска утилиты sudo для пользователя sshuser без ввода пароля.</p>
         <p>Добавляем пользователя sshuser в группу wheel для этого используем утилиту usermod</p>
@@ -567,25 +555,13 @@ br-rtr(config)#</code></pre>
 
         <p>HQ-SRV:</p>
         <!-- СКРИНШОТ: Вход под sshuser на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на HQ-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img04.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Повышение привилегий на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Повышение привилегий (sudo -i) на HQ-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img05.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>BR-SRV:</p>
         <!-- СКРИНШОТ: Вход под sshuser на BR-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на BR-SRV и повышение привилегий<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img06.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🔐 Создание пользователя net_admin на HQ-RTR и BR-RTR</h2>
 
@@ -619,25 +595,13 @@ br-rtr(config)#</code></pre>
             наличие созданного пользователя и назначение соответствующей роли на HQ-RTR и выполняем вход из под пользователя net_admin:
         </p>
         <!-- СКРИНШОТ: Проверка пользователя на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка наличия пользователя net_admin и его роли на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img07.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Вход под net_admin на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя net_admin на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img08.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img08.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>наличие созданного пользователя и назначение соответствующей роли на BR-RTR:</p>
         <!-- СКРИНШОТ: Проверка пользователя на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка наличия пользователя net_admin и его роли на BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img09.png</code>
-        </div>
+        <img src="/static/screenshots/part03/img09.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 5: НАСТРОЙКА OPENSSH                -->
