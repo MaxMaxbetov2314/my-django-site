@@ -48,21 +48,13 @@
 <pre><code>hostname</code></pre>
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат hostname на ISP -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды hostname на ISP (ожидается isp)<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img02.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Так же рекомендуется указать имя в файле /etc/sysconfig/network:</p>
 <pre><code>vim /etc/sysconfig/network</code></pre>
         <p>указать имя в параметре HOSTNAME:</p>
         <!-- СКРИНШОТ: Редактирование /etc/sysconfig/network -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Редактирование файла /etc/sysconfig/network для указания HOSTNAME<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img03.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h3>HQ-RTR:</h3>
         <p>
@@ -91,11 +83,7 @@ hq-rtr(config)#</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат проверки на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show hostname и show running-config | include domain-name на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img04.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h3>BR-RTR:</h3>
         <p>Аналогично HQ-RTR</p>
@@ -111,79 +99,43 @@ br-rtr(config)#</code></pre>
 
         <p>ожидаемый результат:</p>
         <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img05.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h3>HQ-SRV:</h3>
         <p>Для назначения имени устройства согласно топологии используем следующую команду:</p>
 <pre><code>hostnamectl set-hostname hq-srv.au-team.irpo; exec bash</code></pre>
         <!-- СКРИНШОТ: Команда hostnamectl на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Выполнение команды hostnamectl set-hostname hq-srv.au-team.irpo; exec bash<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img06.png</code>
-        </div>
+<img src="/static/screenshots/part01/img06.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Так же рекомендуется указать имя в файле /etc/sysconfig/network:</p>
 <pre><code>vim /etc/sysconfig/network</code></pre>
         <p>указать имя в параметре HOSTNAME:</p>
         <!-- СКРИНШОТ: Редактирование /etc/sysconfig/network на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Редактирование файла /etc/sysconfig/network для указания HOSTNAME на HQ-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img07.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить:</p>
 <pre><code>hostname -f</code></pre>
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат hostname -f на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат hostname -f на HQ-SRV (ожидается hq-srv.au-team.irpo)<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img08.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img08.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h3>BR-SRV:</h3>
         <p>Аналогично HQ-SRV, ожидаемый результат:</p>
         <!-- СКРИНШОТ: Ожидаемый результат на BR-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img09.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img09.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h3>HQ-CLI:</h3>
         <p>Для назначения имени устройства согласно топологии воспользуемся Центром Управления Системой (ЦУС):</p>
         <!-- СКРИНШОТ: Настройка через ЦУС 1 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 1<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img10.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img10.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Настройка через ЦУС 2 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 2<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img11.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img11.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Настройка через ЦУС 3 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 3<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img12.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img12.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>После чего, необходимо будет перезагрузить устройство:</p>
         <!-- СКРИНШОТ: Перезагрузка HQ-CLI -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Перезагрузка HQ-CLI после настройки имени<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img13.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img13.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🌐 Основные понятия касающиеся EcoRouter</h2>
 
@@ -216,11 +168,7 @@ br-rtr(config)#</code></pre>
             te1 - порт в сторону локальной сети офиса HQ (виртуальный коммутатор HQ-SW на уровне гипервизора);
         </p>
         <!-- СКРИНШОТ: show port brief на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show port brief на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img14.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img14.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Создаём интерфейсы (подинтерфейсы/sub-interfaces) для назначения IP-адресов локальных подсетей офиса HQ для дальнейшей маршрутизации между VLAN-ами:<br>
@@ -250,11 +198,7 @@ hq-rtr(config)#</code></pre>
             созданные интерфейсы пока не добавлены в какие-либо Service instance, а значит не привязаны и к порту, отсюда и статус down:
         </p>
         <!-- СКРИНШОТ: show ip interface brief после создания интерфейсов -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show ip interface brief (статус down)<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img15.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img15.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>на базе физического интерфейса te1 для каждого VLAN-а создаём service-instance с инкапсуляцией соответствующих тегов (VID) и подключением необходимых интерфейсов:</p>
 <pre><code>hq-rtr(config)#port te1
@@ -289,11 +233,7 @@ hq-rtr(config)#</code></pre>
 <pre><code>hq-rtr#show ip interface brief</code></pre>
         <p>Результат:</p>
         <!-- СКРИНШОТ: show ip interface brief после настройки service-instance -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат show ip interface brief (статус up)<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img16.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img16.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🏭 BR-RTR</h2>
 
@@ -317,30 +257,18 @@ br-rtr(config)#</code></pre>
 
         <p>Ожидаемый результат:</p>
         <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img17.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img17.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>💻 HQ-SRV</h2>
 
         <p>Просмотр существующих интерфейсов выполняется командой ip a</p>
         <!-- СКРИНШОТ: ip a на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат ip a на HQ-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img18.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img18.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Для конфигурации IPv4 на устройствах, будут отредактированы файлы options, созданы файлы ipv4address, ipv4route.</p>
         <p>в файле /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options</p>
         <!-- СКРИНШОТ: Файл options -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла options<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img19.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img19.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>должны быть заданы хотя бы два основных параметра:</p>
         <ul>
@@ -350,19 +278,11 @@ br-rtr(config)#</code></pre>
 
         <p>Проверяем содержимое конфигурационного файла /etc/net/ifaces/ens19/options:</p>
         <!-- СКРИНШОТ: Содержимое options для ens19 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое /etc/net/ifaces/ens19/options<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img20.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img20.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Внимание! Для того, чтобы в качестве сетевой подсистемы корректно использовался etcnet и операционная система могла считывать и применять содержимое конфигурационных файлов: ipv4address, ipv4route, resolv.conf из директории /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/, необходимо, чтобы значение параметров DISABLED,NM_CONTROLLED,SYSTEMD_CONTROLLED были установлены в no или же указание данных параметров в файле options не является обязательным условием.</p>
         <!-- СКРИНШОТ: Параметры DISABLED и др. -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Параметры DISABLED, NM_CONTROLLED, SYSTEMD_CONTROLLED в файле options<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img21.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img21.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Зададим IP-адрес:</p>
 <pre><code>echo "192.168.100.2/27" > /etc/net/ifaces/ens19/ipv4address</code></pre>
@@ -378,32 +298,20 @@ br-rtr(config)#</code></pre>
 
         <p>Проверить:</p>
         <!-- СКРИНШОТ: Проверка настроек на HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка настроек сети на HQ-SRV после применения<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img22.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img22.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>💻 BR-SRV</h2>
 
         <p>Аналогично HQ-SRV, ожидаемый результат:</p>
         <!-- СКРИНШОТ: Ожидаемый результат на BR-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img23.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img23.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             В отличие от офиса HQ, в офисе BR с BR-SRV на текущем этапе можно проверить доступность шлюза по умолчанию<br>
             в офисе HQ, с HQ-SRV шлюз пока не должен быть доступен, т.к. не реализована коммутация
         </p>
         <!-- СКРИНШОТ: Проверка доступности шлюза -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступности шлюза по умолчанию<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img24.png</code>
-        </div>
+        <img src="/static/screenshots/part01/img24.png" alt="Описание" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 2: ISP И ПРОДОЛЖЕНИЕ НАСТРОЙКИ       -->
