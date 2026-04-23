@@ -5,10 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}EcoRouterOS — официальная документация{% endblock %}</title>
     <style>
-        /* ========================================= */
-        /* КОРПОРАТИВНЫЙ СТИЛЬ ECOROUTER             */
-        /* ========================================= */
-
         * {
             margin: 0;
             padding: 0;
@@ -22,7 +18,6 @@
             line-height: 1.6;
         }
 
-        /* Верхняя панель */
         .top-bar {
             background-color: #0a2b3e;
             color: white;
@@ -43,7 +38,6 @@
                     color: white;
                 }
 
-        /* Хедер */
         .header {
             background: linear-gradient(135deg, #0e3b4f 0%, #0a2b3e 100%);
             color: white;
@@ -68,7 +62,6 @@
                 color: #8bb9d0;
             }
 
-        /* Навигационное меню */
         .nav-menu {
             background-color: white;
             border-bottom: 1px solid #e0e4e8;
@@ -85,6 +78,7 @@
                 font-size: 14px;
                 font-weight: 500;
                 border-bottom: 2px solid transparent;
+                cursor: pointer;
             }
 
                 .nav-menu a:hover {
@@ -92,14 +86,12 @@
                     color: #0a2b3e;
                 }
 
-        /* Основной контент */
         .content {
             max-width: 1200px;
             margin: 30px auto;
             padding: 0 40px;
         }
 
-        /* Боковая панель */
         .docs-container {
             display: flex;
             gap: 40px;
@@ -150,7 +142,6 @@
             border: 1px solid #e8ecef;
         }
 
-        /* Футер */
         .footer {
             background-color: #0a2b3e;
             color: #8bb9d0;
@@ -166,7 +157,6 @@
                 text-decoration: none;
             }
 
-        /* Код и команды */
         code {
             background-color: #f0f4f8;
             padding: 2px 6px;
@@ -192,7 +182,6 @@
                 padding: 0;
             }
 
-        /* Таблицы */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -210,7 +199,7 @@
             font-weight: 600;
         }
 
-        /* СТИЛИ ДЛЯ СКРЫТЫХ ШПАРГАЛОК — такие же, как основной контент */
+        /* Стили для скрытых шпаргалок — такие же, как основной контент */
         #cheatsheetsBlock {
             margin-top: 30px;
             padding-top: 20px;
@@ -229,7 +218,6 @@
                 background-color: #1e2a36;
             }
 
-        /* Заглушки скриншотов (неброские) */
         .screenshot-placeholder {
             background-color: #f8f9fa;
             border: 1px solid #e0e4e8;
@@ -241,7 +229,6 @@
             color: #6c7a89;
         }
 
-        /* Кнопка "подробнее" */
         #toggleCheatsTrigger {
             color: #ff8c42;
             cursor: pointer;
@@ -253,7 +240,6 @@
                 color: #e67e22;
             }
 
-        /* Адаптивность */
         @media (max-width: 768px) {
             .docs-container {
                 flex-direction: column;
@@ -331,14 +317,6 @@
         <p>© 2025 EcoRouter — Энергоэффективные сетевые решения. Документация распространяется под лицензией CC BY-SA 4.0.</p>
         <p><a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a> | <a href="#">GitHub проекта</a></p>
     </div>
-
-    <!-- Скрипт для перехода к таблице команд -->
-    <script>
-        document.getElementById('cliReferenceLink').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector('.main-content').scrollIntoView({ behavior: 'smooth' });
-        });
-    </script>
 
 </body>
 </html>
