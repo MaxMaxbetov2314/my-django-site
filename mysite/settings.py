@@ -154,3 +154,6 @@ try:
     create_superuser_if_not_exists()
 except Exception as e:
     print(f"⚠️ Не удалось создать суперпользователя: {e}")
+    STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
