@@ -20,9 +20,6 @@
     <li>Раздел FAQ поможет решить типовые проблемы.</li>
 </ul>
 
-<h2>🆘 Не нашли нужную информацию?</h2>
-<p>Если у вас остались вопросы, посетите наш <a href="#">форум поддержки</a> или отправьте запрос в техническую поддержку.</p>
-
 <hr style="margin: 30px 0; border: none; border-top: 1px solid #e0e4e8;">
 
 <!-- Слово "подробнее" для открытия дополнительных материалов (скрытые шпаргалки) -->
@@ -31,163 +28,208 @@
     <span id="toggleCheatsTrigger">подробнее</span>.
 </p>
 
-<!-- Блок со шпаргалками (скрыт, стили как у основного контента) -->
+<!-- Блок со шпаргалками (скрыт) -->
 <div id="cheatsheetsBlock" style="display: none;">
     <div id="searchableContent">
 
-
         <!-- ========================================= -->
-        <!-- ЧАСТЬ 1: НАСТРОЙКА ИМЕНИ УСТРОЙСТВ        -->
+        <!-- ЧАСТЬ 1: НАСТРОЙКА ИМЕНИ УСТРОЙСТВ         -->
         <!-- ========================================= -->
 
-        <h2>🔧 1. Настройка имени устройств (hostname)</h2>
+        <h2>🔧 Настройка имени устройств (hostname)</h2>
 
-        <h3>ISP (Linux)</h3>
+        <h3>ISP:</h3>
+        <p>Для назначения имени устройства согласно топологии используем следующую команду:</p>
 <pre><code>hostnamectl set-hostname isp; exec bash</code></pre>
-        <p><strong>Проверка:</strong></p>
-<pre><code>hostname</code></pre>
-        <!-- СКРИНШОТ 1.1: Результат выполнения hostname на ISP -->
-        <!-- Файл: screenshots/part01_img01.png -->
+        <!-- СКРИНШОТ: Команда hostnamectl на ISP -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.1</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>hostname</code> на устройстве ISP<br>
-            <strong>Ожидаемый результат:</strong> isp<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Выполнение команды hostnamectl set-hostname isp; exec bash<br>
             <strong>Файл:</strong> <code>screenshots/part01_img01.png</code>
         </div>
 
-        <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
-<pre><code>vim /etc/sysconfig/network</code></pre>
-        <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
-
-        <h3>HQ-RTR (EcoRouter)</h3>
-<pre><code>ecorouter>enable
-ecorouter#configure terminal
-ecorouter(config)#hostname hq-rtr
-hq-rtr(config)#ip domain-name au-team.irpo
-hq-rtr(config)#write memory</code></pre>
-        <p><strong>Проверка имени устройства:</strong></p>
-<pre><code>hq-rtr#show hostname</code></pre>
-        <!-- СКРИНШОТ 1.2: Результат show hostname на HQ-RTR -->
+        <p>Проверить:</p>
+<pre><code>hostname</code></pre>
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат hostname на ISP -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.2</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>show hostname</code> на HQ-RTR<br>
-            <strong>Ожидаемый результат:</strong> hq-rtr<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды hostname на ISP (ожидается isp)<br>
             <strong>Файл:</strong> <code>screenshots/part01_img02.png</code>
         </div>
 
-        <p><strong>Проверка доменного имени:</strong></p>
-<pre><code>hq-rtr#show running-config | include domain-name</code></pre>
-        <!-- СКРИНШОТ 1.3: Результат проверки domain-name на HQ-RTR -->
+        <p>Так же рекомендуется указать имя в файле /etc/sysconfig/network:</p>
+<pre><code>vim /etc/sysconfig/network</code></pre>
+        <p>указать имя в параметре HOSTNAME:</p>
+        <!-- СКРИНШОТ: Редактирование /etc/sysconfig/network -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.3</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>show running-config | include domain-name</code> на HQ-RTR<br>
-            <strong>Ожидаемый результат:</strong> ip domain-name au-team.irpo<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Редактирование файла /etc/sysconfig/network для указания HOSTNAME<br>
             <strong>Файл:</strong> <code>screenshots/part01_img03.png</code>
         </div>
 
-        <h3>BR-RTR (EcoRouter)</h3>
+        <h3>HQ-RTR:</h3>
+        <p>
+            Для назначения имени устройства согласно топологии используем следующие команды:<br>
+            переходим в привилегированный режим;<br>
+            переходим в режим администрирования;<br>
+            задаём имя устройству;<br>
+            задаём доменное имя;<br>
+            сохраняем конфигурацию.
+        </p>
 <pre><code>ecorouter>enable
 ecorouter#configure terminal
-ecorouter(config)#hostname br-rtr
-br-rtr(config)#ip domain-name au-team.irpo
-br-rtr(config)#write memory</code></pre>
-        <!-- СКРИНШОТ 1.4: Процесс настройки hostname на BR-RTR -->
+Enter configuration commands, one per line.  End with CNTL/Z.
+ecorouter(config)#hostname hq-rtr
+hq-rtr(config)#ip domain-name au-team.irpo
+hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#</code></pre>
+
+        <p>Проверить имя устройства:</p>
+<pre><code>hq-rtr#show hostname</code></pre>
+
+        <p>Проверить доменное имя устройства:</p>
+<pre><code>hq-rtr#show running-config | include domain-name</code></pre>
+
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат проверки на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.4</strong><br>
-            <strong>Описание:</strong> Процесс настройки hostname и domain-name на BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show hostname и show running-config | include domain-name на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part01_img04.png</code>
         </div>
 
-        <!-- СКРИНШОТ 1.5: Ожидаемый результат настройки BR-RTR -->
+        <h3>BR-RTR:</h3>
+        <p>Аналогично HQ-RTR</p>
+<pre><code>ecorouter>enable 
+ecorouter#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.                  
+ecorouter(config)#hostname br-rtr
+br-rtr(config)#ip domain-name au-team.irpo
+br-rtr(config)#write memory
+Building configuration...
+
+br-rtr(config)#</code></pre>
+
+        <p>ожидаемый результат:</p>
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.5</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат после настройки BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part01_img05.png</code>
         </div>
 
-        <h3>HQ-SRV (Linux)</h3>
+        <h3>HQ-SRV:</h3>
+        <p>Для назначения имени устройства согласно топологии используем следующую команду:</p>
 <pre><code>hostnamectl set-hostname hq-srv.au-team.irpo; exec bash</code></pre>
-        <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
-<pre><code>vim /etc/sysconfig/network</code></pre>
-        <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
-        <p><strong>Проверка:</strong></p>
-<pre><code>hostname -f</code></pre>
-        <!-- СКРИНШОТ 1.6: Результат hostname -f на HQ-SRV -->
+        <!-- СКРИНШОТ: Команда hostnamectl на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.6</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>hostname -f</code> на HQ-SRV<br>
-            <strong>Ожидаемый результат:</strong> hq-srv.au-team.irpo<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Выполнение команды hostnamectl set-hostname hq-srv.au-team.irpo; exec bash<br>
             <strong>Файл:</strong> <code>screenshots/part01_img06.png</code>
         </div>
 
-        <h3>BR-SRV (Linux)</h3>
-        <p>Аналогично HQ-SRV</p>
-        <!-- СКРИНШОТ 1.7: Ожидаемый результат настройки BR-SRV -->
+        <p>Так же рекомендуется указать имя в файле /etc/sysconfig/network:</p>
+<pre><code>vim /etc/sysconfig/network</code></pre>
+        <p>указать имя в параметре HOSTNAME:</p>
+        <!-- СКРИНШОТ: Редактирование /etc/sysconfig/network на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.7</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Редактирование файла /etc/sysconfig/network для указания HOSTNAME на HQ-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part01_img07.png</code>
         </div>
 
-        <h3>HQ-CLI</h3>
-        <p>Для назначения имени устройства согласно топологии воспользуемся Центром Управления Системой (ЦУС).</p>
-        <!-- СКРИНШОТ 1.8: Настройка имени через ЦУС -->
+        <p>Проверить:</p>
+<pre><code>hostname -f</code></pre>
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат hostname -f на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.8</strong><br>
-            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат hostname -f на HQ-SRV (ожидается hq-srv.au-team.irpo)<br>
             <strong>Файл:</strong> <code>screenshots/part01_img08.png</code>
         </div>
 
-        <!-- СКРИНШОТ 1.9: Продолжение настройки через ЦУС -->
+        <h3>BR-SRV:</h3>
+        <p>Аналогично HQ-SRV, ожидаемый результат:</p>
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.9</strong><br>
-            <strong>Описание:</strong> Продолжение настройки имени устройства через ЦУС<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part01_img09.png</code>
         </div>
 
-        <p>После чего необходимо будет перезагрузить устройство:</p>
-        <!-- СКРИНШОТ 1.10: Процесс перезагрузки HQ-CLI -->
+        <h3>HQ-CLI:</h3>
+        <p>Для назначения имени устройства согласно топологии воспользуемся Центром Управления Системой (ЦУС):</p>
+        <!-- СКРИНШОТ: Настройка через ЦУС 1 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.10</strong><br>
-            <strong>Описание:</strong> Процесс перезагрузки HQ-CLI после настройки имени<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 1<br>
             <strong>Файл:</strong> <code>screenshots/part01_img10.png</code>
         </div>
+        <!-- СКРИНШОТ: Настройка через ЦУС 2 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 2<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img11.png</code>
+        </div>
+        <!-- СКРИНШОТ: Настройка через ЦУС 3 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС) — шаг 3<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img12.png</code>
+        </div>
 
-        <hr>
+        <p>После чего, необходимо будет перезагрузить устройство:</p>
+        <!-- СКРИНШОТ: Перезагрузка HQ-CLI -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Перезагрузка HQ-CLI после настройки имени<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img13.png</code>
+        </div>
 
-        <h2>🌐 2. Основные понятия EcoRouter</h2>
+        <h2>🌐 Основные понятия касающиеся EcoRouter</h2>
 
-        <p><strong>Порт (port)</strong> – это устройство в составе EcoRouter, которое работает на физическом уровне (L1).</p>
-        <p><strong>Интерфейс (interface)</strong> – это логический интерфейс для адресации, работает на сетевом уровне (L3).</p>
-        <p><strong>Service instance (Сабинтерфейс, SI, Сервисный интерфейс)</strong> является логическим сабинтерфейсом, работающим на канальном уровне (L2) и связывает L1, L2 и L3 уровни.</p>
-        <p>Данный вид интерфейса необходим для соединения физического порта с интерфейсами L3, интерфейсами bridge, портами. Используется для гибкого управления трафиком на основании наличия меток VLANов в фреймах, или их отсутствия. Сквозь сервисный интерфейс проходит весь трафик, приходящий на порт.</p>
+        <p><strong>Порт (port)</strong> – это устройство в составе EcoRouter, которое работает на физическом уровне (L1);</p>
+        <p><strong>Интерфейс (interface)</strong> – это логический интерфейс для адресации, работает на сетевом уровне (L3);</p>
+        <p><strong>Service instance (Сабинтерфейс, SI, Сервисный интерфейс)</strong> является логическим сабинтерфейсом, работающим на канальном уровне (L2) и связывает L1, L2 и L3 уровни:</p>
+        <p>Данный вид интерфейса необходим для соединения физического порта с интерфейсами L3, интерфейсами bridge, портами;</p>
+        <p>Используется для гибкого управления трафиком на основании наличия меток VLANов в фреймах, или их отсутствия;</p>
+        <p>Сквозь сервисный интерфейс проходит весь трафик, приходящий на порт.</p>
 
-        <p><strong>Алгоритм назначения IPv4-адреса на EcoRouter:</strong></p>
+        <p>Таким образом, для того чтобы назначить IPv4-адрес на EcoRouter - необходимо придерживаться следующего алгоритма в общем виде:</p>
         <ol>
-            <li>Создать интерфейс с произвольным именем и назначить на него IPv4</li>
+            <li>Создать интерфейс с произвольным именем и назначить на него IPv4;</li>
             <li>
                 В режиме конфигурирования порта создать service-instance с произвольным именем:
                 <ul>
-                    <li>указать (инкапсулировать) что будет обрабатываться тегированный или не тегированный трафик</li>
-                    <li>указать в какой интерфейс (ранее созданный) нужно отправить обработанные кадры</li>
+                    <li>указать (инкапсулировать) что будет обрабатываться тегированный или не тегированный трафик;</li>
+                    <li>указать в какой интерфейс (ранее созданный) нужно отправить обработанные кадры.</li>
                 </ul>
             </li>
         </ol>
 
-        <h2>🏢 3. Настройка HQ-RTR</h2>
+        <h2>🏢 HQ-RTR</h2>
 
-        <p><strong>Посмотреть физические порты можно при помощи следующей команды:</strong></p>
+        <p>Посмотреть физические порты можно при помощи следующей команды:</p>
 <pre><code>hq-rtr#show port brief</code></pre>
-        <p>где: te0 - порт в сторону ISP; te1 - порт в сторону локальной сети офиса HQ (виртуальный коммутатор HQ-SW на уровне гипервизора).</p>
-
-        <!-- СКРИНШОТ 1.11: Результат show port brief на HQ-RTR -->
+        <p>
+            где:<br>
+            te0 - порт в сторону ISP;<br>
+            te1 - порт в сторону локальной сети офиса HQ (виртуальный коммутатор HQ-SW на уровне гипервизора);
+        </p>
+        <!-- СКРИНШОТ: show port brief на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.11</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>show port brief</code> на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img11.png</code>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show port brief на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img14.png</code>
         </div>
 
-        <p><strong>Создаём интерфейсы для каждого VLAN:</strong></p>
+        <p>
+            Создаём интерфейсы (подинтерфейсы/sub-interfaces) для назначения IP-адресов локальных подсетей офиса HQ для дальнейшей маршрутизации между VLAN-ами:<br>
+            первым делом создаём интерфейсы для каждого VLAN-а:
+        </p>
 <pre><code>hq-rtr(config)#interface vl100
 hq-rtr(config-if)#description "VLAN 100"
 hq-rtr(config-if)#ip address 192.168.100.1/27
@@ -200,335 +242,438 @@ hq-rtr(config)#interface vl999
 hq-rtr(config-if)#description "VLAN 999"
 hq-rtr(config-if)#ip address 192.168.99.1/29
 hq-rtr(config-if)#exit
-hq-rtr(config)#write memory</code></pre>
+hq-rtr(config)#write memory
+Building configuration...
 
-        <!-- СКРИНШОТ 1.12: Процесс создания интерфейсов VLAN -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.12</strong><br>
-            <strong>Описание:</strong> Процесс создания интерфейсов vl100, vl200, vl999 на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img12.png</code>
-        </div>
+hq-rtr(config)#</code></pre>
 
-        <p><strong>Проверка назначенных IP-адресов:</strong></p>
+        <p>Проверить, назначенные IP-адреса на интерфейсы:</p>
 <pre><code>hq-rtr#show ip interface brief</code></pre>
-        <!-- СКРИНШОТ 1.13: Результат show ip interface brief (статус down) -->
+        <p>
+            Результат:<br>
+            созданные интерфейсы пока не добавлены в какие-либо Service instance, а значит не привязаны и к порту, отсюда и статус down:
+        </p>
+        <!-- СКРИНШОТ: show ip interface brief после создания интерфейсов -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.13</strong><br>
-            <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе down<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img13.png</code>
-        </div>
-
-        <p><strong>Создание service-instance на базе te1 для каждого VLAN:</strong></p>
-<pre><code>hq-rtr(config)#port te1
-hq-rtr(config-port)#service-instance te1/vl100
-hq-rtr(config-service-instance)#encapsulation dot1q 100 exact
-hq-rtr(config-service-instance)#rewrite pop 1
-hq-rtr(config-service-instance)#connect ip interface vl100
-hq-rtr(config-service-instance)#exit
-hq-rtr(config-port)#service-instance te1/vl200
-hq-rtr(config-service-instance)#encapsulation dot1q 200 exact
-hq-rtr(config-service-instance)#rewrite pop 1
-hq-rtr(config-service-instance)#connect ip interface vl200
-hq-rtr(config-service-instance)#exit
-hq-rtr(config-port)#service-instance te1/vl999
-hq-rtr(config-service-instance)#encapsulation dot1q 999 exact
-hq-rtr(config-service-instance)#rewrite pop 1
-hq-rtr(config-service-instance)#connect ip interface vl999
-hq-rtr(config-service-instance)#exit
-hq-rtr(config-port)#exit
-hq-rtr(config)#write memory</code></pre>
-
-        <!-- СКРИНШОТ 1.14: Создание service-instance te1/vl100 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.14</strong><br>
-            <strong>Описание:</strong> Создание service-instance te1/vl100 на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img14.png</code>
-        </div>
-
-        <!-- СКРИНШОТ 1.15: Создание service-instance te1/vl200 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.15</strong><br>
-            <strong>Описание:</strong> Создание service-instance te1/vl200 на HQ-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show ip interface brief (статус down)<br>
             <strong>Файл:</strong> <code>screenshots/part01_img15.png</code>
         </div>
 
-        <!-- СКРИНШОТ 1.16: Создание service-instance te1/vl999 -->
+        <p>на базе физического интерфейса te1 для каждого VLAN-а создаём service-instance с инкапсуляцией соответствующих тегов (VID) и подключением необходимых интерфейсов:</p>
+<pre><code>hq-rtr(config)#port te1
+hq-rtr(config-port)#service-instance te1/vl100
+hq-rtr(config-service-instance)#encapsulation dot1q 100 exact                  
+hq-rtr(config-service-instance)#rewrite pop 1
+hq-rtr(config-service-instance)#connect ip interface vl100 
+
+2025-09-04 05:07:20      INFO      Interface vl100 changed state to up
+hq-rtr(config-service-instance)#exit
+hq-rtr(config-port)#service-instance te1/vl200
+hq-rtr(config-service-instance)#encapsulation dot1q 200 exact 
+hq-rtr(config-service-instance)#rewrite pop 1
+hq-rtr(config-service-instance)#connect ip interface vl200 
+
+2025-09-04 05:07:51      INFO      Interface vl200 changed state to up
+hq-rtr(config-service-instance)#exit
+hq-rtr(config-port)#service-instance te1/vl999
+hq-rtr(config-service-instance)#encapsulation dot1q 999 exact 
+hq-rtr(config-service-instance)#rewrite pop 1
+hq-rtr(config-service-instance)#connect ip interface vl999 
+
+2025-09-04 05:08:14      INFO      Interface vl999 changed state to up
+hq-rtr(config-service-instance)#exit
+hq-rtr(config-port)#exit
+hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#</code></pre>
+
+        <p>Проверить, назначенные IP-адреса на интерфейсы и их статус:</p>
+<pre><code>hq-rtr#show ip interface brief</code></pre>
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: show ip interface brief после настройки service-instance -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.16</strong><br>
-            <strong>Описание:</strong> Создание service-instance te1/vl999 на HQ-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show ip interface brief (статус up)<br>
             <strong>Файл:</strong> <code>screenshots/part01_img16.png</code>
         </div>
 
-        <p><strong>Проверка статуса интерфейсов после настройки:</strong></p>
-<pre><code>hq-rtr#show ip interface brief</code></pre>
-        <!-- СКРИНШОТ 1.17: Результат show ip interface brief (статус up) -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.17</strong><br>
-            <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе up<br>
-            <strong>Файл:</strong> <code>screenshots/part01_img17.png</code>
-        </div>
+        <h2>🏭 BR-RTR</h2>
 
-        <h2>🏭 4. Настройка BR-RTR</h2>
-
+        <p>Аналогично HQ-RTR:</p>
 <pre><code>br-rtr(config)#interface int1
 br-rtr(config-if)#description "BR-Net"
-br-rtr(config-if)#ip address 192.168.0.1/28
+br-rtr(config-if)#ip address 192.168.0.1/28                 
 br-rtr(config-if)#exit
 br-rtr(config)#port te1
 br-rtr(config-port)#service-instance te1/int1
-br-rtr(config-service-instance)#encapsulation untagged
-br-rtr(config-service-instance)#connect ip interface int1
+br-rtr(config-service-instance)#encapsulation untagged 
+br-rtr(config-service-instance)#connect ip interface int1 
+
+2025-09-04 05:13:37      INFO      Interface int1 changed state to up
 br-rtr(config-service-instance)#exit
 br-rtr(config-port)#exit
-br-rtr(config)#write memory</code></pre>
+br-rtr(config)#write memory
+Building configuration...
 
-        <!-- СКРИНШОТ 1.18: Процесс настройки BR-RTR -->
+br-rtr(config)#</code></pre>
+
+        <p>Ожидаемый результат:</p>
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.18</strong><br>
-            <strong>Описание:</strong> Процесс настройки интерфейса int1 и service-instance на BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img17.png</code>
+        </div>
+
+        <h2>💻 HQ-SRV</h2>
+
+        <p>Просмотр существующих интерфейсов выполняется командой ip a</p>
+        <!-- СКРИНШОТ: ip a на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат ip a на HQ-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part01_img18.png</code>
         </div>
 
-        <!-- СКРИНШОТ 1.19: Ожидаемый результат настройки BR-RTR -->
+        <p>Для конфигурации IPv4 на устройствах, будут отредактированы файлы options, созданы файлы ipv4address, ipv4route.</p>
+        <p>в файле /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options</p>
+        <!-- СКРИНШОТ: Файл options -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.19</strong><br>
-            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла options<br>
             <strong>Файл:</strong> <code>screenshots/part01_img19.png</code>
         </div>
 
-        <h2>💻 5. Настройка HQ-SRV и BR-SRV (Linux)</h2>
+        <p>должны быть заданы хотя бы два основных параметра:</p>
+        <ul>
+            <li>Параметр TYPE=eth указывает на тип интерфейса – ethernet</li>
+            <li>Параметр BOOTPROTO=static означает, что настройка статического IP-адреса и маршрутов будет взята из файлов ipv4address и ipv4route</li>
+        </ul>
 
-        <p><strong>Просмотр существующих интерфейсов:</strong></p>
-<pre><code>ip a</code></pre>
-        <!-- СКРИНШОТ 1.20: Результат ip a на HQ-SRV -->
+        <p>Проверяем содержимое конфигурационного файла /etc/net/ifaces/ens19/options:</p>
+        <!-- СКРИНШОТ: Содержимое options для ens19 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.20</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на HQ-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое /etc/net/ifaces/ens19/options<br>
             <strong>Файл:</strong> <code>screenshots/part01_img20.png</code>
         </div>
 
-        <p><strong>Конфигурация IPv4 на HQ-SRV:</strong></p>
-        <p>В файле <code>/etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options</code> должны быть заданы хотя бы два основных параметра:</p>
-        <ul>
-            <li><code>TYPE=eth</code> — указывает на тип интерфейса – ethernet</li>
-            <li><code>BOOTPROTO=static</code> — означает, что настройка статического IP-адреса и маршрутов будет взята из файлов ipv4address и ipv4route</li>
-        </ul>
-
-        <!-- СКРИНШОТ 1.21: Содержимое файла options для ens19 -->
+        <p>Внимание! Для того, чтобы в качестве сетевой подсистемы корректно использовался etcnet и операционная система могла считывать и применять содержимое конфигурационных файлов: ipv4address, ipv4route, resolv.conf из директории /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/, необходимо, чтобы значение параметров DISABLED,NM_CONTROLLED,SYSTEMD_CONTROLLED были установлены в no или же указание данных параметров в файле options не является обязательным условием.</p>
+        <!-- СКРИНШОТ: Параметры DISABLED и др. -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.21</strong><br>
-            <strong>Описание:</strong> Содержимое конфигурационного файла <code>/etc/net/ifaces/ens19/options</code><br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Параметры DISABLED, NM_CONTROLLED, SYSTEMD_CONTROLLED в файле options<br>
             <strong>Файл:</strong> <code>screenshots/part01_img21.png</code>
         </div>
 
-        <p><strong>Задание IP-адреса:</strong></p>
+        <p>Зададим IP-адрес:</p>
 <pre><code>echo "192.168.100.2/27" > /etc/net/ifaces/ens19/ipv4address</code></pre>
 
-        <p><strong>Задание шлюза по умолчанию:</strong></p>
+        <p>Зададим IP-адрес шлюза по умолчанию:</p>
 <pre><code>echo "default via 192.168.100.1" > /etc/net/ifaces/ens19/ipv4route</code></pre>
 
-        <p><strong>Задание DNS-сервера (временно):</strong></p>
+        <p>Зададим (временно) IP-адрес DNS-сервера, для дальнейшей возможности выхода в сеть Интернет и установки необходимых пакетов:</p>
 <pre><code>echo "nameserver 77.88.8.8" > /etc/net/ifaces/ens19/resolv.conf</code></pre>
 
-        <p><strong>Применение настроек:</strong></p>
+        <p>Для применения настроек, необходимо перезагрузить службу network:</p>
 <pre><code>systemctl restart network</code></pre>
 
-        <!-- СКРИНШОТ 1.22: Проверка настроек на HQ-SRV -->
+        <p>Проверить:</p>
+        <!-- СКРИНШОТ: Проверка настроек на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.22</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Проверка настроек сети на HQ-SRV после применения<br>
             <strong>Файл:</strong> <code>screenshots/part01_img22.png</code>
         </div>
 
-        <p><strong>BR-SRV:</strong> Аналогично HQ-SRV</p>
-        <!-- СКРИНШОТ 1.23: Ожидаемый результат настройки BR-SRV -->
+        <h2>💻 BR-SRV</h2>
+
+        <p>Аналогично HQ-SRV, ожидаемый результат:</p>
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.23</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part01_img23.png</code>
         </div>
 
-        <p>В отличие от офиса HQ, в офисе BR с BR-SRV на текущем этапе можно проверить доступность шлюза по умолчанию. В офисе HQ, с HQ-SRV шлюз пока не должен быть доступен, т.к. не реализована коммутация.</p>
-
-        <!-- СКРИНШОТ 1.24: Проверка доступности шлюза на BR-SRV -->
+        <p>
+            В отличие от офиса HQ, в офисе BR с BR-SRV на текущем этапе можно проверить доступность шлюза по умолчанию<br>
+            в офисе HQ, с HQ-SRV шлюз пока не должен быть доступен, т.к. не реализована коммутация
+        </p>
+        <!-- СКРИНШОТ: Проверка доступности шлюза -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 1.24</strong><br>
-            <strong>Описание:</strong> Проверка доступности шлюза по умолчанию с BR-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступности шлюза по умолчанию<br>
             <strong>Файл:</strong> <code>screenshots/part01_img24.png</code>
         </div>
 
         <!-- ========================================= -->
-        <!-- ЧАСТЬ 2: НАСТРОЙКА ISP (ПРОДОЛЖЕНИЕ)       -->
+        <!-- ЧАСТЬ 2: ISP И ПРОДОЛЖЕНИЕ НАСТРОЙКИ       -->
         <!-- ========================================= -->
 
-        <h2>🖧 6. Настройка ISP (продолжение)</h2>
+        <h2>🖧 ISP (продолжение)</h2>
 
-        <p><strong>Просмотр существующих интерфейсов:</strong></p>
-<pre><code>ip a</code></pre>
-        <p>где: ens19 — интерфейс подключённый к магистральному провайдеру.</p>
-
-        <!-- СКРИНШОТ 2.1: Результат ip a на ISP -->
+        <p>Просмотр существующих интерфейсов выполняется командой ip a</p>
+        <p>
+            где:<br>
+            ens19 - интерфейс подключённый к магистральному провайдеру;
+        </p>
+        <!-- СКРИНШОТ: ip a на ISP -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.1</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на ISP (интерфейсы ens19, ens20, ens21)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат ip a на ISP (интерфейсы ens19, ens20, ens21)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img01.png</code>
         </div>
 
-        <p><strong>Настройка DHCP на интерфейсе ens19:</strong></p>
-        <p>В конфигурационном файле <code>/etc/net/ifaces/ens19/options</code> в параметре <code>BOOTPROTO</code> указать значение <code>dhcp</code>.</p>
-
-        <!-- СКРИНШОТ 2.2: Содержимое options для ens19 с BOOTPROTO=dhcp -->
+        <p>
+            Для того чтобы интерфейс, подключенный к магистральному провайдеру, получал адрес по DHCP:<br>
+            необходимо в конфигурационном файле, расположенном по пути /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options<br>
+            в параметре BOOTPROTO указать значение dhcp:
+        </p>
+        <!-- СКРИНШОТ: Файл options с BOOTPROTO=dhcp -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.2</strong><br>
-            <strong>Описание:</strong> Содержимое файла <code>/etc/net/ifaces/ens19/options</code> с параметром BOOTPROTO=dhcp<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое /etc/net/ifaces/ens19/options с BOOTPROTO=dhcp<br>
             <strong>Файл:</strong> <code>screenshots/part02_img02.png</code>
         </div>
 
-        <p><strong>Применение настроек:</strong></p>
+        <p>Для применения настроек, необходимо перезагрузить службу network</p>
 <pre><code>systemctl restart network</code></pre>
 
-        <!-- СКРИНШОТ 2.3: Получение IP по DHCP на ens19 -->
+        <p>
+            Проверить:<br>
+            получение всех параметров по DHCP;<br>
+            доступ в сеть Интернет.
+        </p>
+        <!-- СКРИНШОТ: Проверка DHCP и доступа в Интернет -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.3</strong><br>
-            <strong>Описание:</strong> Проверка получения IP-адреса по DHCP на интерфейсе ens19<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка получения параметров по DHCP и доступа в Интернет (ping 8.8.8.8)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img03.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.4: Проверка доступа в Интернет с ISP -->
+        <p>Просмотр существующих интерфейсов выполняется командой ip a</p>
+        <p>
+            где:<br>
+            ens20 - интерфейс подключённый к HQ-RTR;<br>
+            ens21 - интерфейс подключённый к BR-RTR.
+        </p>
+        <!-- СКРИНШОТ: ip a на ISP с ens20 и ens21 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.4</strong><br>
-            <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства ISP (ping 8.8.8.8)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат ip a на ISP (интерфейсы ens20, ens21)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img04.png</code>
         </div>
 
-        <p><strong>Настройка интерфейсов ens20 и ens21:</strong></p>
-<pre><code>mkdir /etc/net/ifaces/ens20
-mkdir /etc/net/ifaces/ens21</code></pre>
-
-        <!-- СКРИНШОТ 2.5: Создание директорий ens20 и ens21 -->
+        <p>Создадим директории в /etc/net/ifaces/ для интерфейсов ens20 и ens21:</p>
+        <!-- СКРИНШОТ: Создание директорий -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.5</strong><br>
-            <strong>Описание:</strong> Результат создания директорий <code>/etc/net/ifaces/ens20</code> и <code>/etc/net/ifaces/ens21</code><br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Процесс создания директорий для ens20 и ens21<br>
             <strong>Файл:</strong> <code>screenshots/part02_img05.png</code>
         </div>
 
-        <p><strong>Создание файлов options:</strong></p>
+<pre><code>mkdir /etc/net/ifaces/ens20
+mkdir /etc/net/ifaces/ens21</code></pre>
+
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат создания директорий -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат создания директорий /etc/net/ifaces/ens20 и /etc/net/ifaces/ens21<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img06.png</code>
+        </div>
+
+        <p>
+            Для каждого интерфейса, необходимо в директории /etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/ создать конфигурационный файл options<br>
+            с минимально необходимыми параметрами, а именно:<br>
+            TYPE=eth указывает на тип интерфейса – ethernet,<br>
+            BOOTPROTO=static означает, что настройка статических параметров
+        </p>
 <pre><code>echo "TYPE=eth" > /etc/net/ifaces/ens20/options
 echo "BOOTPROTO=static" >> /etc/net/ifaces/ens20/options
 cp /etc/net/ifaces/ens20/options /etc/net/ifaces/ens21/options</code></pre>
 
-        <!-- СКРИНШОТ 2.6: Содержимое options для ens20 и ens21 -->
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат создания options -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.6</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Содержимое файлов options для ens20 и ens21<br>
-            <strong>Файл:</strong> <code>screenshots/part02_img06.png</code>
-        </div>
-
-        <p><strong>Назначение IP-адресов:</strong></p>
-<pre><code>echo "172.16.1.1/28" > /etc/net/ifaces/ens20/ipv4address
-echo "172.16.2.1/28" > /etc/net/ifaces/ens21/ipv4address
-systemctl restart network</code></pre>
-
-        <!-- СКРИНШОТ 2.7: Проверка назначенных IP на ens20 и ens21 -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.7</strong><br>
-            <strong>Описание:</strong> Проверка назначенных IP-адресов на интерфейсах ens20 и ens21<br>
             <strong>Файл:</strong> <code>screenshots/part02_img07.png</code>
         </div>
 
-        <p><strong>Включение пересылки пакетов (forwarding):</strong></p>
-        <p>В файле <code>/etc/net/sysctl.conf</code> параметр <code>net.ipv4.ip_forward = 0</code> заменить на <code>net.ipv4.ip_forward = 1</code>.</p>
+        <p>Далее опишем содержимое конфигурационного файла ipv4address для каждого интерфейса:</p>
+<pre><code>echo "172.16.1.1/28" > /etc/net/ifaces/ens20/ipv4address
+echo "172.16.2.1/28" > /etc/net/ifaces/ens21/ipv4address</code></pre>
+
+        <p>Для применения настроек, необходимо перезагрузить службу network</p>
 <pre><code>systemctl restart network</code></pre>
 
-        <!-- СКРИНШОТ 2.8: Содержимое sysctl.conf с ip_forward=1 -->
+        <p>Проверить:</p>
+        <!-- СКРИНШОТ: Проверка IP на ens20 и ens21 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.8</strong><br>
-            <strong>Описание:</strong> Содержимое файла <code>/etc/net/sysctl.conf</code> с параметром net.ipv4.ip_forward=1<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка назначенных IP-адресов на интерфейсах ens20 и ens21<br>
             <strong>Файл:</strong> <code>screenshots/part02_img08.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.9: Проверка forwarding -->
+        <p>
+            Для того чтобы устройство ISP могло пересылать пакеты с интерфейса на интерфейс, необходимо включить пересылку пакетов (forwarding)<br>
+            Для этого следует в конфигурационном файле /etc/net/sysctl.conf в параметре net.ipv4.ip_forward = 0 заменить значение с 0 на 1
+        </p>
+        <!-- СКРИНШОТ: Файл sysctl.conf с ip_forward=1 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.9</strong><br>
-            <strong>Описание:</strong> Проверка включения forwarding (cat /proc/sys/net/ipv4/ip_forward)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла /etc/net/sysctl.conf с net.ipv4.ip_forward=1<br>
             <strong>Файл:</strong> <code>screenshots/part02_img09.png</code>
         </div>
 
-        <p><strong>Настройка NAT с использованием iptables:</strong></p>
-<pre><code>apt-get update && apt-get install -y iptables
-iptables -t nat -A POSTROUTING -s 172.16.1.0/28 -o ens19 -j MASQUERADE
-iptables -t nat -A POSTROUTING -s 172.16.2.0/28 -o ens19 -j MASQUERADE
-iptables-save >> /etc/sysconfig/iptables
-systemctl enable --now iptables</code></pre>
+        <p>Для применения настроек, необходимо перезагрузить службу network</p>
+<pre><code>systemctl restart network</code></pre>
 
-        <!-- СКРИНШОТ 2.10: Установка iptables -->
+        <p>Проверить:</p>
+        <!-- СКРИНШОТ: Проверка forwarding -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.10</strong><br>
-            <strong>Описание:</strong> Процесс установки пакета iptables на Альт Jeos<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка включения forwarding (cat /proc/sys/net/ipv4/ip_forward)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img10.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.11: Добавление правил iptables -->
+        <p>
+            Для динамической сетевой трансляции можно использовать iptables.<br>
+            В случае использования в качестве ОС на ВМ ISP «Альт Jeos» – пакет iptables необходимо установить:<br>
+            предварительно обновив список пакетов с помощью команды apt-get update
+        </p>
+<pre><code>apt-get update && apt-get install -y iptables</code></pre>
+
+        <p>
+            Реализацию сетевой трансляции адресов с помощью iptables можно выполнить одной командой:<br>
+            где, ens19 внешний интерфейс, подключённый к магистральному провайдеру<br>
+            также реализуем трансляцию адресов только из конкретных сетей HQ-RTR и BR-RTR
+        </p>
+<pre><code>iptables -t nat -A POSTROUTING -s 172.16.1.0/28 -o ens19 -j MASQUERADE
+iptables -t nat -A POSTROUTING -s 172.16.2.0/28 -o ens19 -j MASQUERADE</code></pre>
+
+        <p>Сохраняем правила iptables на постоянной основе (после перезагрузки):</p>
+<pre><code>iptables-save >> /etc/sysconfig/iptables</code></pre>
+
+        <p>Включаем и добавляем в автозагрузку службу iptables:</p>
+<pre><code>systemctl enable --now iptables</code></pre>
+
+        <p>Проверить, наличие правила в iptables, а именно в таблице nat, в цепочке POSTROUTING:</p>
+        <!-- СКРИНШОТ: Проверка правил iptables -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.11</strong><br>
-            <strong>Описание:</strong> Добавление правил MASQUERADE в iptables<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка наличия правил в таблице nat, цепочке POSTROUTING<br>
             <strong>Файл:</strong> <code>screenshots/part02_img11.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.12: Сохранение правил iptables -->
+        <h2>🏢 HQ-RTR (продолжение)</h2>
+
+        <p>Создаём интерфейс с именем isp (произвольное имя) и назначаем на него IP-адрес согласно заполненной таблице адресации:</p>
+<pre><code>hq-rtr>enable                   
+hq-rtr#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+hq-rtr(config)#interface isp
+hq-rtr(config-if)#description "ISP"                   
+hq-rtr(config-if)#ip address 172.16.1.2/28
+hq-rtr(config-if)#exit
+hq-rtr(config)#</code></pre>
+
+        <p>Также зададим сразу же маршрут по умолчанию, указав в качестве шлюза по умолчанию IP-адрес ISP:</p>
+<pre><code>hq-rtr(config)#ip route 0.0.0.0/0 172.16.1.1</code></pre>
+
+        <p>Посмотреть физические порты можно при помощи следующей команды:</p>
+<pre><code>hq-rtr#show port brief</code></pre>
+        <p>
+            где:<br>
+            te0 - порт в сторону ISP;<br>
+            te1 - порт в сторону локальной сети офиса HQ (HQ-Net, виртуальный коммутатор HQ-SW);
+        </p>
+        <!-- СКРИНШОТ: show port brief на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.12</strong><br>
-            <strong>Описание:</strong> Сохранение правил iptables в файл /etc/sysconfig/iptables<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show port brief на HQ-RTR (te0, te1)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img12.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.13: Включение службы iptables -->
+        <p>
+            В режиме конфигурирования порта создадим service-instance с произвольным именем:<br>
+            укажем (инкапсулировать) что будет обрабатываться не тегированный трафик (untagged);<br>
+            укажем в какой интерфейс (ранее созданный с именем isp) нужно отправить обработанные кадры;
+        </p>
+<pre><code>hq-rtr(config)#port te0
+hq-rtr(config-port)#service-instance te0/isp
+hq-rtr(config-service-instance)#encapsulation untagged 
+hq-rtr(config-service-instance)#connect ip interface isp 
+
+2025-09-04 05:45:04      INFO      Interface isp changed state to up
+hq-rtr(config-service-instance)#exit
+hq-rtr(config-port)#exit
+hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#</code></pre>
+
+        <p>Проверить, назначенный IP-адрес на интерфейс:</p>
+<pre><code>hq-rtr#show ip interface brief</code></pre>
+
+        <p>Проверить, назначенный маршрут по умолчанию:</p>
+<pre><code>hq-rtr#show ip route static</code></pre>
+
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: show ip interface brief и show ip route static -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.13</strong><br>
-            <strong>Описание:</strong> Включение и добавление в автозагрузку службы iptables<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат show ip interface brief и show ip route static на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part02_img13.png</code>
         </div>
 
-        <!-- СКРИНШОТ 2.14: Проверка правил NAT -->
+        <p>Проверить доступность шлюза и доступ в сеть Интернет:</p>
+        <!-- СКРИНШОТ: Проверка доступности шлюза и Интернета -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.14</strong><br>
-            <strong>Описание:</strong> Проверка наличия правил в таблице nat, цепочке POSTROUTING<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступности шлюза 172.16.1.1 и доступа в Интернет (ping 8.8.8.8) с HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part02_img14.png</code>
         </div>
 
-        <h2>🏢 7. Настройка HQ-RTR (продолжение)</h2>
+        <h2>🏭 BR-RTR (продолжение)</h2>
 
-        <p><strong>Создание интерфейса isp:</strong></p>
-<pre><code>hq-rtr>enable
-hq-rtr#conf t
-hq-rtr(config)#interface isp
-hq-rtr(config-if)#description "ISP"
-hq-rtr(config-if)#ip address 172.16.1.2/28
-hq-rtr(config-if)#exit</code></pre>
+        <p>Аналогично HQ-RTR</p>
+<pre><code>br-rtr>enable 
+br-rtr#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+br-rtr(config)#interface isp
+br-rtr(config-if)#description "ISP"
+br-rtr(config-if)#ip address 172.16.2.2/28
+br-rtr(config-if)#exit
+br-rtr(config)#ip route 0.0.0.0/0 172.16.2.1
+br-rtr(config)#port te0
+br-rtr(config-port)#service-instance te0/isp
+br-rtr(config-service-instance)#encapsulation untagged 
+br-rtr(config-service-instance)#connect ip interface isp 
 
-        <!-- СКРИНШОТ 2.15: Создание интерфейса isp на HQ-RTR -->
+2025-09-04 05:48:19      INFO      Interface isp changed state to up
+br-rtr(config-service-instance)#exit
+br-rtr(config-port)#exit
+br-rtr(config)#write memory
+Building configuration...
+                  
+br-rtr(config)#</code></pre>
+
+        <p>Ожидаемый результат:</p>
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR 1 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.15</strong><br>
-            <strong>Описание:</strong> Создание интерфейса isp с IP-адресом 172.16.1.2/28 на HQ-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR (часть 1)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img15.png</code>
         </div>
-
-        <p><strong>Маршрут по умолчанию:</strong></p>
-<pre><code>hq-rtr(config)#ip route 0.0.0.0/0 172.16.1.1</code></pre>
-
-        <p><strong>Service instance на порту te0:</strong></p>
-<pre><code>hq-rtr(config)#port te0
-hq-rtr(config-port)#service-instance te0/isp
-hq-rtr(config-service-instance)#encapsulation untagged
-hq-rtr(config-service-instance)#connect ip interface isp
-hq-rtr(config-service-instance)#exit
-hq-rtr(config-port)#exit
-hq-rtr(config)#write memory</code></pre>
-
-        <!-- СКРИНШОТ 2.16: Service-instance te0/isp на HQ-RTR -->
+        <!-- СКРИНШОТ: Ожидаемый результат на BR-RTR 2 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 2.16</strong><br>
-            <strong>Описание:</strong> Создание service-instance te0/isp на HQ-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR (часть 2)<br>
             <strong>Файл:</strong> <code>screenshots/part02_img16.png</code>
         </div>
 
@@ -536,199 +681,190 @@ hq-rtr(config)#write memory</code></pre>
         <!-- ЧАСТЬ 3: СОЗДАНИЕ ПОЛЬЗОВАТЕЛЕЙ           -->
         <!-- ========================================= -->
 
-        <h2>👤 8. Создание пользователя sshuser на HQ-SRV и BR-SRV</h2>
+        <h2>👤 Создание пользователей на HQ-SRV и BR-SRV</h2>
 
-        <p><strong>Создание пользователя с явным UID:</strong></p>
+        <p>Создать пользователя с явным указанием UID можно с помощью команды:</p>
 <pre><code>useradd sshuser -u 2026</code></pre>
 
-        <!-- СКРИНШОТ 3.1: Создание пользователя sshuser -->
+        <p>Проверить UID пользователя sshuser:</p>
+        <!-- СКРИНШОТ: Проверка UID через id -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.1</strong><br>
-            <strong>Описание:</strong> Создание пользователя sshuser с UID 2026<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка UID пользователя sshuser командой id sshuser<br>
             <strong>Файл:</strong> <code>screenshots/part03_img01.png</code>
         </div>
 
-        <p><strong>Проверка UID пользователя:</strong></p>
-<pre><code>id sshuser</code></pre>
-        <!-- СКРИНШОТ 3.2: Проверка UID пользователя sshuser -->
+        <p>или:</p>
+        <!-- СКРИНШОТ: Проверка UID через /etc/passwd -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.2</strong><br>
-            <strong>Описание:</strong> Проверка UID пользователя sshuser командой <code>id sshuser</code><br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка пользователя sshuser в файле /etc/passwd<br>
             <strong>Файл:</strong> <code>screenshots/part03_img02.png</code>
         </div>
 
-        <!-- СКРИНШОТ 3.3: Альтернативная проверка через /etc/passwd -->
+        <p>
+            Задать пароль пользователю можно с помощью утилиты passwd:<br>
+            в результате запуска утилиты passwd необходимо будет задать пароль, а затем подтвердить заданный пароль
+        </p>
+        <!-- СКРИНШОТ: Установка пароля через passwd -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.3</strong><br>
-            <strong>Описание:</strong> Проверка пользователя sshuser в файле /etc/passwd<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Процесс установки пароля для пользователя sshuser (passwd sshuser)<br>
             <strong>Файл:</strong> <code>screenshots/part03_img03.png</code>
         </div>
 
-        <p><strong>Задание пароля:</strong></p>
-<pre><code>passwd sshuser</code></pre>
-        <!-- СКРИНШОТ 3.4: Процесс установки пароля для sshuser -->
+        <p>Реализуем возможность запуска утилиты sudo для пользователя sshuser без ввода пароля.</p>
+        <p>Добавляем пользователя sshuser в группу wheel для этого используем утилиту usermod</p>
+<pre><code>usermod -aG wheel sshuser</code></pre>
+
+        <p>Добавляем следующую строку в файл в /etc/sudoers чтобы была возможность запуска sudo без дополнительной аутентификации:</p>
+<pre><code>echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers</code></pre>
+
+        <p>
+            Проверяем:<br>
+            выполняем вход из под пользователя sshuser и пытаемся повысить привилегии:
+        </p>
+
+        <p>HQ-SRV:</p>
+        <!-- СКРИНШОТ: Вход под sshuser на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.4</strong><br>
-            <strong>Описание:</strong> Процесс установки пароля для пользователя sshuser с помощью утилиты passwd<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на HQ-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part03_img04.png</code>
         </div>
-
-        <p><strong>Настройка sudo без пароля:</strong></p>
-<pre><code>usermod -aG wheel sshuser
-echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers</code></pre>
-        <!-- СКРИНШОТ 3.5: Добавление sshuser в группу wheel -->
+        <!-- СКРИНШОТ: Повышение привилегий на HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.5</strong><br>
-            <strong>Описание:</strong> Добавление пользователя sshuser в группу wheel<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Повышение привилегий (sudo -i) на HQ-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part03_img05.png</code>
         </div>
 
-        <!-- СКРИНШОТ 3.6: Добавление правила в sudoers -->
+        <p>BR-SRV:</p>
+        <!-- СКРИНШОТ: Вход под sshuser на BR-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.6</strong><br>
-            <strong>Описание:</strong> Добавление строки в /etc/sudoers для возможности sudo без пароля<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на BR-SRV и повышение привилегий<br>
             <strong>Файл:</strong> <code>screenshots/part03_img06.png</code>
         </div>
 
-        <p><strong>Проверка на HQ-SRV:</strong></p>
-        <!-- СКРИНШОТ 3.7: Вход под sshuser на HQ-SRV -->
+        <h2>🔐 Создание пользователя net_admin на HQ-RTR и BR-RTR</h2>
+
+        <p>
+            Создаём пользователя net_admin на маршрутизаторах с паролем P@ssw0rd и с максимальными привилегиями:<br>
+            максимальным привилегиям в EcoRouter - соответствует роль admin:
+        </p>
+
+        <p>HQ-RTR:</p>
+<pre><code>hq-rtr(config)#username net_admin
+hq-rtr(config-user)#password P@ssw0rd
+hq-rtr(config-user)#role admin 
+hq-rtr(config-user)#exit
+hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#</code></pre>
+
+        <p>BR-RTR:</p>
+<pre><code>br-rtr(config)#username net_admin
+br-rtr(config-user)#password P@ssw0rd
+br-rtr(config-user)#role admin 
+br-rtr(config-user)#exit
+br-rtr(config)#write memory
+Building configuration...
+
+br-rtr(config)#</code></pre>
+
+        <p>
+            Проверяем:<br>
+            наличие созданного пользователя и назначение соответствующей роли на HQ-RTR и выполняем вход из под пользователя net_admin:
+        </p>
+        <!-- СКРИНШОТ: Проверка пользователя на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.7</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на HQ-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка наличия пользователя net_admin и его роли на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part03_img07.png</code>
         </div>
-
-        <!-- СКРИНШОТ 3.8: Повышение привилегий через sudo на HQ-SRV -->
+        <!-- СКРИНШОТ: Вход под net_admin на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.8</strong><br>
-            <strong>Описание:</strong> Попытка повышения привилегий (sudo -i) на HQ-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя net_admin на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part03_img08.png</code>
         </div>
 
-        <p><strong>Проверка на BR-SRV:</strong></p>
-        <!-- СКРИНШОТ 3.9: Вход под sshuser на BR-SRV -->
+        <p>наличие созданного пользователя и назначение соответствующей роли на BR-RTR:</p>
+        <!-- СКРИНШОТ: Проверка пользователя на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.9</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на BR-SRV и повышение привилегий<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка наличия пользователя net_admin и его роли на BR-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part03_img09.png</code>
-        </div>
-
-        <h2>🔐 9. Создание пользователя net_admin на HQ-RTR и BR-RTR</h2>
-
-        <p><strong>HQ-RTR:</strong></p>
-<pre><code>hq-rtr(config)#username net_admin
-hq-rtr(config-user)#password P@ssw0rd
-hq-rtr(config-user)#role admin
-hq-rtr(config-user)#exit
-hq-rtr(config)#write memory</code></pre>
-
-        <!-- СКРИНШОТ 3.10: Создание net_admin на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.10</strong><br>
-            <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img11.png</code>
-        </div>
-
-        <p><strong>BR-RTR:</strong></p>
-<pre><code>br-rtr(config)#username net_admin
-br-rtr(config-user)#password P@ssw0rd
-br-rtr(config-user)#role admin
-br-rtr(config-user)#exit
-br-rtr(config)#write memory</code></pre>
-
-        <!-- СКРИНШОТ 3.11: Создание net_admin на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.11</strong><br>
-            <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img12.png</code>
-        </div>
-
-        <p><strong>Проверка на HQ-RTR:</strong></p>
-        <!-- СКРИНШОТ 3.12: Проверка пользователя net_admin на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.12</strong><br>
-            <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img13.png</code>
-        </div>
-
-        <!-- СКРИНШОТ 3.13: Вход под net_admin на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.13</strong><br>
-            <strong>Описание:</strong> Выполнение входа из под пользователя net_admin на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img14.png</code>
-        </div>
-
-        <p><strong>Проверка на BR-RTR:</strong></p>
-        <!-- СКРИНШОТ 3.14: Проверка пользователя net_admin на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 3.14</strong><br>
-            <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part03_img15.png</code>
         </div>
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 5: НАСТРОЙКА OPENSSH                -->
         <!-- ========================================= -->
 
-        <h2>🔌 10. Настройка OpenSSH на HQ-SRV и BR-SRV</h2>
+        <h2>🔌 Настройка OpenSSH на HQ-SRV и BR-SRV</h2>
 
-        <p><strong>Редактирование конфигурационного файла <code>/etc/openssh/sshd_config</code>:</strong></p>
+        <p>Редактируем конфигурационный файл openssh, расположенный по пути /etc/openssh/sshd_config:</p>
 <pre><code>vim /etc/openssh/sshd_config</code></pre>
 
-        <p><strong>Вносимые изменения:</strong></p>
-        <ul>
-            <li><code>Port 2026</code> — порт для SSH-соединений</li>
-            <li><code>AllowUsers sshuser</code> — разрешить вход только пользователю sshuser</li>
-            <li><code>MaxAuthTries 2</code> — ограничение числа попыток аутентификации</li>
-            <li><code>Banner /etc/openssh/banner</code> — баннер перед аутентификацией</li>
-        </ul>
-
-        <!-- СКРИНШОТ 5.1: Содержимое sshd_config после изменений -->
+        <p>
+            Вносим следующие изменения:<br>
+            Port 2026 – Порт, на котором следует ожидать запросы на соединение. Значение по умолчанию – 22;<br>
+            AllowUsers sshuser – список имён пользователей через пробел;<br>
+            MaxAuthTries 2 – ограничение на число попыток идентифицировать себя в течение одного соединения;<br>
+            Banner /etc/openssh/banner – содержимое указанного файла будет отправлено удалённому пользователю прежде, чем будет разрешена аутентификация.
+        </p>
+        <!-- СКРИНШОТ: Содержимое sshd_config 1 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.1</strong><br>
-            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config после внесения изменений<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config (часть 1)<br>
             <strong>Файл:</strong> <code>screenshots/part05_img01.png</code>
         </div>
-
-        <p><strong>Создание баннера:</strong></p>
-<pre><code>echo "Authorized access only" > /etc/openssh/banner</code></pre>
-
-        <!-- СКРИНШОТ 5.2: Содержимое баннера -->
+        <!-- СКРИНШОТ: Содержимое sshd_config 2 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.2</strong><br>
-            <strong>Описание:</strong> Содержимое файла баннера /etc/openssh/banner<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config (часть 2)<br>
             <strong>Файл:</strong> <code>screenshots/part05_img02.png</code>
         </div>
 
-        <p><strong>Перезапуск службы:</strong></p>
+        <p>Редактируем баннер, а именно файл по пути /etc/openssh/banner:</p>
+<pre><code>echo "Authorized access only" > /etc/openssh/banner</code></pre>
+
+        <p>Для применения всех изменений необходимо перезапустить службу sshd:</p>
 <pre><code>systemctl restart sshd</code></pre>
 
-        <p><strong>Проверки:</strong></p>
-
-        <!-- СКРИНШОТ 5.3: Подключение по порту 2026 -->
+        <p>
+            Проверяем:<br>
+            Наличие Banner и доступ по порту 2026 из под пользователя sshuser, а также ограничение на кол-во попыток входа до 2:
+        </p>
+        <!-- СКРИНШОТ: Проверка SSH на порту 2026 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.3</strong><br>
-            <strong>Описание:</strong> Проверка подключения по порту 2026 под пользователем sshuser (наличие баннера)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка подключения по порту 2026 (наличие баннера)<br>
             <strong>Файл:</strong> <code>screenshots/part05_img03.png</code>
         </div>
 
-        <!-- СКРИНШОТ 5.4: Попытка подключения на стандартный порт 22 -->
+        <p>Попытаться подключиться под пользователем sshuser на стандартный порт ssh:</p>
+        <!-- СКРИНШОТ: Попытка подключения на порт 22 -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.4</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Попытка подключения на стандартный порт SSH (22) — должно быть недоступно<br>
             <strong>Файл:</strong> <code>screenshots/part05_img04.png</code>
         </div>
 
-        <!-- СКРИНШОТ 5.5: Превышение числа попыток входа -->
+        <p>Попытаться подключиться под пользователем sshuser с указанием не верных паролей более чем 2 раза:</p>
+        <!-- СКРИНШОТ: Превышение числа попыток входа -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.5</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Попытка подключения с неверным паролем более 2 раз — блокировка<br>
             <strong>Файл:</strong> <code>screenshots/part05_img05.png</code>
         </div>
 
-        <!-- СКРИНШОТ 5.6: Попытка подключения не под пользователем sshuser -->
+        <p>Попытаться подключиться не из-под пользователя sshuser:</p>
+        <!-- СКРИНШОТ: Попытка подключения не под sshuser -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 5.6</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Попытка подключения не из-под пользователя sshuser — запрещено<br>
             <strong>Файл:</strong> <code>screenshots/part05_img06.png</code>
         </div>
@@ -737,469 +873,555 @@ br-rtr(config)#write memory</code></pre>
         <!-- ЧАСТЬ 6: GRE ТУННЕЛЬ                      -->
         <!-- ========================================= -->
 
-        <h2>🔄 11. Настройка GRE туннеля HQ-RTR ↔ BR-RTR</h2>
+        <h2>🔄 Настройка GRE туннеля HQ-RTR ↔ BR-RTR</h2>
 
-        <p><strong>HQ-RTR:</strong></p>
-<pre><code>hq-rtr>enable
-hq-rtr#configure terminal
+        <p>HQ-RTR:</p>
+<pre><code>hq-rtr>enable 
+hq-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
 hq-rtr(config)#interface tunnel.0
 hq-rtr(config-if-tunnel)#description "GRE"
 hq-rtr(config-if-tunnel)#ip address 10.10.10.1/30
 hq-rtr(config-if-tunnel)#ip tunnel 172.16.1.2 172.16.2.2 mode gre
+
+2025-09-04 06:23:20      INFO      Interface tunnel.0 changed state to up
 hq-rtr(config-if-tunnel)#exit
-hq-rtr(config)#write memory</code></pre>
+hq-rtr(config)#write memory
+Building configuration...
 
-        <!-- СКРИНШОТ 6.1: Настройка GRE туннеля на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 6.1</strong><br>
-            <strong>Описание:</strong> Процесс настройки GRE туннеля на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part06_img01.png</code>
-        </div>
+hq-rtr(config)#</code></pre>
 
-        <p><strong>BR-RTR:</strong></p>
-<pre><code>br-rtr>enable
-br-rtr#configure terminal
+        <p>BR-RTR:</p>
+<pre><code>br-rtr>enable 
+br-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
 br-rtr(config)#interface tunnel.0
 br-rtr(config-if-tunnel)#description "GRE"
 br-rtr(config-if-tunnel)#ip address 10.10.10.2/30
-br-rtr(config-if-tunnel)#ip tunnel 172.16.2.2 172.16.1.2 mode gre
-br-rtr(config-if-tunnel)#exit
-br-rtr(config)#write memory</code></pre>
+br-rtr(config-if-tunnel)#ip tunnel 172.16.2.2 172.16.1.2 mode gre 
 
-        <!-- СКРИНШОТ 6.2: Настройка GRE туннеля на BR-RTR -->
+2025-09-04 06:25:05      INFO      Interface tunnel.0 changed state to up
+br-rtr(config-if-tunnel)#exit
+br-rtr(config)#write memory
+Building configuration...
+
+br-rtr(config)#</code></pre>
+
+        <p>
+            Проверить:<br>
+            Режим работы туннеля и наличие IP-адреса на HQ-RTR (GRE):
+        </p>
+        <!-- СКРИНШОТ: Статус туннеля на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 6.2</strong><br>
-            <strong>Описание:</strong> Процесс настройки GRE туннеля на BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на HQ-RTR (GRE)<br>
+            <strong>Файл:</strong> <code>screenshots/part06_img01.png</code>
+        </div>
+
+        <p>Режим работы туннеля и наличие IP-адреса на BR-RTR (GRE):</p>
+        <!-- СКРИНШОТ: Статус туннеля на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на BR-RTR (GRE)<br>
             <strong>Файл:</strong> <code>screenshots/part06_img02.png</code>
         </div>
 
-        <p><strong>Проверка на HQ-RTR:</strong></p>
-        <!-- СКРИНШОТ 6.3: Статус туннеля и IP на HQ-RTR -->
+        <p>Связность по туннелю между HQ-RTR ↔ BR-RTR:</p>
+        <!-- СКРИНШОТ: ping HQ-RTR -> BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 6.3</strong><br>
-            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на HQ-RTR (GRE)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Связность по туннелю (ping 10.10.10.2 с HQ-RTR)<br>
             <strong>Файл:</strong> <code>screenshots/part06_img03.png</code>
         </div>
 
-        <p><strong>Проверка на BR-RTR:</strong></p>
-        <!-- СКРИНШОТ 6.4: Статус туннеля и IP на BR-RTR -->
+        <p>Связность по туннелю между BR-RTR ↔ HQ-RTR:</p>
+        <!-- СКРИНШОТ: ping BR-RTR -> HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 6.4</strong><br>
-            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на BR-RTR (GRE)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Связность по туннелю (ping 10.10.10.1 с BR-RTR)<br>
             <strong>Файл:</strong> <code>screenshots/part06_img04.png</code>
         </div>
-
-        <p><strong>Проверка связности:</strong></p>
-<pre><code>hq-rtr#ping 10.10.10.2
-br-rtr#ping 10.10.10.1</code></pre>
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 7: OSPFv2                           -->
         <!-- ========================================= -->
 
-        <h2>🛣️ 12. Настройка OSPFv2 на HQ-RTR и BR-RTR</h2>
+        <h2>🛣️ Настройка OSPFv2 на HQ-RTR и BR-RTR</h2>
 
-        <p><strong>HQ-RTR:</strong></p>
-<pre><code>hq-rtr>enable
-hq-rtr#configure terminal
+        <p>HQ-RTR:</p>
+<pre><code>hq-rtr>enable 
+hq-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
 hq-rtr(config)#router ospf 1
 hq-rtr(config-router)#ospf router-id 10.10.10.1
-hq-rtr(config-router)#passive-interface default
-hq-rtr(config-router)#no passive-interface tunnel.0
+hq-rtr(config-router)#passive-interface default 
+hq-rtr(config-router)#no passive-interface tunnel.0 
 hq-rtr(config-router)#network 10.10.10.0/30 area 0
 hq-rtr(config-router)#network 192.168.100.0/27 area 0
 hq-rtr(config-router)#network 192.168.200.0/24 area 0
 hq-rtr(config-router)#network 192.168.99.0/29 area 0
 hq-rtr(config-router)#exit</code></pre>
 
-        <p><strong>Аутентификация OSPF на HQ-RTR:</strong></p>
+        <p>Обеспечиваем защиту протокола маршрутизации посредством парольной защиты:</p>
 <pre><code>hq-rtr(config)#interface tunnel.0
-hq-rtr(config-if-tunnel)#ip ospf authentication message-digest
+hq-rtr(config-if-tunnel)#ip ospf authentication message-digest 
 hq-rtr(config-if-tunnel)#ip ospf message-digest-key 1 md5 P@ssw0rd
 hq-rtr(config-if-tunnel)#exit
-hq-rtr(config)#write memory</code></pre>
+hq-rtr(config)#write memory
+Building configuration...
 
-        <!-- СКРИНШОТ 7.1: Настройка OSPF на HQ-RTR -->
+hq-rtr(config)#</code></pre>
+
+        <p>BR-RTR:</p>
+<pre><code>br-rtr>enable 
+br-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+br-rtr(config)#router ospf 1
+br-rtr(config-router)#ospf router-id 10.10.10.2
+br-rtr(config-router)#passive-interface default 
+br-rtr(config-router)#no passive-interface tunnel.0 
+br-rtr(config-router)#network 192.168.0.0/28 area 0
+br-rtr(config-router)#network 10.10.10.0/30 area 0
+br-rtr(config-router)#exit
+br-rtr(config)#interface tunnel.0
+br-rtr(config-if-tunnel)#ip ospf authentication message-digest 
+br-rtr(config-if-tunnel)#ip ospf message-digest-key 1 md5 P@ssw0rd
+br-rtr(config-if-tunnel)#exit
+br-rtr(config)#write memory
+Building configuration...
+
+br-rtr(config)#</code></pre>
+
+        <p>
+            Проверяем:<br>
+            Наличие аутентификации на интерфейсе по которому предусмотрено установление соседства и обмен маршрутной информации:
+        </p>
+        <!-- СКРИНШОТ: Проверка аутентификации OSPF -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.1</strong><br>
-            <strong>Описание:</strong> Настройка OSPFv2 на HQ-RTR (router-id, сети, пассивные интерфейсы)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие аутентификации на интерфейсе tunnel.0<br>
             <strong>Файл:</strong> <code>screenshots/part07_img01.png</code>
         </div>
 
-        <!-- СКРИНШОТ 7.2: Настройка аутентификации OSPF на HQ-RTR -->
+        <p>Маршрутизаторы должны делиться маршрутами только друг с другом:</p>
+        <p>HQ-RTR:</p>
+        <!-- СКРИНШОТ: Маршруты на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.2</strong><br>
-            <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 HQ-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Маршруты на HQ-RTR (show ip route ospf)<br>
             <strong>Файл:</strong> <code>screenshots/part07_img02.png</code>
         </div>
 
-        <p><strong>BR-RTR:</strong></p>
-<pre><code>br-rtr>enable
-br-rtr#configure terminal
-br-rtr(config)#router ospf 1
-br-rtr(config-router)#ospf router-id 10.10.10.2
-br-rtr(config-router)#passive-interface default
-br-rtr(config-router)#no passive-interface tunnel.0
-br-rtr(config-router)#network 192.168.0.0/28 area 0
-br-rtr(config-router)#network 10.10.10.0/30 area 0
-br-rtr(config-router)#exit</code></pre>
-
-        <p><strong>Аутентификация OSPF на BR-RTR:</strong></p>
-<pre><code>br-rtr(config)#interface tunnel.0
-br-rtr(config-if-tunnel)#ip ospf authentication message-digest
-br-rtr(config-if-tunnel)#ip ospf message-digest-key 1 md5 P@ssw0rd
-br-rtr(config-if-tunnel)#exit
-br-rtr(config)#write memory</code></pre>
-
-        <!-- СКРИНШОТ 7.3: Настройка OSPF на BR-RTR -->
+        <p>BR-RTR:</p>
+        <!-- СКРИНШОТ: Маршруты на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.3</strong><br>
-            <strong>Описание:</strong> Настройка OSPFv2 на BR-RTR (router-id, сети, пассивные интерфейсы)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Маршруты на BR-RTR (show ip route ospf)<br>
             <strong>Файл:</strong> <code>screenshots/part07_img03.png</code>
         </div>
 
-        <!-- СКРИНШОТ 7.4: Настройка аутентификации OSPF на BR-RTR -->
+        <p>Наличие установленного соседства:</p>
+        <!-- СКРИНШОТ: Соседство OSPF на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.4</strong><br>
-            <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие установленного соседства OSPF (show ip ospf neighbor) на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part07_img04.png</code>
         </div>
-
-        <p><strong>Проверка аутентификации на интерфейсе:</strong></p>
-        <!-- СКРИНШОТ 7.5: Проверка аутентификации на tunnel.0 -->
+        <!-- СКРИНШОТ: Соседство OSPF на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.5</strong><br>
-            <strong>Описание:</strong> Наличие аутентификации на интерфейсе tunnel.0 для установления соседства<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие установленного соседства OSPF (show ip ospf neighbor) на BR-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part07_img05.png</code>
         </div>
 
-        <p><strong>Проверка маршрутов на HQ-RTR:</strong></p>
-        <!-- СКРИНШОТ 7.6: Маршруты на HQ-RTR -->
+        <p>Наличие полученных маршрутов по OSPF:</p>
+        <!-- СКРИНШОТ: Полученные маршруты OSPF на HQ-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.6</strong><br>
-            <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (HQ-RTR)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF на HQ-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part07_img06.png</code>
         </div>
-
-        <p><strong>Проверка маршрутов на BR-RTR:</strong></p>
-        <!-- СКРИНШОТ 7.7: Маршруты на BR-RTR -->
+        <!-- СКРИНШОТ: Полученные маршруты OSPF на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.7</strong><br>
-            <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (BR-RTR)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF на BR-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part07_img07.png</code>
         </div>
 
-        <p><strong>Проверка установленного соседства OSPF:</strong></p>
-        <!-- СКРИНШОТ 7.8: Состояние соседства OSPF -->
+        <p>Связность между устройствами офиса HQ и BR:</p>
+        <!-- СКРИНШОТ: Связность HQ -> BR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.8</strong><br>
-            <strong>Описание:</strong> Наличие установленного соседства OSPF между HQ-RTR и BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Связность между устройствами офиса HQ и BR (ping с HQ-SRV на BR-SRV)<br>
             <strong>Файл:</strong> <code>screenshots/part07_img08.png</code>
         </div>
-
-        <p><strong>Проверка полученных маршрутов по OSPF:</strong></p>
-        <!-- СКРИНШОТ 7.9: Полученные маршруты OSPF -->
+        <!-- СКРИНШОТ: Связность BR -> HQ -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 7.9</strong><br>
-            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF (show ip route ospf)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Связность между устройствами офиса BR и HQ (ping с BR-SRV на HQ-SRV)<br>
             <strong>Файл:</strong> <code>screenshots/part07_img09.png</code>
         </div>
-
-        <p><strong>Связность между устройствами офиса HQ и BR:</strong></p>
-<pre><code>ping 192.168.0.2</code></pre>
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 8: NAT (STATIC SOURCE PAT)          -->
         <!-- ========================================= -->
 
-        <h2>🌍 13. Настройка Static Source PAT (NAT) на HQ-RTR</h2>
+        <h2>🌍 Настройка Static Source PAT (NAT) на HQ-RTR</h2>
 
-        <p><strong>Назначение интерфейсов NAT:</strong></p>
-<pre><code>hq-rtr>enable
-hq-rtr#configure terminal
-hq-rtr(config)#interface isp
-hq-rtr(config-if)#ip nat outside
-hq-rtr(config-if)#exit
-hq-rtr(config)#interface vl100
-hq-rtr(config-if)#ip nat inside
-hq-rtr(config-if)#exit
-hq-rtr(config)#interface vl200
-hq-rtr(config-if)#ip nat inside
-hq-rtr(config-if)#exit
-hq-rtr(config)#interface vl999
-hq-rtr(config-if)#ip nat inside
+        <p>
+            С точки зрения EcoRouter - реализуем конфигурацию static source PAT:<br>
+            Интерфейс в сторону ISP с именем isp - назначаем как nat outside:
+        </p>
+<pre><code>hq-rtr>enable 
+hq-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+hq-rtr(config)#interface isp 
+hq-rtr(config-if)#ip nat outside 
 hq-rtr(config-if)#exit</code></pre>
 
-        <!-- СКРИНШОТ 8.1: Назначение ip nat outside/inside на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 8.1</strong><br>
-            <strong>Описание:</strong> Назначение интерфейсов isp (outside) и vl100/vl200/vl999 (inside) для NAT<br>
-            <strong>Файл:</strong> <code>screenshots/part08_img01.png</code>
-        </div>
+        <p>Подинтерфейсы vl100, vl200, vl999 - назначаем как nat inside:</p>
+<pre><code>hq-rtr(config)#interface vl100 
+hq-rtr(config-if)#ip nat inside 
+hq-rtr(config-if)#exit
+hq-rtr(config)#interface vl200
+hq-rtr(config-if)#ip nat inside 
+hq-rtr(config-if)#exit
+hq-rtr(config)#interface vl999 
+hq-rtr(config-if)#ip nat inside 
+hq-rtr(config-if)#exit</code></pre>
 
-        <p><strong>Создание пулов адресов:</strong></p>
+        <p>создаём пулы адресов для локальных подсетей офиса HQ для входящего трафика - указываем диапазон адресов из выделенных подсетей:</p>
 <pre><code>hq-rtr(config)#ip nat pool VLAN100 192.168.100.1-192.168.100.30
 hq-rtr(config)#ip nat pool VLAN200 192.168.200.1-192.168.200.254
 hq-rtr(config)#ip nat pool VLAN999 192.168.99.1-192.168.99.6</code></pre>
 
-        <!-- СКРИНШОТ 8.2: Создание пулов NAT -->
+        <p>задаём правила для трансляции адресов:</p>
+<pre><code>hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN100 overload interface isp 
+hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN200 overload interface isp 
+hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN999 overload interface isp 
+hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#</code></pre>
+
+        <p>Проверяем доступ в сеть Интернет с устройств офиса HQ - HQ-SRV:</p>
+        <!-- СКРИНШОТ: Доступ в Интернет с HQ-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 8.2</strong><br>
-            <strong>Описание:</strong> Создание пулов адресов для локальных подсетей офиса HQ<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступа в Интернет с HQ-SRV (ping 8.8.8.8)<br>
+            <strong>Файл:</strong> <code>screenshots/part08_img01.png</code>
+        </div>
+
+        <p>Проверяем заполнение таблицы трансляции адресов на HQ-RTR:</p>
+        <!-- СКРИНШОТ: Таблица NAT на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Заполнение таблицы трансляции адресов на HQ-RTR (show ip nat translations)<br>
             <strong>Файл:</strong> <code>screenshots/part08_img02.png</code>
         </div>
 
-        <p><strong>Правила трансляции:</strong></p>
-<pre><code>hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN100 overload interface isp
-hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN200 overload interface isp
-hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN999 overload interface isp
-hq-rtr(config)#write memory</code></pre>
+        <h2>🌍 Настройка NAT на BR-RTR</h2>
 
-        <!-- СКРИНШОТ 8.3: Создание правил NAT -->
+        <p>Настраиваем аналогично HQ-RTR:</p>
+<pre><code>br-rtr>enable 
+br-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+br-rtr(config)#interface isp 
+br-rtr(config-if)#ip nat outside 
+br-rtr(config-if)#exit
+br-rtr(config)#interface int1 
+br-rtr(config-if)#ip nat inside 
+br-rtr(config-if)#exit
+br-rtr(config)#ip nat pool BR-Net 192.168.0.1-192.168.0.14
+br-rtr(config)#ip nat source dynamic inside-to-outside pool BR-Net overload interface isp                 
+br-rtr(config)#exit
+br-rtr#write memory 
+Building configuration...
+
+br-rtr#</code></pre>
+
+        <p>Проверяем доступ в сеть Интернет с устройств офиса BR - BR-SRV:</p>
+        <!-- СКРИНШОТ: Доступ в Интернет с BR-SRV -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 8.3</strong><br>
-            <strong>Описание:</strong> Задание правил для трансляции адресов (PAT с overload)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступа в Интернет с BR-SRV (ping 8.8.8.8)<br>
             <strong>Файл:</strong> <code>screenshots/part08_img03.png</code>
         </div>
 
-        <p><strong>Проверка доступа в Интернет с HQ-SRV:</strong></p>
-        <!-- СКРИНШОТ 8.4: Проверка доступа в Интернет с HQ-SRV -->
+        <p>Проверяем заполнение таблицы трансляции адресов на BR-RTR:</p>
+        <!-- СКРИНШОТ: Таблица NAT на BR-RTR -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 8.4</strong><br>
-            <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства HQ-SRV (ping 8.8.8.8)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Заполнение таблицы трансляции адресов на BR-RTR (show ip nat translations)<br>
             <strong>Файл:</strong> <code>screenshots/part08_img04.png</code>
         </div>
-
-        <p><strong>Проверка таблицы трансляции на HQ-RTR:</strong></p>
-<pre><code>show ip nat translations</code></pre>
-
-        <h2>🌍 14. Настройка NAT на BR-RTR</h2>
-
-<pre><code>br-rtr>enable
-br-rtr#configure terminal
-br-rtr(config)#interface isp
-br-rtr(config-if)#ip nat outside
-br-rtr(config-if)#exit
-br-rtr(config)#interface int1
-br-rtr(config-if)#ip nat inside
-br-rtr(config-if)#exit
-br-rtr(config)#ip nat pool BR-Net 192.168.0.1-192.168.0.14
-br-rtr(config)#ip nat source dynamic inside-to-outside pool BR-Net overload interface isp
-br-rtr(config)#exit
-br-rtr#write memory</code></pre>
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 9: DHCP-СЕРВЕР                      -->
         <!-- ========================================= -->
 
-        <h2>📡 15. Настройка DHCP-сервера на HQ-RTR для VLAN200</h2>
+        <h2>📡 Настройка DHCP-сервера на HQ-RTR для VLAN200</h2>
 
-<pre><code>hq-rtr>enable
-hq-rtr#configure terminal
-hq-rtr(config)#ip pool VLAN200 192.168.200.2-192.168.200.254
-hq-rtr(config)#dhcp-server 1
-hq-rtr(config-dhcp-server)#pool VLAN200 1
-hq-rtr(config-dhcp-server-pool)#mask 24
+        <p>
+            Задаём POOL адресов с именем VLAN200, затем задаём диапазон IP-адресов, который будет раздаваться DHCP сервером:<br>
+            в данном случае раздаваться будет вся клиентская подсеть за исключением IP-адреса маршрутизатора HQ-RTR
+        </p>
+<pre><code>hq-rtr>enable 
+hq-rtr#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+hq-rtr(config)#ip pool VLAN200 192.168.200.2-192.168.200.254</code></pre>
+
+        <p>
+            Для настройки DHCP-сервера необходимо в режиме конфигурации ввести команду dhcp-server &lt;NUMBER&gt;<br>
+            где NUMBER – номер сервера в системе маршрутизатора:
+        </p>
+<pre><code>hq-rtr(config)#dhcp-server 1
+hq-rtr(config-dhcp-server)#</code></pre>
+
+        <p>Привязываем ранее созданный POOL раздаваемых адресов с именем VLAN200 с номером DHCP-сервера в системе маршрутизатора 1:</p>
+<pre><code>hq-rtr(config-dhcp-server)#pool VLAN200 1
+hq-rtr(config-dhcp-server-pool)</code></pre>
+
+        <p>Задаём основные параметры для раздачи DHCP сервером:</p>
+<pre><code>hq-rtr(config-dhcp-server-pool)#mask 24
 hq-rtr(config-dhcp-server-pool)#gateway 192.168.200.1
 hq-rtr(config-dhcp-server-pool)#dns 192.168.100.2
 hq-rtr(config-dhcp-server-pool)#domain-name au-team.irpo
 hq-rtr(config-dhcp-server-pool)#exit
-hq-rtr(config-dhcp-server)#exit
-hq-rtr(config)#interface vl200
+hq-rtr(config-dhcp-server)#exit</code></pre>
+
+        <p>
+            После настройки сервера необходимо указать, на каком интерфейсе маршрутизатор будет принимать пакеты DHCP Discover и отвечать на них предложением с IP-настройками:<br>
+            в данном случае подинтерфейс с именем vl200 смотрит в сторону клиентской подсети (vlan200)
+        </p>
+<pre><code>hq-rtr(config)#interface vl200 
 hq-rtr(config-if)#dhcp-server 1
 hq-rtr(config-if)#exit
-hq-rtr(config)#write memory</code></pre>
+hq-rtr(config)#write memory
+Building configuration...
 
-        <!-- СКРИНШОТ 9.1: Создание пула DHCP -->
+hq-rtr(config)#</code></pre>
+
+        <p>
+            Проверить, наличие полученных параметров по DHCP на HQ-CLI:<br>
+            в Центре Управления Системой (ЦУС) выбрать в качестве режима работы сетевой подсистемы:
+        </p>
+        <!-- СКРИНШОТ: ЦУС выбор режима DHCP -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.1</strong><br>
-            <strong>Описание:</strong> Создание пула адресов VLAN200 для DHCP-сервера<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> В ЦУС выбор режима работы сетевой подсистемы — DHCP<br>
             <strong>Файл:</strong> <code>screenshots/part09_img01.png</code>
         </div>
 
-        <!-- СКРИНШОТ 9.2: Настройка DHCP-сервера -->
+        <p>В настройках интерфейса выставить получение сетевых параметров по DHCP:</p>
+        <!-- СКРИНШОТ: Настройка интерфейса на DHCP (1) -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.2</strong><br>
-            <strong>Описание:</strong> Настройка параметров DHCP-сервера (маска, шлюз, DNS, домен)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 1)<br>
             <strong>Файл:</strong> <code>screenshots/part09_img02.png</code>
         </div>
-
-        <!-- СКРИНШОТ 9.3: Привязка DHCP к интерфейсу vl200 -->
+        <!-- СКРИНШОТ: Настройка интерфейса на DHCP (2) -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.3</strong><br>
-            <strong>Описание:</strong> Привязка DHCP-сервера к интерфейсу vl200<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 2)<br>
             <strong>Файл:</strong> <code>screenshots/part09_img03.png</code>
         </div>
-
-        <p><strong>Настройка HQ-CLI (ЦУС):</strong></p>
-        <!-- СКРИНШОТ 9.4: Выбор режима DHCP в ЦУС -->
+        <!-- СКРИНШОТ: Настройка интерфейса на DHCP (3) -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.4</strong><br>
-            <strong>Описание:</strong> В Центре Управления Системой (ЦУС) выбор режима работы сетевой подсистемы — DHCP<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 3)<br>
             <strong>Файл:</strong> <code>screenshots/part09_img04.png</code>
         </div>
 
-        <!-- СКРИНШОТ 9.5: Настройка интерфейса на получение IP по DHCP -->
+        <p>Проверить наличие полученных сетевых параметров:</p>
+        <!-- СКРИНШОТ: Полученные параметры на HQ-CLI -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.5</strong><br>
-            <strong>Описание:</strong> В настройках интерфейса выставление получения сетевых параметров по DHCP<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Наличие полученных сетевых параметров по DHCP на HQ-CLI<br>
             <strong>Файл:</strong> <code>screenshots/part09_img05.png</code>
         </div>
 
-        <p><strong>Проверка полученных параметров на HQ-CLI:</strong></p>
-        <!-- СКРИНШОТ 9.6: Полученные сетевые параметры на HQ-CLI -->
+        <p>Проверить доступ в сеть Интернет:</p>
+        <!-- СКРИНШОТ: Доступ в Интернет с HQ-CLI -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 9.6</strong><br>
-            <strong>Описание:</strong> Наличие полученных сетевых параметров по DHCP на HQ-CLI<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступа в Интернет с HQ-CLI (ping 8.8.8.8)<br>
             <strong>Файл:</strong> <code>screenshots/part09_img06.png</code>
         </div>
 
-        <p><strong>Проверка доступа в Интернет с HQ-CLI:</strong></p>
-<pre><code>ping 8.8.8.8</code></pre>
-
-        <p><strong>Проверка клиентов DHCP-сервера на HQ-RTR:</strong></p>
-<pre><code>show dhcp-server binding</code></pre>
+        <p>Проверить, клиентов по отношению к DHCP-серверу на HQ-RTR:</p>
+        <!-- СКРИНШОТ: Клиенты DHCP-сервера -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка клиентов DHCP-сервера на HQ-RTR (show dhcp-server binding)<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img07.png</code>
+        </div>
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 10: DNS-СЕРВЕР BIND                 -->
         <!-- ========================================= -->
 
-        <h2>📧 16. Настройка DNS-сервера (BIND) на HQ-SRV</h2>
+        <h2>📧 Настройка DNS-сервера (BIND) на HQ-SRV</h2>
 
-        <p><strong>Установка BIND:</strong></p>
+        <p>Для установки и дальнейшей настройки DNS-сервера, необходимо выполнить установку пакета BIND:</p>
 <pre><code>apt-get update && apt-get install bind bind-utils -y</code></pre>
 
-        <!-- СКРИНШОТ 10.1: Установка пакетов bind -->
+        <p>Далее выполняется редактирование конфигурационного файла /var/lib/bind/etc/options.conf согласно скриншоту</p>
+<pre><code>vim /var/lib/bind/etc/options.conf</code></pre>
+
+        <p>
+            где:<br>
+            listen-on параметр определяет адреса и порты, на которых DNS-сервер будет слушать запросы;<br>
+            В параметре forwarders указываются сервера, куда будут перенаправляться запросы, на которые нет информации в локальной зоне;<br>
+            allow-query – IP-адреса и подсети от которых будут обрабатываться запросы;
+        </p>
+        <!-- СКРИНШОТ: options.conf -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.1</strong><br>
-            <strong>Описание:</strong> Установка пакетов BIND и bind-utils<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла /var/lib/bind/etc/options.conf<br>
             <strong>Файл:</strong> <code>screenshots/part10_img01.png</code>
         </div>
 
-        <p><strong>Редактирование <code>/var/lib/bind/etc/options.conf</code>:</strong></p>
-        <!-- СКРИНШОТ 10.2: Содержимое options.conf -->
+        <p>Далее необходимо добавить зоны прямого и обратного просмотра в файл /var/lib/bind/etc/rfc1912.conf:</p>
+<pre><code>vim /var/lib/bind/etc/rfc1912.conf</code></pre>
+
+        <p>Добавляем следующее содержимое (в конец файла):</p>
+        <!-- СКРИНШОТ: rfc1912.conf с зонами -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.2</strong><br>
-            <strong>Описание:</strong> Содержимое файла /var/lib/bind/etc/options.conf (listen-on, forwarders, allow-query)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Добавление зон прямого и обратного просмотра в rfc1912.conf<br>
             <strong>Файл:</strong> <code>screenshots/part10_img02.png</code>
         </div>
 
-        <p><strong>Добавление зон в <code>/var/lib/bind/etc/rfc1912.conf</code>:</strong></p>
-        <!-- СКРИНШОТ 10.3: Добавление зон в rfc1912.conf -->
+        <p>Создаём файлы зон прямого и обратного просмотра из шаблона:</p>
+        <!-- СКРИНШОТ: Создание файлов зон из шаблона -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.3</strong><br>
-            <strong>Описание:</strong> Добавление зон прямого и обратного просмотра в файл rfc1912.conf<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Создание файлов зон из шаблона (cp ...)<br>
             <strong>Файл:</strong> <code>screenshots/part10_img03.png</code>
         </div>
 
-        <p><strong>Создание файлов зон из шаблона:</strong></p>
-        <!-- СКРИНШОТ 10.4: Копирование шаблонов зон -->
+        <p>Необходимо сконфигурировать файл au-team.irpo:</p>
+<pre><code>vim /var/lib/bind/etc/zone/au-team.irpo</code></pre>
+
+        <p>который является прямой зоной следующим образом:</p>
+        <!-- СКРИНШОТ: Прямая зона au-team.irpo -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.4</strong><br>
-            <strong>Описание:</strong> Создание файлов зон из шаблона (cp ...)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла прямой зоны au-team.irpo<br>
             <strong>Файл:</strong> <code>screenshots/part10_img04.png</code>
         </div>
 
-        <p><strong>Настройка прямой зоны <code>/var/lib/bind/etc/zone/au-team.irpo</code>:</strong></p>
-        <!-- СКРИНШОТ 10.5: Содержимое прямой зоны -->
+        <p>Далее необходимо настроить обратную зону и привести файл 100.168.192.in-addr.arpa:</p>
+<pre><code>vim /var/lib/bind/etc/zone/100.168.192.in-addr.arpa</code></pre>
+
+        <p>к следующему виду:</p>
+        <!-- СКРИНШОТ: Обратная зона 100.168.192.in-addr.arpa -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.5</strong><br>
-            <strong>Описание:</strong> Содержимое файла прямой зоны au-team.irpo (SOA, NS, A-записи)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла обратной зоны 100.168.192.in-addr.arpa<br>
             <strong>Файл:</strong> <code>screenshots/part10_img05.png</code>
         </div>
 
-        <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/100.168.192.in-addr.arpa</code>:</strong></p>
-        <!-- СКРИНШОТ 10.6: Содержимое обратной зоны 100.168.192.in-addr.arpa -->
+        <p>Далее необходимо настроить обратную зону и привести файл 200.168.192.in-addr.arpa:</p>
+<pre><code>vim /var/lib/bind/etc/zone/200.168.192.in-addr.arpa</code></pre>
+
+        <p>к следующему виду:</p>
+        <!-- СКРИНШОТ: Обратная зона 200.168.192.in-addr.arpa -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.6</strong><br>
-            <strong>Описание:</strong> Содержимое файла обратной зоны 100.168.192.in-addr.arpa (PTR-записи)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Содержимое файла обратной зоны 200.168.192.in-addr.arpa<br>
             <strong>Файл:</strong> <code>screenshots/part10_img06.png</code>
         </div>
 
-        <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/200.168.192.in-addr.arpa</code>:</strong></p>
-        <!-- СКРИНШОТ 10.7: Содержимое обратной зоны 200.168.192.in-addr.arpa -->
+        <p>
+            Для DNS-сервиса важно обеспечить непрерывный аптайм, не допуская даже минутных простоев.<br>
+            Если вы попытаетесь перезапустить systemd-юнит обычной командой systemctl, а в конфигурации будут ошибки, то BIND не запустится.
+        </p>
+        <!-- СКРИНШОТ: Предупреждение о перезапуске BIND -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.7</strong><br>
-            <strong>Описание:</strong> Содержимое файла обратной зоны 200.168.192.in-addr.arpa (PTR-записи)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Предупреждение о проблемах при перезапуске BIND с ошибками в конфигурации<br>
             <strong>Файл:</strong> <code>screenshots/part10_img07.png</code>
         </div>
 
-        <p><strong>Настройка rndc:</strong></p>
-<pre><code>rndc-confgen > /var/lib/bind/etc/rndc.key
-sed -i '6,$d' /var/lib/bind/etc/rndc.key</code></pre>
+        <p>
+            Чтобы избежать столь неприятных последствий, надо правильно настроить утилиту rndc, которая позволяет обойти эти сложности.<br>
+            После того, как конфигурация зон была завершена, для корректной работы службы bind необходимо выполнить команду:
+        </p>
+<pre><code>rndc-confgen > /var/lib/bind/etc/rndc.key</code></pre>
 
-        <!-- СКРИНШОТ 10.8: Результат настройки rndc -->
+        <p>Затем выполнить команду:</p>
+<pre><code>sed -i '6,$d' /var/lib/bind/etc/rndc.key</code></pre>
+
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Результат rndc-confgen -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.8</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды rndc-confgen и sed<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат выполнения команд rndc-confgen и sed<br>
             <strong>Файл:</strong> <code>screenshots/part10_img08.png</code>
         </div>
 
-        <p><strong>Смена группы файлов зон:</strong></p>
-<pre><code>chgrp named /var/lib/bind/etc/zone/*</code></pre>
-
-        <!-- СКРИНШОТ 10.9: Смена группы файлов зон -->
+        <p>
+            Перед запуском службы остается поменять группу у файлов зон, которые были созданы ранее, на named<br>
+            а также проверить конфигурационные файлы и файлы зон командами named-checkconf и named-checkconf -z соответственно:
+        </p>
+        <!-- СКРИНШОТ: named-checkconf -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.9</strong><br>
-            <strong>Описание:</strong> Смена группы у файлов зон на named<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат проверки конфигурационных файлов командой named-checkconf<br>
             <strong>Файл:</strong> <code>screenshots/part10_img09.png</code>
         </div>
-
-        <p><strong>Проверка конфигурации:</strong></p>
-<pre><code>named-checkconf
-named-checkconf -z</code></pre>
-
-        <!-- СКРИНШОТ 10.10: Результат named-checkconf -->
+        <!-- СКРИНШОТ: named-checkconf -z -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.10</strong><br>
-            <strong>Описание:</strong> Результат проверки конфигурационных файлов командой named-checkconf<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат проверки файлов зон командой named-checkconf -z<br>
             <strong>Файл:</strong> <code>screenshots/part10_img10.png</code>
         </div>
-
-        <!-- СКРИНШОТ 10.11: Результат named-checkconf -z -->
+        <!-- СКРИНШОТ: Смена группы файлов зон -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.11</strong><br>
-            <strong>Описание:</strong> Результат проверки файлов зон командой named-checkconf -z<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Смена группы у файлов зон на named<br>
             <strong>Файл:</strong> <code>screenshots/part10_img11.png</code>
         </div>
 
-        <p><strong>Запуск службы:</strong></p>
-<pre><code>systemctl enable --now bind.service
-systemctl status bind.service</code></pre>
+        <p>После этого можно запустить службу bind:</p>
+<pre><code>systemctl enable --now bind.service</code></pre>
 
-        <!-- СКРИНШОТ 10.12: Статус службы bind -->
+        <p>Проверить статус службы:</p>
+<pre><code>systemctl status bind.service</code></pre>
+
+        <p>Результат:</p>
+        <!-- СКРИНШОТ: Статус bind.service -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.12</strong><br>
+            📸 <strong>СКРИНШОТ</strong><br>
             <strong>Описание:</strong> Статус службы bind после запуска (systemctl status bind.service)<br>
             <strong>Файл:</strong> <code>screenshots/part10_img12.png</code>
         </div>
 
-        <p><strong>Проверка доступа в Интернет с использованием HQ-SRV в качестве DNS:</strong></p>
-        <!-- СКРИНШОТ 10.13: Проверка ping с использованием HQ-SRV как DNS -->
+        <p>Проверить доступ в сеть Интернет средствами утилиты ping, учитывая, что в качестве DNS-сервера используется HQ-SRV:</p>
+        <!-- СКРИНШОТ: Проверка ping с использованием HQ-SRV как DNS -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.13</strong><br>
-            <strong>Описание:</strong> Проверка доступа в сеть Интернет (ping) с использованием HQ-SRV в качестве DNS-сервера<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка доступа в Интернет (ping) с использованием HQ-SRV в качестве DNS-сервера<br>
             <strong>Файл:</strong> <code>screenshots/part10_img13.png</code>
         </div>
 
-        <p><strong>Проверка записей типа A:</strong></p>
-<pre><code>host au-team.irpo
-host hq-srv.au-team.irpo
-host br-srv.au-team.irpo</code></pre>
-        <!-- СКРИНШОТ 10.14: Результат проверки A-записей -->
+        <p>Используя утилиту host или nslookup проверить записи типа A, PTR:</p>
+
+        <p>Записи типа A:</p>
+        <!-- СКРИНШОТ: Проверка A-записей -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.14</strong><br>
-            <strong>Описание:</strong> Проверка записей типа A с помощью утилиты host или nslookup<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка записей типа A (host au-team.irpo, host hq-srv.au-team.irpo)<br>
             <strong>Файл:</strong> <code>screenshots/part10_img14.png</code>
         </div>
 
-        <p><strong>Проверка записей типа PTR:</strong></p>
-<pre><code>nslookup 192.168.100.2
-nslookup 192.168.200.2</code></pre>
-        <!-- СКРИНШОТ 10.15: Результат проверки PTR-записей -->
+        <p>Записи типа PTR:</p>
+        <!-- СКРИНШОТ: Проверка PTR-записей -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 10.15</strong><br>
-            <strong>Описание:</strong> Проверка записей типа PTR с помощью утилиты nslookup<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Проверка записей типа PTR (nslookup 192.168.100.2, nslookup 192.168.200.2)<br>
             <strong>Файл:</strong> <code>screenshots/part10_img15.png</code>
         </div>
 
@@ -1207,55 +1429,55 @@ nslookup 192.168.200.2</code></pre>
         <!-- ЧАСТЬ 11: НАСТРОЙКА ЧАСОВЫХ ПОЯСОВ        -->
         <!-- ========================================= -->
 
-        <h2>🕐 17. Настройка часовых поясов</h2>
+        <h2>🕐 Настройка часовых поясов</h2>
 
-        <p><strong>HQ-RTR и BR-RTR:</strong></p>
+        <p>HQ-RTR и BR-RTR:</p>
 <pre><code>hq-rtr(config)#ntp timezone utc+3
 hq-rtr(config)#write memory
+Building configuration...
+
+hq-rtr(config)#
 
 br-rtr(config)#ntp timezone utc+3
-br-rtr(config)#write memory</code></pre>
+br-rtr(config)#write memory
+Building configuration...
 
-        <p><strong>Проверка:</strong></p>
+br-rtr(config)#</code></pre>
+
+        <p>Проверить:</p>
 <pre><code>show ntp timezone</code></pre>
-
-        <!-- СКРИНШОТ 11.1: Проверка ntp timezone на EcoRouter -->
+        <!-- СКРИНШОТ: show ntp timezone на EcoRouter -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 11.1</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>show ntp timezone</code> на HQ-RTR/BR-RTR<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды show ntp timezone на HQ-RTR/BR-RTR<br>
             <strong>Файл:</strong> <code>screenshots/part11_img01.png</code>
         </div>
 
-        <p><strong>ISP | HQ-SRV | HQ-CLI | BR-SRV:</strong></p>
+        <p>ISP | HQ-SRV | HQ-CLI | BR-SRV:</p>
+        <p>Настройте часовой пояс на всех устройствах, согласно месту проведения экзамена:</p>
 <pre><code>timedatectl set-timezone Europe/Moscow</code></pre>
-        <p><strong>На JeOS возможно потребуется установка пакета tzdata.</strong></p>
 
-        <p><strong>Проверка:</strong></p>
-<pre><code>timedatectl</code></pre>
-
-        <!-- СКРИНШОТ 11.2: Результат timedatectl на Linux устройствах -->
+        <p>На JeOS возможно потребуется установка пакета tzdata:</p>
+        <!-- СКРИНШОТ: Установка tzdata -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 11.2</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды <code>timedatectl</code> на ISP/HQ-SRV/BR-SRV<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Установка пакета tzdata на JeOS (при необходимости)<br>
             <strong>Файл:</strong> <code>screenshots/part11_img02.png</code>
         </div>
 
-        <!-- СКРИНШОТ 11.3: Установка tzdata при необходимости -->
+        <p>Проверить:</p>
+<pre><code>timedatectl</code></pre>
+        <!-- СКРИНШОТ: timedatectl -->
         <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ 11.3</strong><br>
-            <strong>Описание:</strong> Установка пакета tzdata на JeOS (при необходимости)<br>
+            📸 <strong>СКРИНШОТ</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды timedatectl на ISP/HQ-SRV/BR-SRV<br>
             <strong>Файл:</strong> <code>screenshots/part11_img03.png</code>
         </div>
 
         <!-- ========================================= -->
-        <!-- КОНЕЦ БЛОКА СО ШПАРГАЛКАМИ                 -->
+        <!-- КОНЕЦ БЛОКА "searchableContent"           -->
         <!-- ========================================= -->
 
-
-    </div>
-
-    <div id="searchableContent">
-        <!-- Вся информация из 11 частей будет здесь -->
     </div>
 </div>
 
