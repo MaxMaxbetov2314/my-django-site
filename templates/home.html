@@ -1,121 +1,26 @@
 ﻿{% extends 'base.html' %}
 
-{% block title %}EcoRouter – официальный справочник команд CLI{% endblock %}
+{% block title %}Справочник команд EcoRouterOS — официальная документация{% endblock %}
 
 {% block content %}
 
-<h1>📖 Полный справочник команд EcoRouterOS</h1>
-<p>В таблице ниже приведены все доступные команды интерфейса командной строки (CLI) с указанием режима выполнения и необходимых прав доступа.</p>
+<!-- Хлебные крошки -->
+<p style="font-size: 13px; color: #6c7a89; margin-bottom: 20px;">
+    <a href="/" style="color: #ff8c42;">Главная</a> / Справочник команд CLI
+</p>
 
-<!-- Таблица команд (маскировка) с горизонтальной прокруткой для мобильных -->
-<div style="overflow-x: auto; margin: 20px 0;">
-    <table style="width: 100%; border-collapse: collapse; font-size: 14px; background-color: #0243B5; color: white; border: 1px solid #6EA8FF;">
-        <thead>
-            <tr style="background-color: #1E5FC0;">
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: left;">Команда</th>
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: left;">Описание</th>
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Режим</th>
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Admin</th>
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">NOC</th>
-                <th style="padding: 10px; border: 1px solid #6EA8FF; text-align: center;">Helpdesk</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- ========== РЕЖИМ "ПОЛЬЗОВАТЕЛЬ" (USER EXEC) ========== -->
-            <tr style="background-color: #1E5FC0;">
-                <td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Пользователь" (User EXEC)</td>
-            </tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">bgp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Border Gateway Protocol (BGP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">clear</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reset functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">crypto</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Security specific commands</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">debug</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Debugging functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">disable</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn off privileged mode command</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">enable</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn on privileged mode command</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">exit</td><td style="padding: 8px; border: 1px solid #6EA8FF;">End current mode and down to previous mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">help</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Description of the interactive help system</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">logout</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Exit from the EXEC</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">no</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Negate a command or set its defaults</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ping</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Send echo messages</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">quit</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Exit current mode and down to previous mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show access-group</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show access group</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show access-list</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show access list configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show banner motd</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show current motd banner message</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bgp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Border Gateway Protocol (BGP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bridge</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Bridge status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show bridge mac-table</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Bridge mac-table</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show cli</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show CLI tree of current mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show clns</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Connectionless-Mode Network Service (CLNS)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show controller</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Controller status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show counters</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Counters</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show debugging</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Debugging information outputs</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show dhcp-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">DHCP profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show files</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show all config, reports or dumps files on storage</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show filter-map</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Filterring rules</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show flow-export-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Flow export profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show hw</td><td style="padding: 8px; border: 1px solid #6EA8FF;">EcoRouter platform</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show interface</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Interface configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show ip</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Internet Protocol (IP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show isis</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Intermediate System — Intermediate System (IS-IS)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show lacp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">LACP</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show ldp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Label Distribution Protocol (LDP)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show list</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show command lists</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show users localdb</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display users database information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show log</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display log</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show mirror-session</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Mirror session status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show mpls</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show MPLS specific data</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show platform</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show platform information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show port</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Port status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show pppoe</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Point-to-Point over Ethernet (PPPoE)</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show privilege</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show current privilege level</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show reports</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show existing reports</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show role</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display information about role</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show running-config</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Current Operating configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show security-profile</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Security profile configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-classifier</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic classifier status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-limiter</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic limiter status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show traffic-scheduler</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Traffic scheduler status and configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show transceiver</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Transceiver information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show uptime</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Show system uptime</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show users connected</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display information about terminal lines</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show version</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Display version</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show virtual-router</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Virtual Router information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show vrrp</td><td style="padding: 8px; border: 1px solid #6EA8FF;">VRRP information</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set terminal line parameters</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">undebug</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Disable debugging functions (see also 'debug')</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">virtual-container</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Virtual container settings</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Польз</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+<h1>📖 Справочник команд интерфейса командной строки (CLI)</h1>
+<p>В данном разделе представлен полный список команд EcoRouterOS с указанием режимов выполнения и необходимых прав доступа.</p>
 
-            <!-- ========== РЕЖИМ "АДМИН" (PRIVILEGED EXEC) ========== -->
-            <tr style="background-color: #1E5FC0;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Администратор" (Privileged EXEC)</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">boot</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Boot options of EcoRouterOS</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">clear</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reset functions</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">configure terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Enter configuration mode</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">copy</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Copy from one place to another</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">poweroff</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Turn system off</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Halt and perform a cold restart</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload in &lt;1-600&gt;</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reboot device automatically after a certain timespan</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload at HH:MM</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Reboot device automatically at a certain time</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">reload cancel</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Cancel the scheduled reboot</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">start-shell</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Start shell</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">write</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Write running configuration to memory, file or terminal</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">show startup-config</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Contents of startup configuration</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Админ</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
+<!-- Вставьте сюда ТАБЛИЦУ КОМАНД (которая была в маскировочной части из предыдущего сообщения) -->
+<!-- Это длинная таблица, я её здесь не повторяю, но она у вас уже есть -->
 
-            <!-- ========== РЕЖИМ "КОНФИГУРАЦИЯ" (CONFIGURATION MODE) ========== -->
-            <tr style="background-color: #1E5FC0;"><td colspan="6" style="padding: 8px; font-weight: bold;">Режим "Конфигурация" (Configuration Mode)</td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">aaa</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Authentication Authorization Accounting</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">hostname</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set system's network name</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ip domain-name</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Set default domain name</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">ip name-server</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Add DNS server addresses</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">interface</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Select an interface to configure</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">username</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Establish User Name Authentication</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">enable password</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Assign the privileged level password</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-            <tr><td style="padding: 8px; border: 1px solid #6EA8FF;">snmp-server</td><td style="padding: 8px; border: 1px solid #6EA8FF;">Configure snmp server</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">Конф</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;">+</td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td><td style="padding: 8px; border: 1px solid #6EA8FF; text-align: center;"></td></tr>
-        </tbody>
-    </table>
-</div>
+<p style="margin-top: 20px; font-size: 14px; color: #6c7a89;">
+    <strong>💡 Совет:</strong> Для перехода в привилегированный режим используйте команду <code>enable</code>.
+    Полная версия документации доступна в формате PDF.
+</p>
 
-<p style="margin-top: 10px; font-size: 14px; color: #ccc;">📌 Примечание: команды доступны в зависимости от уровня привилегий. Для перехода в привилегированный режим используйте <code style="background: #1E5FC0; padding: 2px 5px; border-radius: 4px;">enable</code>. Полная версия документации — 843 КБ.</p>
-
+<hr style="margin: 30px 0; border: none; border-top: 1px solid #e0e4e8;">
 <!-- ========== СКРЫТЫЙ БЛОК С ШПАРГАЛКАМИ ========== -->
 <p style="margin-top: 40px; font-size: 0.95em; color: #ccc; border-top: 1px solid #6EA8FF; padding-top: 20px;">
     Если вам нужны дополнительные технические материалы для разработки, нажмите
@@ -136,160 +41,160 @@
     </div>
 
     <div id="searchableContent">
-     
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 1: НАСТРОЙКА ИМЕНИ УСТРОЙСТВ        -->
-            <!-- ========================================= -->
 
-            <h2>🔧 1. Настройка имени устройств (hostname)</h2>
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 1: НАСТРОЙКА ИМЕНИ УСТРОЙСТВ        -->
+        <!-- ========================================= -->
 
-            <h3>ISP (Linux)</h3>
+        <h2>🔧 1. Настройка имени устройств (hostname)</h2>
+
+        <h3>ISP (Linux)</h3>
 <pre><code>hostnamectl set-hostname isp; exec bash</code></pre>
-            <p><strong>Проверка:</strong></p>
+        <p><strong>Проверка:</strong></p>
 <pre><code>hostname</code></pre>
-            <!-- СКРИНШОТ 1.1: Результат выполнения hostname на ISP -->
-            <!-- Файл: screenshots/part01_img01.png -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.1</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>hostname</code> на устройстве ISP<br>
-                <strong>Ожидаемый результат:</strong> isp<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.1: Результат выполнения hostname на ISP -->
+        <!-- Файл: screenshots/part01_img01.png -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.1</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>hostname</code> на устройстве ISP<br>
+            <strong>Ожидаемый результат:</strong> isp<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img01.png</code>
+        </div>
 
-            <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
+        <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
 <pre><code>vim /etc/sysconfig/network</code></pre>
-            <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
+        <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
 
-            <h3>HQ-RTR (EcoRouter)</h3>
+        <h3>HQ-RTR (EcoRouter)</h3>
 <pre><code>ecorouter>enable
 ecorouter#configure terminal
 ecorouter(config)#hostname hq-rtr
 hq-rtr(config)#ip domain-name au-team.irpo
 hq-rtr(config)#write memory</code></pre>
-            <p><strong>Проверка имени устройства:</strong></p>
+        <p><strong>Проверка имени устройства:</strong></p>
 <pre><code>hq-rtr#show hostname</code></pre>
-            <!-- СКРИНШОТ 1.2: Результат show hostname на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.2</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>show hostname</code> на HQ-RTR<br>
-                <strong>Ожидаемый результат:</strong> hq-rtr<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.2: Результат show hostname на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.2</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>show hostname</code> на HQ-RTR<br>
+            <strong>Ожидаемый результат:</strong> hq-rtr<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img02.png</code>
+        </div>
 
-            <p><strong>Проверка доменного имени:</strong></p>
+        <p><strong>Проверка доменного имени:</strong></p>
 <pre><code>hq-rtr#show running-config | include domain-name</code></pre>
-            <!-- СКРИНШОТ 1.3: Результат проверки domain-name на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.3</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>show running-config | include domain-name</code> на HQ-RTR<br>
-                <strong>Ожидаемый результат:</strong> ip domain-name au-team.irpo<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.3: Результат проверки domain-name на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.3</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>show running-config | include domain-name</code> на HQ-RTR<br>
+            <strong>Ожидаемый результат:</strong> ip domain-name au-team.irpo<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img03.png</code>
+        </div>
 
-            <h3>BR-RTR (EcoRouter)</h3>
+        <h3>BR-RTR (EcoRouter)</h3>
 <pre><code>ecorouter>enable
 ecorouter#configure terminal
 ecorouter(config)#hostname br-rtr
 br-rtr(config)#ip domain-name au-team.irpo
 br-rtr(config)#write memory</code></pre>
-            <!-- СКРИНШОТ 1.4: Процесс настройки hostname на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.4</strong><br>
-                <strong>Описание:</strong> Процесс настройки hostname и domain-name на BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img04.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.4: Процесс настройки hostname на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.4</strong><br>
+            <strong>Описание:</strong> Процесс настройки hostname и domain-name на BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img04.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 1.5: Ожидаемый результат настройки BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.5</strong><br>
-                <strong>Описание:</strong> Ожидаемый результат после настройки BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img05.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.5: Ожидаемый результат настройки BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.5</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат после настройки BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img05.png</code>
+        </div>
 
-            <h3>HQ-SRV (Linux)</h3>
+        <h3>HQ-SRV (Linux)</h3>
 <pre><code>hostnamectl set-hostname hq-srv.au-team.irpo; exec bash</code></pre>
-            <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
+        <p><strong>Рекомендуется также указать имя в файле /etc/sysconfig/network:</strong></p>
 <pre><code>vim /etc/sysconfig/network</code></pre>
-            <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
-            <p><strong>Проверка:</strong></p>
+        <p>Указать имя в параметре <code>HOSTNAME</code>.</p>
+        <p><strong>Проверка:</strong></p>
 <pre><code>hostname -f</code></pre>
-            <!-- СКРИНШОТ 1.6: Результат hostname -f на HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.6</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>hostname -f</code> на HQ-SRV<br>
-                <strong>Ожидаемый результат:</strong> hq-srv.au-team.irpo<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img06.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.6: Результат hostname -f на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.6</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>hostname -f</code> на HQ-SRV<br>
+            <strong>Ожидаемый результат:</strong> hq-srv.au-team.irpo<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img06.png</code>
+        </div>
 
-            <h3>BR-SRV (Linux)</h3>
-            <p>Аналогично HQ-SRV</p>
-            <!-- СКРИНШОТ 1.7: Ожидаемый результат настройки BR-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.7</strong><br>
-                <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img07.png</code>
-            </div>
+        <h3>BR-SRV (Linux)</h3>
+        <p>Аналогично HQ-SRV</p>
+        <!-- СКРИНШОТ 1.7: Ожидаемый результат настройки BR-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.7</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img07.png</code>
+        </div>
 
-            <h3>HQ-CLI</h3>
-            <p>Для назначения имени устройства согласно топологии воспользуемся Центром Управления Системой (ЦУС).</p>
-            <!-- СКРИНШОТ 1.8: Настройка имени через ЦУС -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.8</strong><br>
-                <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС)<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img08.png</code>
-            </div>
+        <h3>HQ-CLI</h3>
+        <p>Для назначения имени устройства согласно топологии воспользуемся Центром Управления Системой (ЦУС).</p>
+        <!-- СКРИНШОТ 1.8: Настройка имени через ЦУС -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.8</strong><br>
+            <strong>Описание:</strong> Настройка имени устройства HQ-CLI через Центр Управления Системой (ЦУС)<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img08.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 1.9: Продолжение настройки через ЦУС -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.9</strong><br>
-                <strong>Описание:</strong> Продолжение настройки имени устройства через ЦУС<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img09.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.9: Продолжение настройки через ЦУС -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.9</strong><br>
+            <strong>Описание:</strong> Продолжение настройки имени устройства через ЦУС<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img09.png</code>
+        </div>
 
-            <p>После чего необходимо будет перезагрузить устройство:</p>
-            <!-- СКРИНШОТ 1.10: Процесс перезагрузки HQ-CLI -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.10</strong><br>
-                <strong>Описание:</strong> Процесс перезагрузки HQ-CLI после настройки имени<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img10.png</code>
-            </div>
+        <p>После чего необходимо будет перезагрузить устройство:</p>
+        <!-- СКРИНШОТ 1.10: Процесс перезагрузки HQ-CLI -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.10</strong><br>
+            <strong>Описание:</strong> Процесс перезагрузки HQ-CLI после настройки имени<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img10.png</code>
+        </div>
 
-            <hr>
+        <hr>
 
-            <h2>🌐 2. Основные понятия EcoRouter</h2>
+        <h2>🌐 2. Основные понятия EcoRouter</h2>
 
-            <p><strong>Порт (port)</strong> – это устройство в составе EcoRouter, которое работает на физическом уровне (L1).</p>
-            <p><strong>Интерфейс (interface)</strong> – это логический интерфейс для адресации, работает на сетевом уровне (L3).</p>
-            <p><strong>Service instance (Сабинтерфейс, SI, Сервисный интерфейс)</strong> является логическим сабинтерфейсом, работающим на канальном уровне (L2) и связывает L1, L2 и L3 уровни.</p>
-            <p>Данный вид интерфейса необходим для соединения физического порта с интерфейсами L3, интерфейсами bridge, портами. Используется для гибкого управления трафиком на основании наличия меток VLANов в фреймах, или их отсутствия. Сквозь сервисный интерфейс проходит весь трафик, приходящий на порт.</p>
+        <p><strong>Порт (port)</strong> – это устройство в составе EcoRouter, которое работает на физическом уровне (L1).</p>
+        <p><strong>Интерфейс (interface)</strong> – это логический интерфейс для адресации, работает на сетевом уровне (L3).</p>
+        <p><strong>Service instance (Сабинтерфейс, SI, Сервисный интерфейс)</strong> является логическим сабинтерфейсом, работающим на канальном уровне (L2) и связывает L1, L2 и L3 уровни.</p>
+        <p>Данный вид интерфейса необходим для соединения физического порта с интерфейсами L3, интерфейсами bridge, портами. Используется для гибкого управления трафиком на основании наличия меток VLANов в фреймах, или их отсутствия. Сквозь сервисный интерфейс проходит весь трафик, приходящий на порт.</p>
 
-            <p><strong>Алгоритм назначения IPv4-адреса на EcoRouter:</strong></p>
-            <ol>
-                <li>Создать интерфейс с произвольным именем и назначить на него IPv4</li>
-                <li>
-                    В режиме конфигурирования порта создать service-instance с произвольным именем:
-                    <ul>
-                        <li>указать (инкапсулировать) что будет обрабатываться тегированный или не тегированный трафик</li>
-                        <li>указать в какой интерфейс (ранее созданный) нужно отправить обработанные кадры</li>
-                    </ul>
-                </li>
-            </ol>
+        <p><strong>Алгоритм назначения IPv4-адреса на EcoRouter:</strong></p>
+        <ol>
+            <li>Создать интерфейс с произвольным именем и назначить на него IPv4</li>
+            <li>
+                В режиме конфигурирования порта создать service-instance с произвольным именем:
+                <ul>
+                    <li>указать (инкапсулировать) что будет обрабатываться тегированный или не тегированный трафик</li>
+                    <li>указать в какой интерфейс (ранее созданный) нужно отправить обработанные кадры</li>
+                </ul>
+            </li>
+        </ol>
 
-            <h2>🏢 3. Настройка HQ-RTR</h2>
+        <h2>🏢 3. Настройка HQ-RTR</h2>
 
-            <p><strong>Посмотреть физические порты можно при помощи следующей команды:</strong></p>
+        <p><strong>Посмотреть физические порты можно при помощи следующей команды:</strong></p>
 <pre><code>hq-rtr#show port brief</code></pre>
-            <p>где: te0 - порт в сторону ISP; te1 - порт в сторону локальной сети офиса HQ (виртуальный коммутатор HQ-SW на уровне гипервизора).</p>
+        <p>где: te0 - порт в сторону ISP; te1 - порт в сторону локальной сети офиса HQ (виртуальный коммутатор HQ-SW на уровне гипервизора).</p>
 
-            <!-- СКРИНШОТ 1.11: Результат show port brief на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.11</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>show port brief</code> на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img11.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.11: Результат show port brief на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.11</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>show port brief</code> на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img11.png</code>
+        </div>
 
-            <p><strong>Создаём интерфейсы для каждого VLAN:</strong></p>
+        <p><strong>Создаём интерфейсы для каждого VLAN:</strong></p>
 <pre><code>hq-rtr(config)#interface vl100
 hq-rtr(config-if)#description "VLAN 100"
 hq-rtr(config-if)#ip address 192.168.100.1/27
@@ -304,23 +209,23 @@ hq-rtr(config-if)#ip address 192.168.99.1/29
 hq-rtr(config-if)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 1.12: Процесс создания интерфейсов VLAN -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.12</strong><br>
-                <strong>Описание:</strong> Процесс создания интерфейсов vl100, vl200, vl999 на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img12.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.12: Процесс создания интерфейсов VLAN -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.12</strong><br>
+            <strong>Описание:</strong> Процесс создания интерфейсов vl100, vl200, vl999 на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img12.png</code>
+        </div>
 
-            <p><strong>Проверка назначенных IP-адресов:</strong></p>
+        <p><strong>Проверка назначенных IP-адресов:</strong></p>
 <pre><code>hq-rtr#show ip interface brief</code></pre>
-            <!-- СКРИНШОТ 1.13: Результат show ip interface brief (статус down) -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.13</strong><br>
-                <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе down<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img13.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.13: Результат show ip interface brief (статус down) -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.13</strong><br>
+            <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе down<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img13.png</code>
+        </div>
 
-            <p><strong>Создание service-instance на базе te1 для каждого VLAN:</strong></p>
+        <p><strong>Создание service-instance на базе te1 для каждого VLAN:</strong></p>
 <pre><code>hq-rtr(config)#port te1
 hq-rtr(config-port)#service-instance te1/vl100
 hq-rtr(config-service-instance)#encapsulation dot1q 100 exact
@@ -340,37 +245,37 @@ hq-rtr(config-service-instance)#exit
 hq-rtr(config-port)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 1.14: Создание service-instance te1/vl100 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.14</strong><br>
-                <strong>Описание:</strong> Создание service-instance te1/vl100 на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img14.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.14: Создание service-instance te1/vl100 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.14</strong><br>
+            <strong>Описание:</strong> Создание service-instance te1/vl100 на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img14.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 1.15: Создание service-instance te1/vl200 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.15</strong><br>
-                <strong>Описание:</strong> Создание service-instance te1/vl200 на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img15.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.15: Создание service-instance te1/vl200 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.15</strong><br>
+            <strong>Описание:</strong> Создание service-instance te1/vl200 на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img15.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 1.16: Создание service-instance te1/vl999 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.16</strong><br>
-                <strong>Описание:</strong> Создание service-instance te1/vl999 на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img16.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.16: Создание service-instance te1/vl999 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.16</strong><br>
+            <strong>Описание:</strong> Создание service-instance te1/vl999 на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img16.png</code>
+        </div>
 
-            <p><strong>Проверка статуса интерфейсов после настройки:</strong></p>
+        <p><strong>Проверка статуса интерфейсов после настройки:</strong></p>
 <pre><code>hq-rtr#show ip interface brief</code></pre>
-            <!-- СКРИНШОТ 1.17: Результат show ip interface brief (статус up) -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.17</strong><br>
-                <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе up<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img17.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.17: Результат show ip interface brief (статус up) -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.17</strong><br>
+            <strong>Описание:</strong> Результат <code>show ip interface brief</code> — интерфейсы в статусе up<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img17.png</code>
+        </div>
 
-            <h2>🏭 4. Настройка BR-RTR</h2>
+        <h2>🏭 4. Настройка BR-RTR</h2>
 
 <pre><code>br-rtr(config)#interface int1
 br-rtr(config-if)#description "BR-Net"
@@ -384,223 +289,223 @@ br-rtr(config-service-instance)#exit
 br-rtr(config-port)#exit
 br-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 1.18: Процесс настройки BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.18</strong><br>
-                <strong>Описание:</strong> Процесс настройки интерфейса int1 и service-instance на BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img18.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.18: Процесс настройки BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.18</strong><br>
+            <strong>Описание:</strong> Процесс настройки интерфейса int1 и service-instance на BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img18.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 1.19: Ожидаемый результат настройки BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.19</strong><br>
-                <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img19.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.19: Ожидаемый результат настройки BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.19</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img19.png</code>
+        </div>
 
-            <h2>💻 5. Настройка HQ-SRV и BR-SRV (Linux)</h2>
+        <h2>💻 5. Настройка HQ-SRV и BR-SRV (Linux)</h2>
 
-            <p><strong>Просмотр существующих интерфейсов:</strong></p>
+        <p><strong>Просмотр существующих интерфейсов:</strong></p>
 <pre><code>ip a</code></pre>
-            <!-- СКРИНШОТ 1.20: Результат ip a на HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.20</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на HQ-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img20.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.20: Результат ip a на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.20</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на HQ-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img20.png</code>
+        </div>
 
-            <p><strong>Конфигурация IPv4 на HQ-SRV:</strong></p>
-            <p>В файле <code>/etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options</code> должны быть заданы хотя бы два основных параметра:</p>
-            <ul>
-                <li><code>TYPE=eth</code> — указывает на тип интерфейса – ethernet</li>
-                <li><code>BOOTPROTO=static</code> — означает, что настройка статического IP-адреса и маршрутов будет взята из файлов ipv4address и ipv4route</li>
-            </ul>
+        <p><strong>Конфигурация IPv4 на HQ-SRV:</strong></p>
+        <p>В файле <code>/etc/net/ifaces/&lt;ИМЯ_ИНТЕРФЕЙСА&gt;/options</code> должны быть заданы хотя бы два основных параметра:</p>
+        <ul>
+            <li><code>TYPE=eth</code> — указывает на тип интерфейса – ethernet</li>
+            <li><code>BOOTPROTO=static</code> — означает, что настройка статического IP-адреса и маршрутов будет взята из файлов ipv4address и ipv4route</li>
+        </ul>
 
-            <!-- СКРИНШОТ 1.21: Содержимое файла options для ens19 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.21</strong><br>
-                <strong>Описание:</strong> Содержимое конфигурационного файла <code>/etc/net/ifaces/ens19/options</code><br>
-                <strong>Файл:</strong> <code>screenshots/part01_img21.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.21: Содержимое файла options для ens19 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.21</strong><br>
+            <strong>Описание:</strong> Содержимое конфигурационного файла <code>/etc/net/ifaces/ens19/options</code><br>
+            <strong>Файл:</strong> <code>screenshots/part01_img21.png</code>
+        </div>
 
-            <p><strong>Задание IP-адреса:</strong></p>
+        <p><strong>Задание IP-адреса:</strong></p>
 <pre><code>echo "192.168.100.2/27" > /etc/net/ifaces/ens19/ipv4address</code></pre>
 
-            <p><strong>Задание шлюза по умолчанию:</strong></p>
+        <p><strong>Задание шлюза по умолчанию:</strong></p>
 <pre><code>echo "default via 192.168.100.1" > /etc/net/ifaces/ens19/ipv4route</code></pre>
 
-            <p><strong>Задание DNS-сервера (временно):</strong></p>
+        <p><strong>Задание DNS-сервера (временно):</strong></p>
 <pre><code>echo "nameserver 77.88.8.8" > /etc/net/ifaces/ens19/resolv.conf</code></pre>
 
-            <p><strong>Применение настроек:</strong></p>
+        <p><strong>Применение настроек:</strong></p>
 <pre><code>systemctl restart network</code></pre>
 
-            <!-- СКРИНШОТ 1.22: Проверка настроек на HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.22</strong><br>
-                <strong>Описание:</strong> Проверка настроек сети на HQ-SRV после применения<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img22.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.22: Проверка настроек на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.22</strong><br>
+            <strong>Описание:</strong> Проверка настроек сети на HQ-SRV после применения<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img22.png</code>
+        </div>
 
-            <p><strong>BR-SRV:</strong> Аналогично HQ-SRV</p>
-            <!-- СКРИНШОТ 1.23: Ожидаемый результат настройки BR-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.23</strong><br>
-                <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img23.png</code>
-            </div>
+        <p><strong>BR-SRV:</strong> Аналогично HQ-SRV</p>
+        <!-- СКРИНШОТ 1.23: Ожидаемый результат настройки BR-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.23</strong><br>
+            <strong>Описание:</strong> Ожидаемый результат настройки BR-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img23.png</code>
+        </div>
 
-            <p>В отличие от офиса HQ, в офисе BR с BR-SRV на текущем этапе можно проверить доступность шлюза по умолчанию. В офисе HQ, с HQ-SRV шлюз пока не должен быть доступен, т.к. не реализована коммутация.</p>
+        <p>В отличие от офиса HQ, в офисе BR с BR-SRV на текущем этапе можно проверить доступность шлюза по умолчанию. В офисе HQ, с HQ-SRV шлюз пока не должен быть доступен, т.к. не реализована коммутация.</p>
 
-            <!-- СКРИНШОТ 1.24: Проверка доступности шлюза на BR-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 1.24</strong><br>
-                <strong>Описание:</strong> Проверка доступности шлюза по умолчанию с BR-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part01_img24.png</code>
-            </div>
+        <!-- СКРИНШОТ 1.24: Проверка доступности шлюза на BR-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 1.24</strong><br>
+            <strong>Описание:</strong> Проверка доступности шлюза по умолчанию с BR-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part01_img24.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 2: НАСТРОЙКА ISP (ПРОДОЛЖЕНИЕ)       -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 2: НАСТРОЙКА ISP (ПРОДОЛЖЕНИЕ)       -->
+        <!-- ========================================= -->
 
-            <h2>🖧 6. Настройка ISP (продолжение)</h2>
+        <h2>🖧 6. Настройка ISP (продолжение)</h2>
 
-            <p><strong>Просмотр существующих интерфейсов:</strong></p>
+        <p><strong>Просмотр существующих интерфейсов:</strong></p>
 <pre><code>ip a</code></pre>
-            <p>где: ens19 — интерфейс подключённый к магистральному провайдеру.</p>
+        <p>где: ens19 — интерфейс подключённый к магистральному провайдеру.</p>
 
-            <!-- СКРИНШОТ 2.1: Результат ip a на ISP -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.1</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на ISP (интерфейсы ens19, ens20, ens21)<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.1: Результат ip a на ISP -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.1</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>ip a</code> на ISP (интерфейсы ens19, ens20, ens21)<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img01.png</code>
+        </div>
 
-            <p><strong>Настройка DHCP на интерфейсе ens19:</strong></p>
-            <p>В конфигурационном файле <code>/etc/net/ifaces/ens19/options</code> в параметре <code>BOOTPROTO</code> указать значение <code>dhcp</code>.</p>
+        <p><strong>Настройка DHCP на интерфейсе ens19:</strong></p>
+        <p>В конфигурационном файле <code>/etc/net/ifaces/ens19/options</code> в параметре <code>BOOTPROTO</code> указать значение <code>dhcp</code>.</p>
 
-            <!-- СКРИНШОТ 2.2: Содержимое options для ens19 с BOOTPROTO=dhcp -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.2</strong><br>
-                <strong>Описание:</strong> Содержимое файла <code>/etc/net/ifaces/ens19/options</code> с параметром BOOTPROTO=dhcp<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.2: Содержимое options для ens19 с BOOTPROTO=dhcp -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.2</strong><br>
+            <strong>Описание:</strong> Содержимое файла <code>/etc/net/ifaces/ens19/options</code> с параметром BOOTPROTO=dhcp<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img02.png</code>
+        </div>
 
-            <p><strong>Применение настроек:</strong></p>
+        <p><strong>Применение настроек:</strong></p>
 <pre><code>systemctl restart network</code></pre>
 
-            <!-- СКРИНШОТ 2.3: Получение IP по DHCP на ens19 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.3</strong><br>
-                <strong>Описание:</strong> Проверка получения IP-адреса по DHCP на интерфейсе ens19<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.3: Получение IP по DHCP на ens19 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.3</strong><br>
+            <strong>Описание:</strong> Проверка получения IP-адреса по DHCP на интерфейсе ens19<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img03.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.4: Проверка доступа в Интернет с ISP -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.4</strong><br>
-                <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства ISP (ping 8.8.8.8)<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img04.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.4: Проверка доступа в Интернет с ISP -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.4</strong><br>
+            <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства ISP (ping 8.8.8.8)<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img04.png</code>
+        </div>
 
-            <p><strong>Настройка интерфейсов ens20 и ens21:</strong></p>
+        <p><strong>Настройка интерфейсов ens20 и ens21:</strong></p>
 <pre><code>mkdir /etc/net/ifaces/ens20
 mkdir /etc/net/ifaces/ens21</code></pre>
 
-            <!-- СКРИНШОТ 2.5: Создание директорий ens20 и ens21 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.5</strong><br>
-                <strong>Описание:</strong> Результат создания директорий <code>/etc/net/ifaces/ens20</code> и <code>/etc/net/ifaces/ens21</code><br>
-                <strong>Файл:</strong> <code>screenshots/part02_img05.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.5: Создание директорий ens20 и ens21 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.5</strong><br>
+            <strong>Описание:</strong> Результат создания директорий <code>/etc/net/ifaces/ens20</code> и <code>/etc/net/ifaces/ens21</code><br>
+            <strong>Файл:</strong> <code>screenshots/part02_img05.png</code>
+        </div>
 
-            <p><strong>Создание файлов options:</strong></p>
+        <p><strong>Создание файлов options:</strong></p>
 <pre><code>echo "TYPE=eth" > /etc/net/ifaces/ens20/options
 echo "BOOTPROTO=static" >> /etc/net/ifaces/ens20/options
 cp /etc/net/ifaces/ens20/options /etc/net/ifaces/ens21/options</code></pre>
 
-            <!-- СКРИНШОТ 2.6: Содержимое options для ens20 и ens21 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.6</strong><br>
-                <strong>Описание:</strong> Содержимое файлов options для ens20 и ens21<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img06.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.6: Содержимое options для ens20 и ens21 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.6</strong><br>
+            <strong>Описание:</strong> Содержимое файлов options для ens20 и ens21<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img06.png</code>
+        </div>
 
-            <p><strong>Назначение IP-адресов:</strong></p>
+        <p><strong>Назначение IP-адресов:</strong></p>
 <pre><code>echo "172.16.1.1/28" > /etc/net/ifaces/ens20/ipv4address
 echo "172.16.2.1/28" > /etc/net/ifaces/ens21/ipv4address
 systemctl restart network</code></pre>
 
-            <!-- СКРИНШОТ 2.7: Проверка назначенных IP на ens20 и ens21 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.7</strong><br>
-                <strong>Описание:</strong> Проверка назначенных IP-адресов на интерфейсах ens20 и ens21<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img07.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.7: Проверка назначенных IP на ens20 и ens21 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.7</strong><br>
+            <strong>Описание:</strong> Проверка назначенных IP-адресов на интерфейсах ens20 и ens21<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img07.png</code>
+        </div>
 
-            <p><strong>Включение пересылки пакетов (forwarding):</strong></p>
-            <p>В файле <code>/etc/net/sysctl.conf</code> параметр <code>net.ipv4.ip_forward = 0</code> заменить на <code>net.ipv4.ip_forward = 1</code>.</p>
+        <p><strong>Включение пересылки пакетов (forwarding):</strong></p>
+        <p>В файле <code>/etc/net/sysctl.conf</code> параметр <code>net.ipv4.ip_forward = 0</code> заменить на <code>net.ipv4.ip_forward = 1</code>.</p>
 <pre><code>systemctl restart network</code></pre>
 
-            <!-- СКРИНШОТ 2.8: Содержимое sysctl.conf с ip_forward=1 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.8</strong><br>
-                <strong>Описание:</strong> Содержимое файла <code>/etc/net/sysctl.conf</code> с параметром net.ipv4.ip_forward=1<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img08.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.8: Содержимое sysctl.conf с ip_forward=1 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.8</strong><br>
+            <strong>Описание:</strong> Содержимое файла <code>/etc/net/sysctl.conf</code> с параметром net.ipv4.ip_forward=1<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img08.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.9: Проверка forwarding -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.9</strong><br>
-                <strong>Описание:</strong> Проверка включения forwarding (cat /proc/sys/net/ipv4/ip_forward)<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img09.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.9: Проверка forwarding -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.9</strong><br>
+            <strong>Описание:</strong> Проверка включения forwarding (cat /proc/sys/net/ipv4/ip_forward)<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img09.png</code>
+        </div>
 
-            <p><strong>Настройка NAT с использованием iptables:</strong></p>
+        <p><strong>Настройка NAT с использованием iptables:</strong></p>
 <pre><code>apt-get update && apt-get install -y iptables
 iptables -t nat -A POSTROUTING -s 172.16.1.0/28 -o ens19 -j MASQUERADE
 iptables -t nat -A POSTROUTING -s 172.16.2.0/28 -o ens19 -j MASQUERADE
 iptables-save >> /etc/sysconfig/iptables
 systemctl enable --now iptables</code></pre>
 
-            <!-- СКРИНШОТ 2.10: Установка iptables -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.10</strong><br>
-                <strong>Описание:</strong> Процесс установки пакета iptables на Альт Jeos<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img10.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.10: Установка iptables -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.10</strong><br>
+            <strong>Описание:</strong> Процесс установки пакета iptables на Альт Jeos<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img10.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.11: Добавление правил iptables -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.11</strong><br>
-                <strong>Описание:</strong> Добавление правил MASQUERADE в iptables<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img11.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.11: Добавление правил iptables -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.11</strong><br>
+            <strong>Описание:</strong> Добавление правил MASQUERADE в iptables<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img11.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.12: Сохранение правил iptables -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.12</strong><br>
-                <strong>Описание:</strong> Сохранение правил iptables в файл /etc/sysconfig/iptables<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img12.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.12: Сохранение правил iptables -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.12</strong><br>
+            <strong>Описание:</strong> Сохранение правил iptables в файл /etc/sysconfig/iptables<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img12.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.13: Включение службы iptables -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.13</strong><br>
-                <strong>Описание:</strong> Включение и добавление в автозагрузку службы iptables<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img13.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.13: Включение службы iptables -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.13</strong><br>
+            <strong>Описание:</strong> Включение и добавление в автозагрузку службы iptables<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img13.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 2.14: Проверка правил NAT -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.14</strong><br>
-                <strong>Описание:</strong> Проверка наличия правил в таблице nat, цепочке POSTROUTING<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img14.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.14: Проверка правил NAT -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.14</strong><br>
+            <strong>Описание:</strong> Проверка наличия правил в таблице nat, цепочке POSTROUTING<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img14.png</code>
+        </div>
 
-            <h2>🏢 7. Настройка HQ-RTR (продолжение)</h2>
+        <h2>🏢 7. Настройка HQ-RTR (продолжение)</h2>
 
-            <p><strong>Создание интерфейса isp:</strong></p>
+        <p><strong>Создание интерфейса isp:</strong></p>
 <pre><code>hq-rtr>enable
 hq-rtr#conf t
 hq-rtr(config)#interface isp
@@ -608,17 +513,17 @@ hq-rtr(config-if)#description "ISP"
 hq-rtr(config-if)#ip address 172.16.1.2/28
 hq-rtr(config-if)#exit</code></pre>
 
-            <!-- СКРИНШОТ 2.15: Создание интерфейса isp на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.15</strong><br>
-                <strong>Описание:</strong> Создание интерфейса isp с IP-адресом 172.16.1.2/28 на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img15.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.15: Создание интерфейса isp на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.15</strong><br>
+            <strong>Описание:</strong> Создание интерфейса isp с IP-адресом 172.16.1.2/28 на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img15.png</code>
+        </div>
 
-            <p><strong>Маршрут по умолчанию:</strong></p>
+        <p><strong>Маршрут по умолчанию:</strong></p>
 <pre><code>hq-rtr(config)#ip route 0.0.0.0/0 172.16.1.1</code></pre>
 
-            <p><strong>Service instance на порту te0:</strong></p>
+        <p><strong>Service instance на порту te0:</strong></p>
 <pre><code>hq-rtr(config)#port te0
 hq-rtr(config-port)#service-instance te0/isp
 hq-rtr(config-service-instance)#encapsulation untagged
@@ -627,221 +532,221 @@ hq-rtr(config-service-instance)#exit
 hq-rtr(config-port)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 2.16: Service-instance te0/isp на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 2.16</strong><br>
-                <strong>Описание:</strong> Создание service-instance te0/isp на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part02_img16.png</code>
-            </div>
+        <!-- СКРИНШОТ 2.16: Service-instance te0/isp на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 2.16</strong><br>
+            <strong>Описание:</strong> Создание service-instance te0/isp на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part02_img16.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 3: СОЗДАНИЕ ПОЛЬЗОВАТЕЛЕЙ           -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 3: СОЗДАНИЕ ПОЛЬЗОВАТЕЛЕЙ           -->
+        <!-- ========================================= -->
 
-            <h2>👤 8. Создание пользователя sshuser на HQ-SRV и BR-SRV</h2>
+        <h2>👤 8. Создание пользователя sshuser на HQ-SRV и BR-SRV</h2>
 
-            <p><strong>Создание пользователя с явным UID:</strong></p>
+        <p><strong>Создание пользователя с явным UID:</strong></p>
 <pre><code>useradd sshuser -u 2026</code></pre>
 
-            <!-- СКРИНШОТ 3.1: Создание пользователя sshuser -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.1</strong><br>
-                <strong>Описание:</strong> Создание пользователя sshuser с UID 2026<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.1: Создание пользователя sshuser -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.1</strong><br>
+            <strong>Описание:</strong> Создание пользователя sshuser с UID 2026<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img01.png</code>
+        </div>
 
-            <p><strong>Проверка UID пользователя:</strong></p>
+        <p><strong>Проверка UID пользователя:</strong></p>
 <pre><code>id sshuser</code></pre>
-            <!-- СКРИНШОТ 3.2: Проверка UID пользователя sshuser -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.2</strong><br>
-                <strong>Описание:</strong> Проверка UID пользователя sshuser командой <code>id sshuser</code><br>
-                <strong>Файл:</strong> <code>screenshots/part03_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.2: Проверка UID пользователя sshuser -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.2</strong><br>
+            <strong>Описание:</strong> Проверка UID пользователя sshuser командой <code>id sshuser</code><br>
+            <strong>Файл:</strong> <code>screenshots/part03_img02.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 3.3: Альтернативная проверка через /etc/passwd -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.3</strong><br>
-                <strong>Описание:</strong> Проверка пользователя sshuser в файле /etc/passwd<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.3: Альтернативная проверка через /etc/passwd -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.3</strong><br>
+            <strong>Описание:</strong> Проверка пользователя sshuser в файле /etc/passwd<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img03.png</code>
+        </div>
 
-            <p><strong>Задание пароля:</strong></p>
+        <p><strong>Задание пароля:</strong></p>
 <pre><code>passwd sshuser</code></pre>
-            <!-- СКРИНШОТ 3.4: Процесс установки пароля для sshuser -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.4</strong><br>
-                <strong>Описание:</strong> Процесс установки пароля для пользователя sshuser с помощью утилиты passwd<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img04.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.4: Процесс установки пароля для sshuser -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.4</strong><br>
+            <strong>Описание:</strong> Процесс установки пароля для пользователя sshuser с помощью утилиты passwd<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img04.png</code>
+        </div>
 
-            <p><strong>Настройка sudo без пароля:</strong></p>
+        <p><strong>Настройка sudo без пароля:</strong></p>
 <pre><code>usermod -aG wheel sshuser
 echo "sshuser ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers</code></pre>
-            <!-- СКРИНШОТ 3.5: Добавление sshuser в группу wheel -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.5</strong><br>
-                <strong>Описание:</strong> Добавление пользователя sshuser в группу wheel<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img05.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.5: Добавление sshuser в группу wheel -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.5</strong><br>
+            <strong>Описание:</strong> Добавление пользователя sshuser в группу wheel<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img05.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 3.6: Добавление правила в sudoers -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.6</strong><br>
-                <strong>Описание:</strong> Добавление строки в /etc/sudoers для возможности sudo без пароля<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img06.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.6: Добавление правила в sudoers -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.6</strong><br>
+            <strong>Описание:</strong> Добавление строки в /etc/sudoers для возможности sudo без пароля<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img06.png</code>
+        </div>
 
-            <p><strong>Проверка на HQ-SRV:</strong></p>
-            <!-- СКРИНШОТ 3.7: Вход под sshuser на HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.7</strong><br>
-                <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на HQ-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img07.png</code>
-            </div>
+        <p><strong>Проверка на HQ-SRV:</strong></p>
+        <!-- СКРИНШОТ 3.7: Вход под sshuser на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.7</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на HQ-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img07.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 3.8: Повышение привилегий через sudo на HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.8</strong><br>
-                <strong>Описание:</strong> Попытка повышения привилегий (sudo -i) на HQ-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img08.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.8: Повышение привилегий через sudo на HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.8</strong><br>
+            <strong>Описание:</strong> Попытка повышения привилегий (sudo -i) на HQ-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img08.png</code>
+        </div>
 
-            <p><strong>Проверка на BR-SRV:</strong></p>
-            <!-- СКРИНШОТ 3.9: Вход под sshuser на BR-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.9</strong><br>
-                <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на BR-SRV и повышение привилегий<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img09.png</code>
-            </div>
+        <p><strong>Проверка на BR-SRV:</strong></p>
+        <!-- СКРИНШОТ 3.9: Вход под sshuser на BR-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.9</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя sshuser на BR-SRV и повышение привилегий<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img09.png</code>
+        </div>
 
-            <h2>🔐 9. Создание пользователя net_admin на HQ-RTR и BR-RTR</h2>
+        <h2>🔐 9. Создание пользователя net_admin на HQ-RTR и BR-RTR</h2>
 
-            <p><strong>HQ-RTR:</strong></p>
+        <p><strong>HQ-RTR:</strong></p>
 <pre><code>hq-rtr(config)#username net_admin
 hq-rtr(config-user)#password P@ssw0rd
 hq-rtr(config-user)#role admin
 hq-rtr(config-user)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 3.10: Создание net_admin на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.10</strong><br>
-                <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img11.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.10: Создание net_admin на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.10</strong><br>
+            <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img11.png</code>
+        </div>
 
-            <p><strong>BR-RTR:</strong></p>
+        <p><strong>BR-RTR:</strong></p>
 <pre><code>br-rtr(config)#username net_admin
 br-rtr(config-user)#password P@ssw0rd
 br-rtr(config-user)#role admin
 br-rtr(config-user)#exit
 br-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 3.11: Создание net_admin на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.11</strong><br>
-                <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img12.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.11: Создание net_admin на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.11</strong><br>
+            <strong>Описание:</strong> Создание пользователя net_admin с ролью admin на BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img12.png</code>
+        </div>
 
-            <p><strong>Проверка на HQ-RTR:</strong></p>
-            <!-- СКРИНШОТ 3.12: Проверка пользователя net_admin на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.12</strong><br>
-                <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img13.png</code>
-            </div>
+        <p><strong>Проверка на HQ-RTR:</strong></p>
+        <!-- СКРИНШОТ 3.12: Проверка пользователя net_admin на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.12</strong><br>
+            <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img13.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 3.13: Вход под net_admin на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.13</strong><br>
-                <strong>Описание:</strong> Выполнение входа из под пользователя net_admin на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img14.png</code>
-            </div>
+        <!-- СКРИНШОТ 3.13: Вход под net_admin на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.13</strong><br>
+            <strong>Описание:</strong> Выполнение входа из под пользователя net_admin на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img14.png</code>
+        </div>
 
-            <p><strong>Проверка на BR-RTR:</strong></p>
-            <!-- СКРИНШОТ 3.14: Проверка пользователя net_admin на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 3.14</strong><br>
-                <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part03_img15.png</code>
-            </div>
+        <p><strong>Проверка на BR-RTR:</strong></p>
+        <!-- СКРИНШОТ 3.14: Проверка пользователя net_admin на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 3.14</strong><br>
+            <strong>Описание:</strong> Проверка наличия созданного пользователя net_admin и его роли на BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part03_img15.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 5: НАСТРОЙКА OPENSSH                -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 5: НАСТРОЙКА OPENSSH                -->
+        <!-- ========================================= -->
 
-            <h2>🔌 10. Настройка OpenSSH на HQ-SRV и BR-SRV</h2>
+        <h2>🔌 10. Настройка OpenSSH на HQ-SRV и BR-SRV</h2>
 
-            <p><strong>Редактирование конфигурационного файла <code>/etc/openssh/sshd_config</code>:</strong></p>
+        <p><strong>Редактирование конфигурационного файла <code>/etc/openssh/sshd_config</code>:</strong></p>
 <pre><code>vim /etc/openssh/sshd_config</code></pre>
 
-            <p><strong>Вносимые изменения:</strong></p>
-            <ul>
-                <li><code>Port 2026</code> — порт для SSH-соединений</li>
-                <li><code>AllowUsers sshuser</code> — разрешить вход только пользователю sshuser</li>
-                <li><code>MaxAuthTries 2</code> — ограничение числа попыток аутентификации</li>
-                <li><code>Banner /etc/openssh/banner</code> — баннер перед аутентификацией</li>
-            </ul>
+        <p><strong>Вносимые изменения:</strong></p>
+        <ul>
+            <li><code>Port 2026</code> — порт для SSH-соединений</li>
+            <li><code>AllowUsers sshuser</code> — разрешить вход только пользователю sshuser</li>
+            <li><code>MaxAuthTries 2</code> — ограничение числа попыток аутентификации</li>
+            <li><code>Banner /etc/openssh/banner</code> — баннер перед аутентификацией</li>
+        </ul>
 
-            <!-- СКРИНШОТ 5.1: Содержимое sshd_config после изменений -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.1</strong><br>
-                <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config после внесения изменений<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.1: Содержимое sshd_config после изменений -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.1</strong><br>
+            <strong>Описание:</strong> Содержимое файла /etc/openssh/sshd_config после внесения изменений<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img01.png</code>
+        </div>
 
-            <p><strong>Создание баннера:</strong></p>
+        <p><strong>Создание баннера:</strong></p>
 <pre><code>echo "Authorized access only" > /etc/openssh/banner</code></pre>
 
-            <!-- СКРИНШОТ 5.2: Содержимое баннера -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.2</strong><br>
-                <strong>Описание:</strong> Содержимое файла баннера /etc/openssh/banner<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.2: Содержимое баннера -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.2</strong><br>
+            <strong>Описание:</strong> Содержимое файла баннера /etc/openssh/banner<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img02.png</code>
+        </div>
 
-            <p><strong>Перезапуск службы:</strong></p>
+        <p><strong>Перезапуск службы:</strong></p>
 <pre><code>systemctl restart sshd</code></pre>
 
-            <p><strong>Проверки:</strong></p>
+        <p><strong>Проверки:</strong></p>
 
-            <!-- СКРИНШОТ 5.3: Подключение по порту 2026 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.3</strong><br>
-                <strong>Описание:</strong> Проверка подключения по порту 2026 под пользователем sshuser (наличие баннера)<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.3: Подключение по порту 2026 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.3</strong><br>
+            <strong>Описание:</strong> Проверка подключения по порту 2026 под пользователем sshuser (наличие баннера)<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img03.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 5.4: Попытка подключения на стандартный порт 22 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.4</strong><br>
-                <strong>Описание:</strong> Попытка подключения на стандартный порт SSH (22) — должно быть недоступно<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img04.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.4: Попытка подключения на стандартный порт 22 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.4</strong><br>
+            <strong>Описание:</strong> Попытка подключения на стандартный порт SSH (22) — должно быть недоступно<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img04.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 5.5: Превышение числа попыток входа -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.5</strong><br>
-                <strong>Описание:</strong> Попытка подключения с неверным паролем более 2 раз — блокировка<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img05.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.5: Превышение числа попыток входа -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.5</strong><br>
+            <strong>Описание:</strong> Попытка подключения с неверным паролем более 2 раз — блокировка<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img05.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 5.6: Попытка подключения не под пользователем sshuser -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 5.6</strong><br>
-                <strong>Описание:</strong> Попытка подключения не из-под пользователя sshuser — запрещено<br>
-                <strong>Файл:</strong> <code>screenshots/part05_img06.png</code>
-            </div>
+        <!-- СКРИНШОТ 5.6: Попытка подключения не под пользователем sshuser -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 5.6</strong><br>
+            <strong>Описание:</strong> Попытка подключения не из-под пользователя sshuser — запрещено<br>
+            <strong>Файл:</strong> <code>screenshots/part05_img06.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 6: GRE ТУННЕЛЬ                      -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 6: GRE ТУННЕЛЬ                      -->
+        <!-- ========================================= -->
 
-            <h2>🔄 11. Настройка GRE туннеля HQ-RTR ↔ BR-RTR</h2>
+        <h2>🔄 11. Настройка GRE туннеля HQ-RTR ↔ BR-RTR</h2>
 
-            <p><strong>HQ-RTR:</strong></p>
+        <p><strong>HQ-RTR:</strong></p>
 <pre><code>hq-rtr>enable
 hq-rtr#configure terminal
 hq-rtr(config)#interface tunnel.0
@@ -851,14 +756,14 @@ hq-rtr(config-if-tunnel)#ip tunnel 172.16.1.2 172.16.2.2 mode gre
 hq-rtr(config-if-tunnel)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 6.1: Настройка GRE туннеля на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 6.1</strong><br>
-                <strong>Описание:</strong> Процесс настройки GRE туннеля на HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part06_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 6.1: Настройка GRE туннеля на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 6.1</strong><br>
+            <strong>Описание:</strong> Процесс настройки GRE туннеля на HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part06_img01.png</code>
+        </div>
 
-            <p><strong>BR-RTR:</strong></p>
+        <p><strong>BR-RTR:</strong></p>
 <pre><code>br-rtr>enable
 br-rtr#configure terminal
 br-rtr(config)#interface tunnel.0
@@ -868,40 +773,40 @@ br-rtr(config-if-tunnel)#ip tunnel 172.16.2.2 172.16.1.2 mode gre
 br-rtr(config-if-tunnel)#exit
 br-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 6.2: Настройка GRE туннеля на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 6.2</strong><br>
-                <strong>Описание:</strong> Процесс настройки GRE туннеля на BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part06_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 6.2: Настройка GRE туннеля на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 6.2</strong><br>
+            <strong>Описание:</strong> Процесс настройки GRE туннеля на BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part06_img02.png</code>
+        </div>
 
-            <p><strong>Проверка на HQ-RTR:</strong></p>
-            <!-- СКРИНШОТ 6.3: Статус туннеля и IP на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 6.3</strong><br>
-                <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на HQ-RTR (GRE)<br>
-                <strong>Файл:</strong> <code>screenshots/part06_img03.png</code>
-            </div>
+        <p><strong>Проверка на HQ-RTR:</strong></p>
+        <!-- СКРИНШОТ 6.3: Статус туннеля и IP на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 6.3</strong><br>
+            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на HQ-RTR (GRE)<br>
+            <strong>Файл:</strong> <code>screenshots/part06_img03.png</code>
+        </div>
 
-            <p><strong>Проверка на BR-RTR:</strong></p>
-            <!-- СКРИНШОТ 6.4: Статус туннеля и IP на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 6.4</strong><br>
-                <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на BR-RTR (GRE)<br>
-                <strong>Файл:</strong> <code>screenshots/part06_img04.png</code>
-            </div>
+        <p><strong>Проверка на BR-RTR:</strong></p>
+        <!-- СКРИНШОТ 6.4: Статус туннеля и IP на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 6.4</strong><br>
+            <strong>Описание:</strong> Режим работы туннеля и наличие IP-адреса на BR-RTR (GRE)<br>
+            <strong>Файл:</strong> <code>screenshots/part06_img04.png</code>
+        </div>
 
-            <p><strong>Проверка связности:</strong></p>
+        <p><strong>Проверка связности:</strong></p>
 <pre><code>hq-rtr#ping 10.10.10.2
 br-rtr#ping 10.10.10.1</code></pre>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 7: OSPFv2                           -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 7: OSPFv2                           -->
+        <!-- ========================================= -->
 
-            <h2>🛣️ 12. Настройка OSPFv2 на HQ-RTR и BR-RTR</h2>
+        <h2>🛣️ 12. Настройка OSPFv2 на HQ-RTR и BR-RTR</h2>
 
-            <p><strong>HQ-RTR:</strong></p>
+        <p><strong>HQ-RTR:</strong></p>
 <pre><code>hq-rtr>enable
 hq-rtr#configure terminal
 hq-rtr(config)#router ospf 1
@@ -914,28 +819,28 @@ hq-rtr(config-router)#network 192.168.200.0/24 area 0
 hq-rtr(config-router)#network 192.168.99.0/29 area 0
 hq-rtr(config-router)#exit</code></pre>
 
-            <p><strong>Аутентификация OSPF на HQ-RTR:</strong></p>
+        <p><strong>Аутентификация OSPF на HQ-RTR:</strong></p>
 <pre><code>hq-rtr(config)#interface tunnel.0
 hq-rtr(config-if-tunnel)#ip ospf authentication message-digest
 hq-rtr(config-if-tunnel)#ip ospf message-digest-key 1 md5 P@ssw0rd
 hq-rtr(config-if-tunnel)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 7.1: Настройка OSPF на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.1</strong><br>
-                <strong>Описание:</strong> Настройка OSPFv2 на HQ-RTR (router-id, сети, пассивные интерфейсы)<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 7.1: Настройка OSPF на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.1</strong><br>
+            <strong>Описание:</strong> Настройка OSPFv2 на HQ-RTR (router-id, сети, пассивные интерфейсы)<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img01.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 7.2: Настройка аутентификации OSPF на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.2</strong><br>
-                <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 HQ-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 7.2: Настройка аутентификации OSPF на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.2</strong><br>
+            <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 HQ-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img02.png</code>
+        </div>
 
-            <p><strong>BR-RTR:</strong></p>
+        <p><strong>BR-RTR:</strong></p>
 <pre><code>br-rtr>enable
 br-rtr#configure terminal
 br-rtr(config)#router ospf 1
@@ -946,77 +851,77 @@ br-rtr(config-router)#network 192.168.0.0/28 area 0
 br-rtr(config-router)#network 10.10.10.0/30 area 0
 br-rtr(config-router)#exit</code></pre>
 
-            <p><strong>Аутентификация OSPF на BR-RTR:</strong></p>
+        <p><strong>Аутентификация OSPF на BR-RTR:</strong></p>
 <pre><code>br-rtr(config)#interface tunnel.0
 br-rtr(config-if-tunnel)#ip ospf authentication message-digest
 br-rtr(config-if-tunnel)#ip ospf message-digest-key 1 md5 P@ssw0rd
 br-rtr(config-if-tunnel)#exit
 br-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 7.3: Настройка OSPF на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.3</strong><br>
-                <strong>Описание:</strong> Настройка OSPFv2 на BR-RTR (router-id, сети, пассивные интерфейсы)<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 7.3: Настройка OSPF на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.3</strong><br>
+            <strong>Описание:</strong> Настройка OSPFv2 на BR-RTR (router-id, сети, пассивные интерфейсы)<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img03.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 7.4: Настройка аутентификации OSPF на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.4</strong><br>
-                <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img04.png</code>
-            </div>
+        <!-- СКРИНШОТ 7.4: Настройка аутентификации OSPF на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.4</strong><br>
+            <strong>Описание:</strong> Настройка аутентификации MD5 на интерфейсе tunnel.0 BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img04.png</code>
+        </div>
 
-            <p><strong>Проверка аутентификации на интерфейсе:</strong></p>
-            <!-- СКРИНШОТ 7.5: Проверка аутентификации на tunnel.0 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.5</strong><br>
-                <strong>Описание:</strong> Наличие аутентификации на интерфейсе tunnel.0 для установления соседства<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img05.png</code>
-            </div>
+        <p><strong>Проверка аутентификации на интерфейсе:</strong></p>
+        <!-- СКРИНШОТ 7.5: Проверка аутентификации на tunnel.0 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.5</strong><br>
+            <strong>Описание:</strong> Наличие аутентификации на интерфейсе tunnel.0 для установления соседства<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img05.png</code>
+        </div>
 
-            <p><strong>Проверка маршрутов на HQ-RTR:</strong></p>
-            <!-- СКРИНШОТ 7.6: Маршруты на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.6</strong><br>
-                <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (HQ-RTR)<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img06.png</code>
-            </div>
+        <p><strong>Проверка маршрутов на HQ-RTR:</strong></p>
+        <!-- СКРИНШОТ 7.6: Маршруты на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.6</strong><br>
+            <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (HQ-RTR)<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img06.png</code>
+        </div>
 
-            <p><strong>Проверка маршрутов на BR-RTR:</strong></p>
-            <!-- СКРИНШОТ 7.7: Маршруты на BR-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.7</strong><br>
-                <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (BR-RTR)<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img07.png</code>
-            </div>
+        <p><strong>Проверка маршрутов на BR-RTR:</strong></p>
+        <!-- СКРИНШОТ 7.7: Маршруты на BR-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.7</strong><br>
+            <strong>Описание:</strong> Маршрутизаторы должны обмениваться маршрутами только друг с другом (BR-RTR)<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img07.png</code>
+        </div>
 
-            <p><strong>Проверка установленного соседства OSPF:</strong></p>
-            <!-- СКРИНШОТ 7.8: Состояние соседства OSPF -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.8</strong><br>
-                <strong>Описание:</strong> Наличие установленного соседства OSPF между HQ-RTR и BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img08.png</code>
-            </div>
+        <p><strong>Проверка установленного соседства OSPF:</strong></p>
+        <!-- СКРИНШОТ 7.8: Состояние соседства OSPF -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.8</strong><br>
+            <strong>Описание:</strong> Наличие установленного соседства OSPF между HQ-RTR и BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img08.png</code>
+        </div>
 
-            <p><strong>Проверка полученных маршрутов по OSPF:</strong></p>
-            <!-- СКРИНШОТ 7.9: Полученные маршруты OSPF -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 7.9</strong><br>
-                <strong>Описание:</strong> Наличие полученных маршрутов по OSPF (show ip route ospf)<br>
-                <strong>Файл:</strong> <code>screenshots/part07_img09.png</code>
-            </div>
+        <p><strong>Проверка полученных маршрутов по OSPF:</strong></p>
+        <!-- СКРИНШОТ 7.9: Полученные маршруты OSPF -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 7.9</strong><br>
+            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF (show ip route ospf)<br>
+            <strong>Файл:</strong> <code>screenshots/part07_img09.png</code>
+        </div>
 
-            <p><strong>Связность между устройствами офиса HQ и BR:</strong></p>
+        <p><strong>Связность между устройствами офиса HQ и BR:</strong></p>
 <pre><code>ping 192.168.0.2</code></pre>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 8: NAT (STATIC SOURCE PAT)          -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 8: NAT (STATIC SOURCE PAT)          -->
+        <!-- ========================================= -->
 
-            <h2>🌍 13. Настройка Static Source PAT (NAT) на HQ-RTR</h2>
+        <h2>🌍 13. Настройка Static Source PAT (NAT) на HQ-RTR</h2>
 
-            <p><strong>Назначение интерфейсов NAT:</strong></p>
+        <p><strong>Назначение интерфейсов NAT:</strong></p>
 <pre><code>hq-rtr>enable
 hq-rtr#configure terminal
 hq-rtr(config)#interface isp
@@ -1032,50 +937,50 @@ hq-rtr(config)#interface vl999
 hq-rtr(config-if)#ip nat inside
 hq-rtr(config-if)#exit</code></pre>
 
-            <!-- СКРИНШОТ 8.1: Назначение ip nat outside/inside на HQ-RTR -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 8.1</strong><br>
-                <strong>Описание:</strong> Назначение интерфейсов isp (outside) и vl100/vl200/vl999 (inside) для NAT<br>
-                <strong>Файл:</strong> <code>screenshots/part08_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 8.1: Назначение ip nat outside/inside на HQ-RTR -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 8.1</strong><br>
+            <strong>Описание:</strong> Назначение интерфейсов isp (outside) и vl100/vl200/vl999 (inside) для NAT<br>
+            <strong>Файл:</strong> <code>screenshots/part08_img01.png</code>
+        </div>
 
-            <p><strong>Создание пулов адресов:</strong></p>
+        <p><strong>Создание пулов адресов:</strong></p>
 <pre><code>hq-rtr(config)#ip nat pool VLAN100 192.168.100.1-192.168.100.30
 hq-rtr(config)#ip nat pool VLAN200 192.168.200.1-192.168.200.254
 hq-rtr(config)#ip nat pool VLAN999 192.168.99.1-192.168.99.6</code></pre>
 
-            <!-- СКРИНШОТ 8.2: Создание пулов NAT -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 8.2</strong><br>
-                <strong>Описание:</strong> Создание пулов адресов для локальных подсетей офиса HQ<br>
-                <strong>Файл:</strong> <code>screenshots/part08_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 8.2: Создание пулов NAT -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 8.2</strong><br>
+            <strong>Описание:</strong> Создание пулов адресов для локальных подсетей офиса HQ<br>
+            <strong>Файл:</strong> <code>screenshots/part08_img02.png</code>
+        </div>
 
-            <p><strong>Правила трансляции:</strong></p>
+        <p><strong>Правила трансляции:</strong></p>
 <pre><code>hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN100 overload interface isp
 hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN200 overload interface isp
 hq-rtr(config)#ip nat source dynamic inside-to-outside pool VLAN999 overload interface isp
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 8.3: Создание правил NAT -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 8.3</strong><br>
-                <strong>Описание:</strong> Задание правил для трансляции адресов (PAT с overload)<br>
-                <strong>Файл:</strong> <code>screenshots/part08_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 8.3: Создание правил NAT -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 8.3</strong><br>
+            <strong>Описание:</strong> Задание правил для трансляции адресов (PAT с overload)<br>
+            <strong>Файл:</strong> <code>screenshots/part08_img03.png</code>
+        </div>
 
-            <p><strong>Проверка доступа в Интернет с HQ-SRV:</strong></p>
-            <!-- СКРИНШОТ 8.4: Проверка доступа в Интернет с HQ-SRV -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 8.4</strong><br>
-                <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства HQ-SRV (ping 8.8.8.8)<br>
-                <strong>Файл:</strong> <code>screenshots/part08_img04.png</code>
-            </div>
+        <p><strong>Проверка доступа в Интернет с HQ-SRV:</strong></p>
+        <!-- СКРИНШОТ 8.4: Проверка доступа в Интернет с HQ-SRV -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 8.4</strong><br>
+            <strong>Описание:</strong> Проверка доступа в сеть Интернет с устройства HQ-SRV (ping 8.8.8.8)<br>
+            <strong>Файл:</strong> <code>screenshots/part08_img04.png</code>
+        </div>
 
-            <p><strong>Проверка таблицы трансляции на HQ-RTR:</strong></p>
+        <p><strong>Проверка таблицы трансляции на HQ-RTR:</strong></p>
 <pre><code>show ip nat translations</code></pre>
 
-            <h2>🌍 14. Настройка NAT на BR-RTR</h2>
+        <h2>🌍 14. Настройка NAT на BR-RTR</h2>
 
 <pre><code>br-rtr>enable
 br-rtr#configure terminal
@@ -1090,11 +995,11 @@ br-rtr(config)#ip nat source dynamic inside-to-outside pool BR-Net overload inte
 br-rtr(config)#exit
 br-rtr#write memory</code></pre>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 9: DHCP-СЕРВЕР                      -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 9: DHCP-СЕРВЕР                      -->
+        <!-- ========================================= -->
 
-            <h2>📡 15. Настройка DHCP-сервера на HQ-RTR для VLAN200</h2>
+        <h2>📡 15. Настройка DHCP-сервера на HQ-RTR для VLAN200</h2>
 
 <pre><code>hq-rtr>enable
 hq-rtr#configure terminal
@@ -1112,248 +1017,248 @@ hq-rtr(config-if)#dhcp-server 1
 hq-rtr(config-if)#exit
 hq-rtr(config)#write memory</code></pre>
 
-            <!-- СКРИНШОТ 9.1: Создание пула DHCP -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.1</strong><br>
-                <strong>Описание:</strong> Создание пула адресов VLAN200 для DHCP-сервера<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 9.1: Создание пула DHCP -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.1</strong><br>
+            <strong>Описание:</strong> Создание пула адресов VLAN200 для DHCP-сервера<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img01.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 9.2: Настройка DHCP-сервера -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.2</strong><br>
-                <strong>Описание:</strong> Настройка параметров DHCP-сервера (маска, шлюз, DNS, домен)<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 9.2: Настройка DHCP-сервера -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.2</strong><br>
+            <strong>Описание:</strong> Настройка параметров DHCP-сервера (маска, шлюз, DNS, домен)<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img02.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 9.3: Привязка DHCP к интерфейсу vl200 -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.3</strong><br>
-                <strong>Описание:</strong> Привязка DHCP-сервера к интерфейсу vl200<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 9.3: Привязка DHCP к интерфейсу vl200 -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.3</strong><br>
+            <strong>Описание:</strong> Привязка DHCP-сервера к интерфейсу vl200<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img03.png</code>
+        </div>
 
-            <p><strong>Настройка HQ-CLI (ЦУС):</strong></p>
-            <!-- СКРИНШОТ 9.4: Выбор режима DHCP в ЦУС -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.4</strong><br>
-                <strong>Описание:</strong> В Центре Управления Системой (ЦУС) выбор режима работы сетевой подсистемы — DHCP<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img04.png</code>
-            </div>
+        <p><strong>Настройка HQ-CLI (ЦУС):</strong></p>
+        <!-- СКРИНШОТ 9.4: Выбор режима DHCP в ЦУС -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.4</strong><br>
+            <strong>Описание:</strong> В Центре Управления Системой (ЦУС) выбор режима работы сетевой подсистемы — DHCP<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img04.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 9.5: Настройка интерфейса на получение IP по DHCP -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.5</strong><br>
-                <strong>Описание:</strong> В настройках интерфейса выставление получения сетевых параметров по DHCP<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img05.png</code>
-            </div>
+        <!-- СКРИНШОТ 9.5: Настройка интерфейса на получение IP по DHCP -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.5</strong><br>
+            <strong>Описание:</strong> В настройках интерфейса выставление получения сетевых параметров по DHCP<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img05.png</code>
+        </div>
 
-            <p><strong>Проверка полученных параметров на HQ-CLI:</strong></p>
-            <!-- СКРИНШОТ 9.6: Полученные сетевые параметры на HQ-CLI -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 9.6</strong><br>
-                <strong>Описание:</strong> Наличие полученных сетевых параметров по DHCP на HQ-CLI<br>
-                <strong>Файл:</strong> <code>screenshots/part09_img06.png</code>
-            </div>
+        <p><strong>Проверка полученных параметров на HQ-CLI:</strong></p>
+        <!-- СКРИНШОТ 9.6: Полученные сетевые параметры на HQ-CLI -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 9.6</strong><br>
+            <strong>Описание:</strong> Наличие полученных сетевых параметров по DHCP на HQ-CLI<br>
+            <strong>Файл:</strong> <code>screenshots/part09_img06.png</code>
+        </div>
 
-            <p><strong>Проверка доступа в Интернет с HQ-CLI:</strong></p>
+        <p><strong>Проверка доступа в Интернет с HQ-CLI:</strong></p>
 <pre><code>ping 8.8.8.8</code></pre>
 
-            <p><strong>Проверка клиентов DHCP-сервера на HQ-RTR:</strong></p>
+        <p><strong>Проверка клиентов DHCP-сервера на HQ-RTR:</strong></p>
 <pre><code>show dhcp-server binding</code></pre>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 10: DNS-СЕРВЕР BIND                 -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 10: DNS-СЕРВЕР BIND                 -->
+        <!-- ========================================= -->
 
-            <h2>📧 16. Настройка DNS-сервера (BIND) на HQ-SRV</h2>
+        <h2>📧 16. Настройка DNS-сервера (BIND) на HQ-SRV</h2>
 
-            <p><strong>Установка BIND:</strong></p>
+        <p><strong>Установка BIND:</strong></p>
 <pre><code>apt-get update && apt-get install bind bind-utils -y</code></pre>
 
-            <!-- СКРИНШОТ 10.1: Установка пакетов bind -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.1</strong><br>
-                <strong>Описание:</strong> Установка пакетов BIND и bind-utils<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.1: Установка пакетов bind -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.1</strong><br>
+            <strong>Описание:</strong> Установка пакетов BIND и bind-utils<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img01.png</code>
+        </div>
 
-            <p><strong>Редактирование <code>/var/lib/bind/etc/options.conf</code>:</strong></p>
-            <!-- СКРИНШОТ 10.2: Содержимое options.conf -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.2</strong><br>
-                <strong>Описание:</strong> Содержимое файла /var/lib/bind/etc/options.conf (listen-on, forwarders, allow-query)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img02.png</code>
-            </div>
+        <p><strong>Редактирование <code>/var/lib/bind/etc/options.conf</code>:</strong></p>
+        <!-- СКРИНШОТ 10.2: Содержимое options.conf -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.2</strong><br>
+            <strong>Описание:</strong> Содержимое файла /var/lib/bind/etc/options.conf (listen-on, forwarders, allow-query)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img02.png</code>
+        </div>
 
-            <p><strong>Добавление зон в <code>/var/lib/bind/etc/rfc1912.conf</code>:</strong></p>
-            <!-- СКРИНШОТ 10.3: Добавление зон в rfc1912.conf -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.3</strong><br>
-                <strong>Описание:</strong> Добавление зон прямого и обратного просмотра в файл rfc1912.conf<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img03.png</code>
-            </div>
+        <p><strong>Добавление зон в <code>/var/lib/bind/etc/rfc1912.conf</code>:</strong></p>
+        <!-- СКРИНШОТ 10.3: Добавление зон в rfc1912.conf -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.3</strong><br>
+            <strong>Описание:</strong> Добавление зон прямого и обратного просмотра в файл rfc1912.conf<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img03.png</code>
+        </div>
 
-            <p><strong>Создание файлов зон из шаблона:</strong></p>
-            <!-- СКРИНШОТ 10.4: Копирование шаблонов зон -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.4</strong><br>
-                <strong>Описание:</strong> Создание файлов зон из шаблона (cp ...)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img04.png</code>
-            </div>
+        <p><strong>Создание файлов зон из шаблона:</strong></p>
+        <!-- СКРИНШОТ 10.4: Копирование шаблонов зон -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.4</strong><br>
+            <strong>Описание:</strong> Создание файлов зон из шаблона (cp ...)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img04.png</code>
+        </div>
 
-            <p><strong>Настройка прямой зоны <code>/var/lib/bind/etc/zone/au-team.irpo</code>:</strong></p>
-            <!-- СКРИНШОТ 10.5: Содержимое прямой зоны -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.5</strong><br>
-                <strong>Описание:</strong> Содержимое файла прямой зоны au-team.irpo (SOA, NS, A-записи)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img05.png</code>
-            </div>
+        <p><strong>Настройка прямой зоны <code>/var/lib/bind/etc/zone/au-team.irpo</code>:</strong></p>
+        <!-- СКРИНШОТ 10.5: Содержимое прямой зоны -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.5</strong><br>
+            <strong>Описание:</strong> Содержимое файла прямой зоны au-team.irpo (SOA, NS, A-записи)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img05.png</code>
+        </div>
 
-            <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/100.168.192.in-addr.arpa</code>:</strong></p>
-            <!-- СКРИНШОТ 10.6: Содержимое обратной зоны 100.168.192.in-addr.arpa -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.6</strong><br>
-                <strong>Описание:</strong> Содержимое файла обратной зоны 100.168.192.in-addr.arpa (PTR-записи)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img06.png</code>
-            </div>
+        <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/100.168.192.in-addr.arpa</code>:</strong></p>
+        <!-- СКРИНШОТ 10.6: Содержимое обратной зоны 100.168.192.in-addr.arpa -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.6</strong><br>
+            <strong>Описание:</strong> Содержимое файла обратной зоны 100.168.192.in-addr.arpa (PTR-записи)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img06.png</code>
+        </div>
 
-            <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/200.168.192.in-addr.arpa</code>:</strong></p>
-            <!-- СКРИНШОТ 10.7: Содержимое обратной зоны 200.168.192.in-addr.arpa -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.7</strong><br>
-                <strong>Описание:</strong> Содержимое файла обратной зоны 200.168.192.in-addr.arpa (PTR-записи)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img07.png</code>
-            </div>
+        <p><strong>Настройка обратной зоны <code>/var/lib/bind/etc/zone/200.168.192.in-addr.arpa</code>:</strong></p>
+        <!-- СКРИНШОТ 10.7: Содержимое обратной зоны 200.168.192.in-addr.arpa -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.7</strong><br>
+            <strong>Описание:</strong> Содержимое файла обратной зоны 200.168.192.in-addr.arpa (PTR-записи)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img07.png</code>
+        </div>
 
-            <p><strong>Настройка rndc:</strong></p>
+        <p><strong>Настройка rndc:</strong></p>
 <pre><code>rndc-confgen > /var/lib/bind/etc/rndc.key
 sed -i '6,$d' /var/lib/bind/etc/rndc.key</code></pre>
 
-            <!-- СКРИНШОТ 10.8: Результат настройки rndc -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.8</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды rndc-confgen и sed<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img08.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.8: Результат настройки rndc -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.8</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды rndc-confgen и sed<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img08.png</code>
+        </div>
 
-            <p><strong>Смена группы файлов зон:</strong></p>
+        <p><strong>Смена группы файлов зон:</strong></p>
 <pre><code>chgrp named /var/lib/bind/etc/zone/*</code></pre>
 
-            <!-- СКРИНШОТ 10.9: Смена группы файлов зон -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.9</strong><br>
-                <strong>Описание:</strong> Смена группы у файлов зон на named<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img09.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.9: Смена группы файлов зон -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.9</strong><br>
+            <strong>Описание:</strong> Смена группы у файлов зон на named<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img09.png</code>
+        </div>
 
-            <p><strong>Проверка конфигурации:</strong></p>
+        <p><strong>Проверка конфигурации:</strong></p>
 <pre><code>named-checkconf
 named-checkconf -z</code></pre>
 
-            <!-- СКРИНШОТ 10.10: Результат named-checkconf -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.10</strong><br>
-                <strong>Описание:</strong> Результат проверки конфигурационных файлов командой named-checkconf<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img10.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.10: Результат named-checkconf -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.10</strong><br>
+            <strong>Описание:</strong> Результат проверки конфигурационных файлов командой named-checkconf<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img10.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 10.11: Результат named-checkconf -z -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.11</strong><br>
-                <strong>Описание:</strong> Результат проверки файлов зон командой named-checkconf -z<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img11.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.11: Результат named-checkconf -z -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.11</strong><br>
+            <strong>Описание:</strong> Результат проверки файлов зон командой named-checkconf -z<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img11.png</code>
+        </div>
 
-            <p><strong>Запуск службы:</strong></p>
+        <p><strong>Запуск службы:</strong></p>
 <pre><code>systemctl enable --now bind.service
 systemctl status bind.service</code></pre>
 
-            <!-- СКРИНШОТ 10.12: Статус службы bind -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.12</strong><br>
-                <strong>Описание:</strong> Статус службы bind после запуска (systemctl status bind.service)<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img12.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.12: Статус службы bind -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.12</strong><br>
+            <strong>Описание:</strong> Статус службы bind после запуска (systemctl status bind.service)<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img12.png</code>
+        </div>
 
-            <p><strong>Проверка доступа в Интернет с использованием HQ-SRV в качестве DNS:</strong></p>
-            <!-- СКРИНШОТ 10.13: Проверка ping с использованием HQ-SRV как DNS -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.13</strong><br>
-                <strong>Описание:</strong> Проверка доступа в сеть Интернет (ping) с использованием HQ-SRV в качестве DNS-сервера<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img13.png</code>
-            </div>
+        <p><strong>Проверка доступа в Интернет с использованием HQ-SRV в качестве DNS:</strong></p>
+        <!-- СКРИНШОТ 10.13: Проверка ping с использованием HQ-SRV как DNS -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.13</strong><br>
+            <strong>Описание:</strong> Проверка доступа в сеть Интернет (ping) с использованием HQ-SRV в качестве DNS-сервера<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img13.png</code>
+        </div>
 
-            <p><strong>Проверка записей типа A:</strong></p>
+        <p><strong>Проверка записей типа A:</strong></p>
 <pre><code>host au-team.irpo
 host hq-srv.au-team.irpo
 host br-srv.au-team.irpo</code></pre>
-            <!-- СКРИНШОТ 10.14: Результат проверки A-записей -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.14</strong><br>
-                <strong>Описание:</strong> Проверка записей типа A с помощью утилиты host или nslookup<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img14.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.14: Результат проверки A-записей -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.14</strong><br>
+            <strong>Описание:</strong> Проверка записей типа A с помощью утилиты host или nslookup<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img14.png</code>
+        </div>
 
-            <p><strong>Проверка записей типа PTR:</strong></p>
+        <p><strong>Проверка записей типа PTR:</strong></p>
 <pre><code>nslookup 192.168.100.2
 nslookup 192.168.200.2</code></pre>
-            <!-- СКРИНШОТ 10.15: Результат проверки PTR-записей -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 10.15</strong><br>
-                <strong>Описание:</strong> Проверка записей типа PTR с помощью утилиты nslookup<br>
-                <strong>Файл:</strong> <code>screenshots/part10_img15.png</code>
-            </div>
+        <!-- СКРИНШОТ 10.15: Результат проверки PTR-записей -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 10.15</strong><br>
+            <strong>Описание:</strong> Проверка записей типа PTR с помощью утилиты nslookup<br>
+            <strong>Файл:</strong> <code>screenshots/part10_img15.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- ЧАСТЬ 11: НАСТРОЙКА ЧАСОВЫХ ПОЯСОВ        -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- ЧАСТЬ 11: НАСТРОЙКА ЧАСОВЫХ ПОЯСОВ        -->
+        <!-- ========================================= -->
 
-            <h2>🕐 17. Настройка часовых поясов</h2>
+        <h2>🕐 17. Настройка часовых поясов</h2>
 
-            <p><strong>HQ-RTR и BR-RTR:</strong></p>
+        <p><strong>HQ-RTR и BR-RTR:</strong></p>
 <pre><code>hq-rtr(config)#ntp timezone utc+3
 hq-rtr(config)#write memory
 
 br-rtr(config)#ntp timezone utc+3
 br-rtr(config)#write memory</code></pre>
 
-            <p><strong>Проверка:</strong></p>
+        <p><strong>Проверка:</strong></p>
 <pre><code>show ntp timezone</code></pre>
 
-            <!-- СКРИНШОТ 11.1: Проверка ntp timezone на EcoRouter -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 11.1</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>show ntp timezone</code> на HQ-RTR/BR-RTR<br>
-                <strong>Файл:</strong> <code>screenshots/part11_img01.png</code>
-            </div>
+        <!-- СКРИНШОТ 11.1: Проверка ntp timezone на EcoRouter -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 11.1</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>show ntp timezone</code> на HQ-RTR/BR-RTR<br>
+            <strong>Файл:</strong> <code>screenshots/part11_img01.png</code>
+        </div>
 
-            <p><strong>ISP | HQ-SRV | HQ-CLI | BR-SRV:</strong></p>
+        <p><strong>ISP | HQ-SRV | HQ-CLI | BR-SRV:</strong></p>
 <pre><code>timedatectl set-timezone Europe/Moscow</code></pre>
-            <p><strong>На JeOS возможно потребуется установка пакета tzdata.</strong></p>
+        <p><strong>На JeOS возможно потребуется установка пакета tzdata.</strong></p>
 
-            <p><strong>Проверка:</strong></p>
+        <p><strong>Проверка:</strong></p>
 <pre><code>timedatectl</code></pre>
 
-            <!-- СКРИНШОТ 11.2: Результат timedatectl на Linux устройствах -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 11.2</strong><br>
-                <strong>Описание:</strong> Результат выполнения команды <code>timedatectl</code> на ISP/HQ-SRV/BR-SRV<br>
-                <strong>Файл:</strong> <code>screenshots/part11_img02.png</code>
-            </div>
+        <!-- СКРИНШОТ 11.2: Результат timedatectl на Linux устройствах -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 11.2</strong><br>
+            <strong>Описание:</strong> Результат выполнения команды <code>timedatectl</code> на ISP/HQ-SRV/BR-SRV<br>
+            <strong>Файл:</strong> <code>screenshots/part11_img02.png</code>
+        </div>
 
-            <!-- СКРИНШОТ 11.3: Установка tzdata при необходимости -->
-            <div class="screenshot-placeholder">
-                📸 <strong>СКРИНШОТ 11.3</strong><br>
-                <strong>Описание:</strong> Установка пакета tzdata на JeOS (при необходимости)<br>
-                <strong>Файл:</strong> <code>screenshots/part11_img03.png</code>
-            </div>
+        <!-- СКРИНШОТ 11.3: Установка tzdata при необходимости -->
+        <div class="screenshot-placeholder">
+            📸 <strong>СКРИНШОТ 11.3</strong><br>
+            <strong>Описание:</strong> Установка пакета tzdata на JeOS (при необходимости)<br>
+            <strong>Файл:</strong> <code>screenshots/part11_img03.png</code>
+        </div>
 
-            <!-- ========================================= -->
-            <!-- КОНЕЦ БЛОКА СО ШПАРГАЛКАМИ                 -->
-            <!-- ========================================= -->
+        <!-- ========================================= -->
+        <!-- КОНЕЦ БЛОКА СО ШПАРГАЛКАМИ                 -->
+        <!-- ========================================= -->
 
-        
+
     </div>
 </div>
 

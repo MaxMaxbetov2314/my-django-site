@@ -3,136 +3,324 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Мой сайт шпаргалок{% endblock %}</title>
+    <title>{% block title %}EcoRouterOS — официальная документация{% endblock %}</title>
     <style>
-        /* Глобальные стили для всего body */
-        body {
-            font-family: Arial, sans-serif;
+        /* ========================================= */
+        /* КОРПОРАТИВНЫЙ СТИЛЬ ECOROUTER             */
+        /* ========================================= */
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #6EA8FF; /* Легкий серый фон страницы */
-            color: #FFFFFF;
+            box-sizing: border-box;
         }
 
-        /* Стили для верхнего колонтитула (Header) */
-        .header {
-            background-color: #1E5FC0; /* Зеленый фон */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: #1a2a3a;
+            line-height: 1.6;
+        }
+
+        /* Верхняя панель (как у официальных docs) */
+        .top-bar {
+            background-color: #0a2b3e;
             color: white;
-            padding: 15px 20px;
-            text-align: center;
+            padding: 8px 20px;
+            font-size: 12px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            border-bottom: 1px solid #1a4a6e;
         }
 
-            .header h1 {
-                margin: 0; /* Убираем стандартный отступ у заголовка */
-            }
-
-            .header a {
-                color: white;
+            .top-bar a {
+                color: #8bb9d0;
                 text-decoration: none;
                 margin-left: 20px;
             }
 
-                .header a:hover {
-                    text-decoration: underline;
+                .top-bar a:hover {
+                    color: white;
                 }
 
-        /* Стили для кнопки "Выйти", чтобы она выглядела как ссылка */
-        .logout-button {
-            background: none;
-            border: none;
+        /* Основной хедер */
+        .header {
+            background: linear-gradient(135deg, #0e3b4f 0%, #0a2b3e 100%);
             color: white;
-            cursor: pointer;
-            font-size: inherit; /* Использует размер шрифта родительского элемента */
-            padding: 0;
-            margin-left: 20px; /* Чтобы отделить от имени пользователя, как раньше была ссылка */
-            text-decoration: none; /* Убрать подчеркивание по умолчанию для кнопки */
+            padding: 20px 40px;
+            border-bottom: 3px solid #ff8c42;
         }
 
-            .logout-button:hover {
-                text-decoration: underline; /* Добавить подчеркивание при наведении */
+            .header h1 {
+                margin: 0;
+                font-size: 24px;
+                font-weight: 600;
             }
 
-        /* Стили для основного контентного блока */
+                .header h1 a {
+                    color: white;
+                    text-decoration: none;
+                }
+
+            .header p {
+                margin: 8px 0 0;
+                font-size: 14px;
+                color: #8bb9d0;
+            }
+
+        /* Навигационное меню */
+        .nav-menu {
+            background-color: white;
+            border-bottom: 1px solid #e0e4e8;
+            padding: 0 40px;
+            display: flex;
+            gap: 30px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+            .nav-menu a {
+                padding: 14px 0;
+                color: #3a5a6e;
+                text-decoration: none;
+                font-size: 14px;
+                font-weight: 500;
+                border-bottom: 2px solid transparent;
+            }
+
+                .nav-menu a:hover {
+                    border-bottom-color: #ff8c42;
+                    color: #0a2b3e;
+                }
+
+        /* Основной контент */
         .content {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto; /* Центрируем блок и добавляем отступы сверху/снизу */
-            background-color: #0243B5; /* Белый фон для контентного блока */
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Легкая тень */
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 40px;
         }
 
-        /* Стили для нижнего колонтитула (Footer) */
-        .footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-            background-color: #eee; /* Светло-серый фон */
-            color: #666;
-            border-top: 1px solid #ddd; /* Разделительная линия */
+        /* Боковая панель (опционально) */
+        .docs-container {
+            display: flex;
+            gap: 40px;
         }
 
-        /* Стили для форм (на случай, если они будут использоваться) */
-        input[type="text"], input[type="password"], textarea {
-            width: calc(100% - 22px); /* Ширина с учетом padding и border */
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box; /* Важно, чтобы padding не увеличивал общую ширину */
+        .sidebar {
+            width: 260px;
+            flex-shrink: 0;
         }
 
-        button[type="submit"], input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-            button[type="submit"]:hover, input[type="submit"]:hover {
-                background-color: #4cae4c;
+            .sidebar h4 {
+                color: #0a2b3e;
+                font-size: 14px;
+                margin: 20px 0 10px;
+                padding-bottom: 5px;
+                border-bottom: 1px solid #e0e4e8;
             }
-        /* Стили для заглушек скриншотов */
+
+            .sidebar ul {
+                list-style: none;
+                margin-bottom: 20px;
+            }
+
+            .sidebar li {
+                margin-bottom: 6px;
+            }
+
+            .sidebar a {
+                color: #3a5a6e;
+                text-decoration: none;
+                font-size: 13px;
+                display: block;
+                padding: 4px 8px;
+                border-radius: 4px;
+            }
+
+                .sidebar a:hover {
+                    background-color: #eef2f5;
+                    color: #ff8c42;
+                }
+
+        .main-content {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e8ecef;
+        }
+
+        /* Футер */
+        .footer {
+            background-color: #0a2b3e;
+            color: #8bb9d0;
+            text-align: center;
+            padding: 25px;
+            margin-top: 50px;
+            font-size: 13px;
+            border-top: 1px solid #1a4a6e;
+        }
+
+            .footer a {
+                color: #ff8c42;
+                text-decoration: none;
+            }
+
+        /* Код и команды */
+        code {
+            background-color: #f0f4f8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            color: #c7254e;
+        }
+
+        pre {
+            background-color: #1e2a36;
+            color: #e8eef2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+            pre code {
+                background: none;
+                color: inherit;
+                padding: 0;
+            }
+
+        /* Таблицы */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        th, td {
+            border: 1px solid #e0e4e8;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f4f8;
+            font-weight: 600;
+        }
+
+        /* Заглушки скриншотов */
         .screenshot-placeholder {
-            background-color: #1E5FC0;
-            border: 2px dashed #ffaa00;
+            background-color: #f8f9fa;
+            border: 2px dashed #cbd5e1;
             border-radius: 8px;
             padding: 15px;
             margin: 15px 0;
             text-align: center;
-            font-family: monospace;
-            font-size: 14px;
-            color: #ffaa00;
+            font-size: 13px;
+            color: #64748b;
         }
 
-            .screenshot-placeholder code {
-                background-color: #0243B5;
-                padding: 2px 5px;
-                border-radius: 4px;
-                color: #ffaa00;
+        /* Кнопка "подробнее" */
+        #toggleCheatsTrigger {
+            color: #ff8c42;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+            #toggleCheatsTrigger:hover {
+                color: #e67e22;
             }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .docs-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .content {
+                padding: 0 20px;
+            }
+
+            .nav-menu {
+                padding: 0 20px;
+                overflow-x: auto;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1><a href="/">EcoRouter справочник команд</a></h1>
+
+    <!-- Верхняя панель -->
+    <div class="top-bar">
+        <span>EcoRouterOS v4.2.1</span>
+        <div>
+            <a href="#">Поддержка</a>
+            <a href="#">Загрузки</a>
+            <a href="#">Сообщество</a>
+        </div>
     </div>
 
+    <!-- Хедер -->
+    <div class="header">
+        <h1><a href="/">EcoRouterOS</a></h1>
+        <p>Официальная документация — справочник команд и руководство по настройке</p>
+    </div>
+
+    <!-- Навигация -->
+    <div class="nav-menu">
+        <a href="/">Главная</a>
+        <a href="#">Руководство администратора</a>
+        <a href="#">Справочник команд CLI</a>
+        <a href="#">Примеры конфигурации</a>
+        <a href="#">FAQ</a>
+    </div>
+
+    <!-- Основной контент -->
     <div class="content">
-        {% block content %}
-        <!-- Контент каждой конкретной страницы будет здесь -->
-        {% endblock %}
+        <div class="docs-container">
+            <!-- Боковое меню -->
+            <div class="sidebar">
+                <h4>Навигация</h4>
+                <ul>
+                    <li><a href="#">Введение в EcoRouterOS</a></li>
+                    <li><a href="#">Установка и обновление</a></li>
+                    <li><a href="#">Первоначальная настройка</a></li>
+                    <li><a href="#">CLI — основы работы</a></li>
+                    <li><a href="#">Конфигурация интерфейсов</a></li>
+                    <li><a href="#">Настройка маршрутизации</a></li>
+                    <li><a href="#">Безопасность и ACL</a></li>
+                    <li><a href="#">Диагностика и отладка</a></li>
+                </ul>
+                <h4>Ресурсы</h4>
+                <ul>
+                    <li><a href="#">Скачать документацию PDF</a></li>
+                    <li><a href="#">Видеоуроки</a></li>
+                    <li><a href="#">Форум поддержки</a></li>
+                </ul>
+            </div>
+
+            <!-- Основная область контента -->
+            <div class="main-content">
+                {% block content %}
+                <!-- Контент каждой конкретной страницы будет здесь -->
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Футер -->
+    <div class="footer">
+        <p>© 2025 EcoRouter — Энергоэффективные сетевые решения. Документация распространяется под лицензией CC BY-SA 4.0.</p>
+        <p><a href="#">Политика конфиденциальности</a> | <a href="#">Контакты</a> | <a href="#">GitHub проекта</a></p>
     </div>
 
 </body>
 </html>
-
 
