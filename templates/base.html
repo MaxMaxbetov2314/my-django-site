@@ -204,20 +204,32 @@
             margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid #e0e4e8;
+            color: #1a2a3a; /* ← тёмный цвет текста */
+            background-color: white; /* ← белый фон */
         }
 
-            #cheatsheetsBlock h2, #cheatsheetsBlock h3 {
+            #cheatsheetsBlock h1, #cheatsheetsBlock h2, #cheatsheetsBlock h3,
+            #cheatsheetsBlock h4, #cheatsheetsBlock h5, #cheatsheetsBlock h6 {
                 color: #0a2b3e;
+            }
+
+            #cheatsheetsBlock p, #cheatsheetsBlock li, #cheatsheetsBlock td,
+            #cheatsheetsBlock th, #cheatsheetsBlock span, #cheatsheetsBlock div {
+                color: #1a2a3a;
             }
 
             #cheatsheetsBlock code {
                 background-color: #f0f4f8;
+                color: #c7254e;
             }
 
             #cheatsheetsBlock pre {
                 background-color: #1e2a36;
             }
 
+                #cheatsheetsBlock pre code {
+                    color: #e8eef2;
+                }
         .screenshot-placeholder {
             background-color: #f8f9fa;
             border: 1px solid #e0e4e8;
