@@ -199,57 +199,93 @@
             font-weight: 600;
         }
 
-        /* Стили для скрытых шпаргалок — такие же, как основной контент */
+        /* ========================================= */
+        /* СТИЛИ ДЛЯ СКРЫТЫХ ШПАРГАЛОК              */
+        /* ========================================= */
         #cheatsheetsBlock {
             margin-top: 30px;
-            padding-top: 20px;
+            padding: 20px;
             border-top: 1px solid #e0e4e8;
-            color: #1a2a3a; /* ← тёмный цвет текста */
-            background-color: white; /* ← белый фон */
+            background-color: white !important;
+            color: #1a2a3a !important;
         }
+
+            #cheatsheetsBlock * {
+                color: #1a2a3a !important;
+                background-color: transparent !important;
+            }
 
             #cheatsheetsBlock h1, #cheatsheetsBlock h2, #cheatsheetsBlock h3,
             #cheatsheetsBlock h4, #cheatsheetsBlock h5, #cheatsheetsBlock h6 {
-                color: #0a2b3e;
+                color: #0a2b3e !important;
+                margin-top: 20px;
+                margin-bottom: 10px;
             }
 
             #cheatsheetsBlock p, #cheatsheetsBlock li, #cheatsheetsBlock td,
             #cheatsheetsBlock th, #cheatsheetsBlock span, #cheatsheetsBlock div {
-                color: #1a2a3a;
+                color: #1a2a3a !important;
             }
 
             #cheatsheetsBlock code {
-                background-color: #f0f4f8;
-                color: #c7254e;
+                background-color: #f0f4f8 !important;
+                color: #c7254e !important;
+                padding: 2px 5px;
+                border-radius: 4px;
             }
 
             #cheatsheetsBlock pre {
-                background-color: #1e2a36;
+                background-color: #1e2a36 !important;
+                padding: 15px;
+                border-radius: 8px;
+                overflow-x: auto;
             }
 
                 #cheatsheetsBlock pre code {
-                    color: #e8eef2;
+                    background-color: transparent !important;
+                    color: #e8eef2 !important;
                 }
+
+            #cheatsheetsBlock table {
+                background-color: white !important;
+            }
+
+            #cheatsheetsBlock th {
+                background-color: #f0f4f8 !important;
+                color: #1a2a3a !important;
+            }
+
+            #cheatsheetsBlock td {
+                background-color: white !important;
+                color: #1a2a3a !important;
+            }
+
+        /* Заглушки скриншотов */
         .screenshot-placeholder {
-            background-color: #f8f9fa;
-            border: 1px solid #e0e4e8;
+            background-color: #f8f9fa !important;
+            border: 1px solid #e0e4e8 !important;
             border-radius: 8px;
             padding: 12px;
             margin: 15px 0;
             text-align: center;
             font-size: 12px;
-            color: #6c7a89;
+            color: #6c7a89 !important;
         }
 
+            .screenshot-placeholder * {
+                color: #6c7a89 !important;
+            }
+
+        /* Кнопка "подробнее" */
         #toggleCheatsTrigger {
-            color: #ff8c42;
+            color: #ff8c42 !important;
             cursor: pointer;
             font-weight: 600;
             text-decoration: underline;
         }
 
             #toggleCheatsTrigger:hover {
-                color: #e67e22;
+                color: #e67e22 !important;
             }
 
         @media (max-width: 768px) {
