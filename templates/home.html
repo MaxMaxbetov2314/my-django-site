@@ -761,70 +761,34 @@ br-rtr(config)#</code></pre>
             Наличие аутентификации на интерфейсе по которому предусмотрено установление соседства и обмен маршрутной информации:
         </p>
         <!-- СКРИНШОТ: Проверка аутентификации OSPF -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие аутентификации на интерфейсе tunnel.0<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Маршрутизаторы должны делиться маршрутами только друг с другом:</p>
         <p>HQ-RTR:</p>
         <!-- СКРИНШОТ: Маршруты на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Маршруты на HQ-RTR (show ip route ospf)<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img02.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>BR-RTR:</p>
         <!-- СКРИНШОТ: Маршруты на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Маршруты на BR-RTR (show ip route ospf)<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img03.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Наличие установленного соседства:</p>
         <!-- СКРИНШОТ: Соседство OSPF на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие установленного соседства OSPF (show ip ospf neighbor) на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img04.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Соседство OSPF на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие установленного соседства OSPF (show ip ospf neighbor) на BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img05.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Наличие полученных маршрутов по OSPF:</p>
         <!-- СКРИНШОТ: Полученные маршруты OSPF на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF на HQ-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img06.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Полученные маршруты OSPF на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие полученных маршрутов по OSPF на BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img07.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Связность между устройствами офиса HQ и BR:</p>
         <!-- СКРИНШОТ: Связность HQ -> BR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Связность между устройствами офиса HQ и BR (ping с HQ-SRV на BR-SRV)<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img08.png</code>
-        </div>
+        <img src="/static/screenshots/part07/img08.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Связность BR -> HQ -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Связность между устройствами офиса BR и HQ (ping с BR-SRV на HQ-SRV)<br>
-            <strong>Файл:</strong> <code>screenshots/part07_img09.png</code>
-        </div>
+        <img src="/static/screenshots/part08/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 8: NAT (STATIC SOURCE PAT)          -->
@@ -870,19 +834,11 @@ hq-rtr(config)#</code></pre>
 
         <p>Проверяем доступ в сеть Интернет с устройств офиса HQ - HQ-SRV:</p>
         <!-- СКРИНШОТ: Доступ в Интернет с HQ-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступа в Интернет с HQ-SRV (ping 8.8.8.8)<br>
-            <strong>Файл:</strong> <code>screenshots/part08_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part08/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверяем заполнение таблицы трансляции адресов на HQ-RTR:</p>
         <!-- СКРИНШОТ: Таблица NAT на HQ-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Заполнение таблицы трансляции адресов на HQ-RTR (show ip nat translations)<br>
-            <strong>Файл:</strong> <code>screenshots/part08_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part08/img02.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <h2>🌍 Настройка NAT на BR-RTR</h2>
 
@@ -906,19 +862,11 @@ br-rtr#</code></pre>
 
         <p>Проверяем доступ в сеть Интернет с устройств офиса BR - BR-SRV:</p>
         <!-- СКРИНШОТ: Доступ в Интернет с BR-SRV -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступа в Интернет с BR-SRV (ping 8.8.8.8)<br>
-            <strong>Файл:</strong> <code>screenshots/part08_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part08/img03.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверяем заполнение таблицы трансляции адресов на BR-RTR:</p>
         <!-- СКРИНШОТ: Таблица NAT на BR-RTR -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Заполнение таблицы трансляции адресов на BR-RTR (show ip nat translations)<br>
-            <strong>Файл:</strong> <code>screenshots/part08_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part08/img04.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 9: DHCP-СЕРВЕР                      -->
@@ -971,55 +919,27 @@ hq-rtr(config)#</code></pre>
             в Центре Управления Системой (ЦУС) выбрать в качестве режима работы сетевой подсистемы:
         </p>
         <!-- СКРИНШОТ: ЦУС выбор режима DHCP -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> В ЦУС выбор режима работы сетевой подсистемы — DHCP<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>В настройках интерфейса выставить получение сетевых параметров по DHCP:</p>
         <!-- СКРИНШОТ: Настройка интерфейса на DHCP (1) -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 1)<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img02.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Настройка интерфейса на DHCP (2) -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 2)<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img03.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Настройка интерфейса на DHCP (3) -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Настройка интерфейса на получение параметров по DHCP (шаг 3)<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img04.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить наличие полученных сетевых параметров:</p>
         <!-- СКРИНШОТ: Полученные параметры на HQ-CLI -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Наличие полученных сетевых параметров по DHCP на HQ-CLI<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img05.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить доступ в сеть Интернет:</p>
         <!-- СКРИНШОТ: Доступ в Интернет с HQ-CLI -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступа в Интернет с HQ-CLI (ping 8.8.8.8)<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img06.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить, клиентов по отношению к DHCP-серверу на HQ-RTR:</p>
         <!-- СКРИНШОТ: Клиенты DHCP-сервера -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка клиентов DHCP-сервера на HQ-RTR (show dhcp-server binding)<br>
-            <strong>Файл:</strong> <code>screenshots/part09_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part09/img07.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 10: DNS-СЕРВЕР BIND                 -->
@@ -1040,74 +960,46 @@ hq-rtr(config)#</code></pre>
             allow-query – IP-адреса и подсети от которых будут обрабатываться запросы;
         </p>
         <!-- СКРИНШОТ: options.conf -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла /var/lib/bind/etc/options.conf<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img01.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Далее необходимо добавить зоны прямого и обратного просмотра в файл /var/lib/bind/etc/rfc1912.conf:</p>
 <pre><code>vim /var/lib/bind/etc/rfc1912.conf</code></pre>
 
         <p>Добавляем следующее содержимое (в конец файла):</p>
         <!-- СКРИНШОТ: rfc1912.conf с зонами -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Добавление зон прямого и обратного просмотра в rfc1912.conf<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img02.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Создаём файлы зон прямого и обратного просмотра из шаблона:</p>
         <!-- СКРИНШОТ: Создание файлов зон из шаблона -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Создание файлов зон из шаблона (cp ...)<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img03.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img03.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Необходимо сконфигурировать файл au-team.irpo:</p>
 <pre><code>vim /var/lib/bind/etc/zone/au-team.irpo</code></pre>
 
         <p>который является прямой зоной следующим образом:</p>
         <!-- СКРИНШОТ: Прямая зона au-team.irpo -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла прямой зоны au-team.irpo<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img04.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img04.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Далее необходимо настроить обратную зону и привести файл 100.168.192.in-addr.arpa:</p>
 <pre><code>vim /var/lib/bind/etc/zone/100.168.192.in-addr.arpa</code></pre>
 
         <p>к следующему виду:</p>
         <!-- СКРИНШОТ: Обратная зона 100.168.192.in-addr.arpa -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла обратной зоны 100.168.192.in-addr.arpa<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img05.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img05.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Далее необходимо настроить обратную зону и привести файл 200.168.192.in-addr.arpa:</p>
 <pre><code>vim /var/lib/bind/etc/zone/200.168.192.in-addr.arpa</code></pre>
 
         <p>к следующему виду:</p>
         <!-- СКРИНШОТ: Обратная зона 200.168.192.in-addr.arpa -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Содержимое файла обратной зоны 200.168.192.in-addr.arpa<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img06.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img06.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Для DNS-сервиса важно обеспечить непрерывный аптайм, не допуская даже минутных простоев.<br>
             Если вы попытаетесь перезапустить systemd-юнит обычной командой systemctl, а в конфигурации будут ошибки, то BIND не запустится.
         </p>
         <!-- СКРИНШОТ: Предупреждение о перезапуске BIND -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Предупреждение о проблемах при перезапуске BIND с ошибками в конфигурации<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img07.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img07.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Чтобы избежать столь неприятных последствий, надо правильно настроить утилиту rndc, которая позволяет обойти эти сложности.<br>
@@ -1120,34 +1012,18 @@ hq-rtr(config)#</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: Результат rndc-confgen -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат выполнения команд rndc-confgen и sed<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img08.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img08.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>
             Перед запуском службы остается поменять группу у файлов зон, которые были созданы ранее, на named<br>
             а также проверить конфигурационные файлы и файлы зон командами named-checkconf и named-checkconf -z соответственно:
         </p>
         <!-- СКРИНШОТ: named-checkconf -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат проверки конфигурационных файлов командой named-checkconf<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img09.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img09.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: named-checkconf -z -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат проверки файлов зон командой named-checkconf -z<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img10.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img10.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
         <!-- СКРИНШОТ: Смена группы файлов зон -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Смена группы у файлов зон на named<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img11.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img11.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>После этого можно запустить службу bind:</p>
 <pre><code>systemctl enable --now bind.service</code></pre>
@@ -1157,37 +1033,21 @@ hq-rtr(config)#</code></pre>
 
         <p>Результат:</p>
         <!-- СКРИНШОТ: Статус bind.service -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Статус службы bind после запуска (systemctl status bind.service)<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img12.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img12.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить доступ в сеть Интернет средствами утилиты ping, учитывая, что в качестве DNS-сервера используется HQ-SRV:</p>
         <!-- СКРИНШОТ: Проверка ping с использованием HQ-SRV как DNS -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка доступа в Интернет (ping) с использованием HQ-SRV в качестве DNS-сервера<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img13.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img13.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Используя утилиту host или nslookup проверить записи типа A, PTR:</p>
 
         <p>Записи типа A:</p>
         <!-- СКРИНШОТ: Проверка A-записей -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка записей типа A (host au-team.irpo, host hq-srv.au-team.irpo)<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img14.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img14.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Записи типа PTR:</p>
         <!-- СКРИНШОТ: Проверка PTR-записей -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Проверка записей типа PTR (nslookup 192.168.100.2, nslookup 192.168.200.2)<br>
-            <strong>Файл:</strong> <code>screenshots/part10_img15.png</code>
-        </div>
+        <img src="/static/screenshots/part10/img15.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- ЧАСТЬ 11: НАСТРОЙКА ЧАСОВЫХ ПОЯСОВ        -->
@@ -1211,11 +1071,7 @@ br-rtr(config)#</code></pre>
         <p>Проверить:</p>
 <pre><code>show ntp timezone</code></pre>
         <!-- СКРИНШОТ: show ntp timezone на EcoRouter -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды show ntp timezone на HQ-RTR/BR-RTR<br>
-            <strong>Файл:</strong> <code>screenshots/part11_img01.png</code>
-        </div>
+<img src="/static/screenshots/part11/img01.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>ISP | HQ-SRV | HQ-CLI | BR-SRV:</p>
         <p>Настройте часовой пояс на всех устройствах, согласно месту проведения экзамена:</p>
@@ -1223,20 +1079,12 @@ br-rtr(config)#</code></pre>
 
         <p>На JeOS возможно потребуется установка пакета tzdata:</p>
         <!-- СКРИНШОТ: Установка tzdata -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Установка пакета tzdata на JeOS (при необходимости)<br>
-            <strong>Файл:</strong> <code>screenshots/part11_img02.png</code>
-        </div>
+        <img src="/static/screenshots/part11/img02.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <p>Проверить:</p>
 <pre><code>timedatectl</code></pre>
         <!-- СКРИНШОТ: timedatectl -->
-        <div class="screenshot-placeholder">
-            📸 <strong>СКРИНШОТ</strong><br>
-            <strong>Описание:</strong> Результат выполнения команды timedatectl на ISP/HQ-SRV/BR-SRV<br>
-            <strong>Файл:</strong> <code>screenshots/part11_img03.png</code>
-        </div>
+<img src="/static/screenshots/part11/img03.png" alt="hostnamectl set-hostname isp" style="max-width: 100%; border-radius: 8px; margin: 15px 0; border: 1px solid #e0e4e8;">
 
         <!-- ========================================= -->
         <!-- КОНЕЦ БЛОКА "searchableContent"           -->
